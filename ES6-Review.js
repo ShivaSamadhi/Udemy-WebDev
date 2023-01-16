@@ -163,22 +163,19 @@ You have 12410 days, 1768 weeks, and 408 months left.
 Hint
 Try using this Repl.it playground to test your code and see if the output is what you expect it to be.
 Make sure your console.log output matches the example output precisely. The same capitalisation, the same spaces, commas and full stops.*/
-const YearConversion = (years, conversionRate) => years * conversionRate
+const yearConversion = (years, conversionRate) => years * conversionRate
+const remainingLifespan = (totalLifespan, age) => totalLifespan - age;
+
 const lifeInWeeks = (age) => {
 
     let daysPerYear = 365
     let weeksPerYear = 52
     let monthsPerYear = 12
 
-    let totalLifespan = 90;
-    let remainingLifespan = totalLifespan - age;
+    let remaining = remainingLifespan(90, age)
 
-    let daysRemaining = remainingLifespan * daysPerYear
-    let weeksRemaining = remainingLifespan * weeksPerYear
-    let monthsRemaining = remainingLifespan * monthsPerYear
-
-    let timeLeftInLifespans = `You have ${daysRemaining} days, ${weeksRemaining} weeks, and ${monthsRemaining} months left`
+    let timeLeftInLifespans = `You have ${yearConversion(remaining, daysPerYear)} days, ${yearConversion(remaining, weeksPerYear)} weeks, and ${yearConversion(remaining, monthsPerYear)} months left`
 
     console.log(timeLeftInLifespans)
 }
-lifeInWeeks(51)
+lifeInWeeks(28)
