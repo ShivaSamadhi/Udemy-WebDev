@@ -65,7 +65,7 @@ I recommend swapping variables using a destructuring assignment for most of the 
  */
 
 /*Strings, String Length*/
-let tweet = "hjsbdkjhsbefjhvshbfvjhsbefvbsjfhb vjadfvjhbaefjhbvaj jhdfbvjjfkhbvxjhdfvjhsdbfvhjfhbjhsdbfjhbsrghaisbdkjahkjfhrgliaherlughakjbergherjvlsj we";
+const tweet = "hjsbdkjhsbefjhvshbfvjhsbefvbsjfhb vjadfvjhbaefjhbvaj jhdfbvjjfkhbvxjhdfvjhsdbfvhjfhbjhsdbfjhbsrghaisbdkjahkjfhrgliaherlughakjbergherjvlsj we";
 
 const remainingChars = (tweet) =>{
     const totalLength = 140;
@@ -73,6 +73,15 @@ const remainingChars = (tweet) =>{
 
     const charLeft = totalLength - tweetLength;
 
-    console.log(`You've used ${tweetLength} characters, you have ${charLeft} characters remaining!`)
-}
+    console.log(`You've used ${tweetLength} characters, you have ${charLeft} characters remaining!`);
+};
 remainingChars(tweet);
+
+/*
+1. Create const named tweet that stores a string
+2. Create an arrow function named remainingChars that takes in tweet as a parameter. This function will be used to count the number of characters in the string and calculate how many characters are left for the tweet
+3.Create const called totalLength that sores the number 140 (the amount of chars allowed for a tweet, then create a const called tweet length that stores the value of tweet.length
+    -the .length method parses the string and counts the number of chars in the string and returns a number
+4. Create a const named charLeft which subtracts the tweet length from the total length and stores the value
+5. Console log the results in a template literal
+*/
