@@ -172,11 +172,13 @@ const lifeInWeeks = (age) => {
     const yearConversion = (years, conversionRate) => years * conversionRate
     const remainingLifespan = (totalLifespan, age) => totalLifespan - age;
 
-    let remainingYears = remainingLifespan(90, age)
+    const days = yearConversion(remainingLifespan(90,age), yearConversionRates[0])
+    const weeks = yearConversion(remainingLifespan(90,age), yearConversionRates[1])
+    const months = yearConversion(remainingLifespan(90,age), yearConversionRates[2])
 
     let timeLeftInLifespans =
-        `You have ${yearConversion(remainingYears, yearConversionRates[0])} days, ${yearConversion(remainingYears, yearConversionRates[1])} weeks, and ${yearConversion(remainingYears, yearConversionRates[2])} months left`
+        `You have ${days} days, ${weeks} weeks, and ${months} months left`
 
     console.log(timeLeftInLifespans)
 }
-lifeInWeeks(28)
+lifeInWeeks(4)
