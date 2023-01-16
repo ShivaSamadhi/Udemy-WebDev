@@ -105,11 +105,12 @@ Ternary
 
 This operator is frequently used as an alternative to an if-else statement.*/
 
-const name = "ramaj"
+
 
 const changeCase = (name) => {
-    let firstChar = name.slice(0,1);
-    let remainingChar = name.slice(1, name.length);
+    name = "ramaj"
+    const firstChar = name.slice(0,1);
+    const remainingChar = name.slice(1, name.length);
     // if(firstChar === firstChar.toLowerCase()){
     //     //let newName = `${firstChar.toUpperCase()}${remainingChar}`;
     //     //console.log(newName);
@@ -117,8 +118,11 @@ const changeCase = (name) => {
     // else
     // //console.log(name)
 
-    const finalName = (firstChar === firstChar.toLowerCase()) ? `${firstChar.toUpperCase()}${remainingChar}` : name
+    const finalName =
+        (firstChar !== firstChar.toUpperCase() || remainingChar !== remainingChar.toLowerCase())
+        ? `${firstChar.toUpperCase()}${remainingChar.toLowerCase()}`
+        : name
 
-    //console.log(finalName)
+    console.log(finalName)
 }
-changeCase(name)
+changeCase()
