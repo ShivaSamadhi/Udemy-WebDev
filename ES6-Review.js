@@ -128,13 +128,16 @@ const changeCase = (name) => {
 changeCase()
 
 /*Functions*/
+const milkPrice = 5.76
+const money = 50
 
-const getMilk = (money) => {
-    const milkPrice = 5.76
-    const quantityPurchased = Math.floor(money/milkPrice)
-    const exactChange = (money - (milkPrice * quantityPurchased)).toFixed(2)
-
-    console.log(quantityPurchased)
-    console.log(exactChange)
+const getMilk = (money, milkPrice) => {
+    console.log(quantityPurchased(money, milkPrice))
+    console.log(exactChange(money, milkPrice))
 }
-getMilk(50.35)
+
+const quantityPurchased = (money, milkPrice) => Math.floor(money/milkPrice)
+
+const exactChange = (money, milkPrice) => (money - (milkPrice * quantityPurchased(money, milkPrice))).toFixed(2)
+
+getMilk(money, milkPrice)
