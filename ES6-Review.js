@@ -126,3 +126,15 @@ const changeCase = (name) => {
     console.log(finalName)
 }
 changeCase()
+
+/*Functions*/
+
+const getMilk = (money) => {
+    const milkPrice = 5.76
+    const quantityPurchased = Math.floor(money/milkPrice)
+    const exactChange = (money - (milkPrice * quantityPurchased)).toFixed(2)
+
+    console.log(quantityPurchased)
+    console.log(exactChange)
+}
+getMilk(50.35)
