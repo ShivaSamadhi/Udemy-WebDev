@@ -92,5 +92,16 @@ remainingChars(tweet);
     -the .length method parses the string and counts the number of chars in the string and returns a number
 4. Create a const named charLeft which subtracts the tweet length from the total length and stores the value
 5. Console log the results in a template literal
-*/
+
+Slice
+-When using .slice(x,y), you can quickly determine the range by "y-x" where x is the start of the slice and y is the exclusive upper-bound
+
+Ternary
+-The only JavaScript operator that takes three operands:
+
+    1. A conditional statement followed by a question mark (?)
+    2. An expression to execute if the condition is truthy followed by a colon (:)
+    3. The expression to execute if the condition is falsy.
+
+This operator is frequently used as an alternative to an if-else statement.*/
 
