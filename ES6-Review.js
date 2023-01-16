@@ -75,8 +75,11 @@ const remainingChars = (tweet) =>{
 
     if(tweetCount > totalLength){
         const finalTweet = tweet.slice(0,140);
-        console.log(finalTweet)
+        //console.log(finalTweet)
     }
+
+    const ternary = tweetCount > totalLength ? tweet.slice(0,140) : tweet
+    console.log(ternary)
 
     console.log(`You've used ${tweetCount} characters, you have ${charsLeft} characters remaining!`);
 };
