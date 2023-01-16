@@ -22,8 +22,7 @@ function test() {
 
     /***********Do not change the code above 👆*******/
 //Write your code on lines 7 - 9:
-    a = b;
-    b = a;
+    [a, b] = [b, a]
 
 
     /***********Do not change the code below 👇*******/
@@ -31,3 +30,4 @@ function test() {
     console.log("a is " + a);
     console.log("b is " + b);
 }
+ test()
