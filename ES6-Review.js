@@ -27,8 +27,8 @@ const test = () => {
 
     [a, b] = [b, a]
 
-    console.log(`a is ${a}`);
-    console.log(`b is ${b}`);
+    //console.log(`a is ${a}`);
+    //console.log(`b is ${b}`);
 }
  test()
 
@@ -73,15 +73,15 @@ const remainingChars = (tweet) =>{
 
     const charsLeft = totalLength - tweetCount;
 
-    if(tweetCount > totalLength){
-        const finalTweet = tweet.slice(0,140);
-        //console.log(finalTweet)
-    }
+    // if(tweetCount > totalLength){
+    //     const finalTweet = tweet.slice(0,140);
+    //     //console.log(finalTweet)
+    // }
 
     const ternary = tweetCount > totalLength ? tweet.slice(0,140) : tweet
-    console.log(ternary)
+    //console.log(ternary)
 
-    console.log(`You've used ${tweetCount} characters, you have ${charsLeft} characters remaining!`);
+    //console.log(`You've used ${tweetCount} characters, you have ${charsLeft} characters remaining!`);
 };
 remainingChars(tweet);
 
@@ -105,3 +105,20 @@ Ternary
 
 This operator is frequently used as an alternative to an if-else statement.*/
 
+const name = "ramaj"
+
+const changeCase = (name) => {
+    let firstChar = name.slice(0,1);
+    let remainingChar = name.slice(1, name.length);
+    // if(firstChar === firstChar.toLowerCase()){
+    //     //let newName = `${firstChar.toUpperCase()}${remainingChar}`;
+    //     //console.log(newName);
+    // }
+    // else
+    // //console.log(name)
+
+    const finalName = (firstChar === firstChar.toLowerCase()) ? `${firstChar.toUpperCase()}${remainingChar}` : name
+
+    //console.log(finalName)
+}
+changeCase(name)
