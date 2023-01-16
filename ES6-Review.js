@@ -65,15 +65,20 @@ I recommend swapping variables using a destructuring assignment for most of the 
  */
 
 /*Strings, String Length*/
-const tweet = "hjsbdkjhsbefjhvshbfvjhsbefvbsjfhb vjadfvjhbaefjhbvaj jhdfbvjjfkhbvxjhdfvjhsdbfvhjfhbjhsdbfjhbsrghaisbdkjahkjfhrgliaherlughakjbergherjvlsj we";
+const tweet = "hjsbdkjhsbefjhvshbfvjhsbefvbsjfhb vjadfvjhbaefjhbvaj jhdfbvjjfkhbvxjhdfvjhsdbfvhjfhbjhsdbfjhbsrghaisbdkjahkjfhrgliaherlughakjbergherjvlsj we sdjuyfgvsjhfvjhgzdfjhvskjhfkhvs";
 
 const remainingChars = (tweet) =>{
     const totalLength = 140;
-    const tweetLength = tweet.length;
+    const tweetCount = tweet.length;
 
-    const charLeft = totalLength - tweetLength;
+    const charsLeft = totalLength - tweetCount;
 
-    console.log(`You've used ${tweetLength} characters, you have ${charLeft} characters remaining!`);
+    if(tweetCount > totalLength){
+        const finalTweet = tweet.slice(0,140);
+        console.log(finalTweet)
+    }
+
+    console.log(`You've used ${tweetCount} characters, you have ${charsLeft} characters remaining!`);
 };
 remainingChars(tweet);
 
@@ -85,3 +90,4 @@ remainingChars(tweet);
 4. Create a const named charLeft which subtracts the tweet length from the total length and stores the value
 5. Console log the results in a template literal
 */
+
