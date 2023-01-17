@@ -3,6 +3,9 @@
 
 const thirdLi = (
                     document
-                    .querySelector("ul li:nth-child(3)")
+                    .querySelector("#list li:nth-child(3)")
                     .innerHTML = `Ramaj`
                 )
+const linkColor = (
+    document.querySelector("#list .list a").style.color = 'red'
+)
