@@ -288,7 +288,7 @@ const fizzBuzz = (maxValue) => {
 console.log(fizzBuzz(15))
 
 /*
-* You are going to write a function which will select a random name from a list of names. The person selected will have to pay for everybody's food bill.
+You are going to write a function which will select a random name from a list of names. The person selected will have to pay for everybody's food bill.
 Important: The output should e returned from the function and you do not need alert, prompt or console.log. The output should match the example output exactly, including capitalisation and punctuation.
 Example Input
 ["Angela", "Ben", "Jenny", "Michael", "Chloe"]
@@ -309,3 +309,48 @@ const whosPaying = () => {
 
 }
 whosPaying()
+
+/*
+Fibonacci was an Italian mathematician who came up with the Fibonacci sequence:
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144 ...
+Where every number is the sum of the two previous ones.
+e.g. 0, 1, 1, 2, 3, 5 comes from
+0 + 1 = 1
+1 + 1 = 2
+1 + 2 = 3
+2 + 3 = 5
+etc.
+Create a function where you can call it by writing the code:
+fibonacciGenerator (n)
+Where n is the number of items in the sequence.
+So I should be able to call:
+fibonacciGenerator(3) and get
+[0,1,1]
+as the output.
+IMPORTANT: The solution checker is expecting an array as the correct output.
+Do NOT change any of the existing code.
+You do NOT need any alerts or prompts, the result should be returned from the function as an output.
+The first two numbers in the sequence must be 0 and 1.
+Also, if you decide to create a for loop, make sure you explicitly specify var i = 0 rather than simply writing i = 0 . This is a quirk of the testing suite.
+e.g. for (var i = 0; i < 10; i ++)
+*/
+const fibonacciGenerator = (num) => {
+    let fibonacciSequence = []
+    if(num === 1){
+        fibonacciSequence = [0]
+    }
+    if(num === 2){
+        fibonacciSequence = [0, 1]
+    }
+    else if (num > 2) {
+        fibonacciSequence = [0, 1]
+        for (let i = 2; i < num; i++) {
+            const nextNum = fibonacciSequence[i - 2] + fibonacciSequence[i - 1]
+
+            fibonacciSequence.push(nextNum)
+        }
+    }
+
+    console.log(fibonacciSequence)
+}
+fibonacciGenerator(0)
