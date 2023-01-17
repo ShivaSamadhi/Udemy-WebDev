@@ -1,4 +1,8 @@
 "use strict"
 
 
-const heading = document.querySelector("h1").innerHTML = `Goodbye`
+const thirdLi = (
+                    document
+                    .querySelector("ul li:nth-child(3)")
+                    .innerHTML = `Ramaj`
+                )
