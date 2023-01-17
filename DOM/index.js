@@ -1,4 +1,4 @@
 "use strict"
 
 
-document.querySelector("h1").innerHTML = `Goodbye`
+const heading = document.querySelector("h1").innerHTML = `Goodbye`
