@@ -167,18 +167,42 @@ Make sure your console.log output matches the example output precisely. The same
 
 const lifeInWeeks = (age) => {
 
-    let yearConversionRates = [365, 52, 12]
+    const yearConversionRates = [365, 52, 12]
 
     const yearConversion = (years, conversionRate) => years * conversionRate
     const remainingLifespan = (totalLifespan, age) => totalLifespan - age;
 
-    const days = yearConversion(remainingLifespan(90,age), yearConversionRates[0])
-    const weeks = yearConversion(remainingLifespan(90,age), yearConversionRates[1])
-    const months = yearConversion(remainingLifespan(90,age), yearConversionRates[2])
+    const days =
+        yearConversion(remainingLifespan(90,age), yearConversionRates[0])
+    const weeks =
+        yearConversion(remainingLifespan(90,age), yearConversionRates[1])
+    const months =
+        yearConversion(remainingLifespan(90,age), yearConversionRates[2])
 
-    let timeLeftInLifespans =
+    const timeLeftInLifespans =
         `You have ${days} days, ${weeks} weeks, and ${months} months left`
 
     console.log(timeLeftInLifespans)
 }
-lifeInWeeks(4)
+lifeInWeeks(28)
+
+/*
+Create a BMI calculator using JavaScript functions.
+The Body Mass Index (BMI) is a way of estimating the amount of body fat. It's used in medicine to calculate risk of heart disease.
+You can calculate it using the formula below, where weight divided by height squared.
+
+Your challenge is to create a function that takes weight and height as inputs and gives the calculated BMI value as an output. The output should be rounded to the nearest whole number.
+The first parameter should be the weight and the second should be the height.
+NOTE: You do not need to write any alerts or prompts or console logs. Your code should only contain the function, the result has to be returned by the function. You do not need to call the function.
+*/
+
+const bmiCalculator = (weight, height) => Math.round(weight/height**2)
+
+console.log(bmiCalculator(65, 1.8))
+
+/*Random Number Generation*/
+const loveCalculator = () => {
+    const loveScore = Math.floor((Math.random()*100)+1)
+    console.log(loveScore)
+}
+loveCalculator()
