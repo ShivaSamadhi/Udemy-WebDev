@@ -270,8 +270,21 @@ console.log(guestListVerification("Ramaj"))
 
 const fizzBuzz = (maxValue) => {
     const numArr = []
-    for (let i = 0; i < maxValue; i++) {
-        if (i%3 === 0 && i%)
+    for (let i = 0; i <= maxValue; i++) {
+        if (i%3 === 0 && i%5 === 0){
+            numArr.push(`FizzBuzz`)
+        }
+
+        else if (i%3 === 0){
+
+            numArr.push(`Fizz`)
+        }
+        else if (i%5 === 0){
+            numArr.push(`Buzz`)
+        }
+        else
+            numArr.push(i)
     }
+    return numArr
 }
-console.log(fizzBuzz())
+console.log(fizzBuzz(15))
