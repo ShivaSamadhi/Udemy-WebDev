@@ -286,3 +286,18 @@ const fizzBuzz = (maxValue) => {
     return numArr
 }
 console.log(fizzBuzz(15))
+
+const whosPaying = () => {
+    const guestList = ["Ramaj", "Anthony", "Miguel", "Andrew", "Johnson"]
+
+    const randomNum = Math.floor((Math.random()* guestList.length))
+
+    const guest = guestList[randomNum]
+
+    const personPaying = `Looks like ${guest} is paying for lunch today`
+
+    console.log(randomNum)
+    console.log(personPaying)
+
+}
+whosPaying()
