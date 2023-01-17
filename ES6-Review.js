@@ -253,3 +253,14 @@ const leapYearCalculator = (year) => {
 
 }
 console.log(leapYearCalculator(2470))
+
+/*Guest List Exercise*/
+const guestListVerification = (guestName) => {
+    const guestList = ["Ramaj", "Anthony", "Miguel", "Andrew", "Johnson"]
+
+    if(guestList.includes(guestName))
+        return `Welcome to the party, ${guestName}`
+    else
+        return `Sorry ${guestName}, you're not invited.`
+}
+console.log(guestListVerification("Ramaj"))
