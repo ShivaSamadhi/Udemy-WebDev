@@ -336,21 +336,19 @@ e.g. for (var i = 0; i < 10; i ++)
 */
 const fibonacciGenerator = (num) => {
     let fibonacciSequence = []
-    if(num === 1){
+
+    if(num === 1)
         fibonacciSequence = [0]
-    }
-    if(num === 2){
+    if(num === 2)
         fibonacciSequence = [0, 1]
-    }
-    else if (num > 2) {
+    else if (num > 2)
         fibonacciSequence = [0, 1]
         for (let i = 2; i < num; i++) {
             const nextNum = fibonacciSequence[i - 2] + fibonacciSequence[i - 1]
 
             fibonacciSequence.push(nextNum)
         }
-    }
 
     console.log(fibonacciSequence)
 }
-fibonacciGenerator(0)
+fibonacciGenerator(6)
