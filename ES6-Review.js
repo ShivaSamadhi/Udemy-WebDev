@@ -267,16 +267,11 @@ const guestListVerification = (guestName) => {
 console.log(guestListVerification("Ramaj"))
 
 /*Fizz Buzz*/
-const fizzBuzz = () => {
-    const randomNum = Math.floor((Math.random()*100)+1)
 
-    if (randomNum%3 === 0 && randomNum%5 === 0)
-        return `${randomNum}: FizzBuzz`
-    if (randomNum%3 === 0)
-        return `${randomNum}: Fizz`
-    if (randomNum%5 === 0)
-        return `${randomNum}: Buzz`
-    else
-        return randomNum
+const fizzBuzz = (maxValue) => {
+    const numArr = []
+    for (let i = 0; i < maxValue; i++) {
+        if (i%3 === 0 && i%)
+    }
 }
 console.log(fizzBuzz())
