@@ -3,7 +3,7 @@
 
 const thirdLi = document
                     .querySelector("#list li:nth-child(3)")
-                    .innerHTML = `Ramaj`
+                    .textContent = `Ramaj`
 
 const linkColor = document
     .querySelector("#list .list a")
@@ -18,5 +18,7 @@ const buttonColor = document
 
 
 const buttonVisibility = document.querySelector("#btn").classList.add("invisible")
+
+const headingSize = document.querySelector("h1").classList.add("huge")
 
 console.log(document.querySelector('#btn').classList)
