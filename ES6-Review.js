@@ -223,6 +223,7 @@ console.log(bmiCalculator(35, 1.8))
 /*Random Number Generation*/
 const loveCalculator = () => {
     const loveScore = Math.floor((Math.random()*100)+1)
+
     console.log(loveScore)
 }
 loveCalculator()
@@ -264,3 +265,18 @@ const guestListVerification = (guestName) => {
         return `Sorry ${guestName}, you're not invited.`
 }
 console.log(guestListVerification("Ramaj"))
+
+/*Fizz Buzz*/
+const fizzBuzz = () => {
+    const randomNum = Math.floor((Math.random()*100)+1)
+
+    if (randomNum%3 === 0 && randomNum%5 === 0)
+        return `${randomNum}: FizzBuzz`
+    if (randomNum%3 === 0)
+        return `${randomNum}: Fizz`
+    if (randomNum%5 === 0)
+        return `${randomNum}: Buzz`
+    else
+        return randomNum
+}
+console.log(fizzBuzz())
