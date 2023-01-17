@@ -241,12 +241,15 @@ e.g. Is the year 2000 a leap year?:
 
 */
 const leapYearCalculator = (year) => {
-    if (year%4 === 0 && year%100 !== 0)
+    if (
+        year%4 === 0
+        && year%100 !== 0
+        || year%400 === 0
+    )
         return `${year} is a leap year.`
-    if (year%400 === 0)
-        return `${year} is a leap year.`
+
     else
         return `${year} is not a leap year.`
 
 }
-console.log(leapYearCalculator(2100))
+console.log(leapYearCalculator(2470))
