@@ -1,14 +1,11 @@
 "use strict"
 
 
-const thirdLi = document
-                    .querySelector("#list li:nth-child(3)")
-                    .textContent = `Ramaj`
+const thirdLi = document.querySelector("#list li:nth-child(3)");
+thirdLi.textContent = `Ramaj`
 
-const linkColor = document
-    .querySelector("#list .list a")
-    .style
-    .color = 'red'
+const linkColor = document.querySelector("#list .list a");
+linkColor.style.color = 'red'
 
 
 const buttonColor = document
