@@ -1,13 +1,12 @@
 "use strict"
 
 const randomNum = () => {
-  const numGenerator = Math.floor((Math.random()*6)+1);
-    console.log(numGenerator)
-    return numGenerator
+    return Math.floor((Math.random() * 6) + 1)
 }
 
 
 const changeDiceImgP1 = () => {
-  const random
-  const dice1 = document.querySelector('.img1')
+  let num = randomNum();
+    console.log(num)
+  const dice1 = document.querySelector('.img1').setAttribute("src", `images/dice${num}.png`)
 }
