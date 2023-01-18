@@ -6,15 +6,18 @@ const randomNum = () => {
 
 const changeDiceImgP1 = () => {
   let num = randomNum();
-    console.log(num)
-  const dice1 = document.querySelector('.img1').setAttribute("src", `images/dice${num}.png`)
+  const dice1 = document.querySelector('.img1');
+
+  dice1.setAttribute("src", `images/dice${num}.png`)
     return num
 }
 
 const changeDiceImgP2 = () => {
     let num = randomNum();
-    console.log(num)
-    const dice1 = document.querySelector('.img2').setAttribute("src", `images/dice${num}.png`)
+    const dice2 = document.querySelector('.img2');
+
+    dice2.setAttribute("src", `images/dice${num}.png`)
+
     return num
 }
 
@@ -24,13 +27,13 @@ const theWinnerIs = () => {
     const header = document.querySelector("h1")
 
     if (num1 === num2)
-        header.textContent = `Issa Draw!`;
-    if (num1 > num2)
-        header.textContent = `Player 1 Wins!`;
+        return header.textContent = `Issa Draw!`;
+    else if (num1 > num2)
+        return header.textContent = `Player 1 Wins!`;
     else
-        header.textContent = `Player 2 Wins!`;
+        return header.textContent = `Player 2 Wins!`;
 
 }
 
 
-const startGame = document.querySelector('h1').addEventListener('click', theWinnerIs())
+document.querySelector('h1').addEventListener('click', theWinnerIs)
