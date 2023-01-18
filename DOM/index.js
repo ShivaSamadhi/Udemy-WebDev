@@ -8,17 +8,18 @@ const linkColor = document.querySelector("#list .list a");
 linkColor.style.color = 'red'
 
 
-const buttonColor = document
-    .querySelector("#btn")
-    .style
-    .backgroundColor = "yellow"
+const buttonColor = document.querySelector("#btn");
+buttonColor.style.backgroundColor = "yellow"
 
 
-const buttonVisibility = document.querySelector("#btn").classList.add("invisible")
+const buttonVisibility = document.querySelector("#btn");
+buttonVisibility.classList.add("invisible")
 
-const headingSize = document.querySelector("h1").classList.add("huge")
+const headingSize = document.querySelector("h1");
+headingSize.classList.add("huge")
 
-const linkAttributes = document.querySelector("#list .list a").setAttribute("href", "https://www.bing.com/")
+const linkAttributes = document.querySelector("#list .list a");
+linkAttributes.setAttribute("href", "https://www.bing.com/")
 console.log(linkAttributes)
 
 console.log(document.querySelector('#btn').classList)
