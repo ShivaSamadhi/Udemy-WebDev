@@ -1,6 +1,23 @@
 "use strict"
 
 const drumBtns = document.querySelectorAll(".drum");
+const body = document.querySelector('body');
+
+body.addEventListener("keydown", (event) => {
+    const keyPress = event.key
+    playSound(keyPress)
+
+})
+
+for (const drumBtn of drumBtns) {
+
+    drumBtn.addEventListener("click", () => {
+        const instrument = drumBtn.textContent
+        playSound(instrument)
+    })
+
+}
+
 const playSound = (instrument) => {
     let audio
     switch (instrument) {
@@ -24,15 +41,31 @@ const playSound = (instrument) => {
             audio.play();
             break;
 
+        case `j`:
+            audio = new Audio('sounds/snare.mp3')
+            audio.play();
+            break;
+
+        case `k`:
+            audio = new Audio('sounds/crash.mp3')
+            audio.play();
+            break;
+
+        case `l`:
+            audio = new Audio('sounds/kick-bass.mp3')
+            audio.play();
+            break;
+
+        default:
+            return
+        }
     }
-    // const audio = new Audio('sounds/tom-1.mp3')
-    // audio.play();
-    }
-for (const drumBtn of drumBtns) {
-    // console.log(drumBtn)
-    const instrument = drumBtn.textContent
-    console.log(instrument)
-    drumBtn.addEventListener("click", () => {
-        playSound(instrument)
-    })
-}
+
+// for (const drumBtn of drumBtns) {
+//     // console.log(drumBtn)
+//     const instrument = drumBtn.textContent
+//     console.log(instrument)
+//     drumBtn.addEventListener("click", () => {
+//         playSound(instrument)
+//     })
+// }
