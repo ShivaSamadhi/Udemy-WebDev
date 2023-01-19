@@ -6,7 +6,6 @@ const body = document.querySelector('body');
 body.addEventListener("keydown", (event) => {
     const keyPress = event.key
     playSound(keyPress)
-
 })
 
 for (const drumBtn of drumBtns) {
@@ -61,11 +60,5 @@ const playSound = (instrument) => {
         }
     }
 
-// for (const drumBtn of drumBtns) {
-//     // console.log(drumBtn)
-//     const instrument = drumBtn.textContent
-//     console.log(instrument)
-//     drumBtn.addEventListener("click", () => {
-//         playSound(instrument)
-//     })
-// }
+
+
