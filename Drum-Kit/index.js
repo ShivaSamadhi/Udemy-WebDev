@@ -11,8 +11,8 @@ body.addEventListener("keydown", (event) => {
 for (const drumBtn of drumBtns) {
 
     drumBtn.addEventListener("click", () => {
-        const instrument = drumBtn.textContent
-        playSound(instrument)
+        const btnClick = drumBtn.textContent
+        playSound(btnClick)
     })
 
 }
@@ -59,6 +59,3 @@ const playSound = (instrument) => {
             return
         }
     }
-
-
-
