@@ -19,8 +19,8 @@ const playSound = (instrument) => {
             audio.play();
             break;
 
-        case `a`:
-            audio = new Audio('sounds/tom-2.mp3')
+        case `d`:
+            audio = new Audio('sounds/tom-4.mp3')
             audio.play();
             break;
 
