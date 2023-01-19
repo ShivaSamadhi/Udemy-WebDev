@@ -8,3 +8,13 @@
 const changeTitleStyle = $('h1').click(() => {
     $('h1').toggleClass("big-title")
 })
+
+const changeBtn = () => {
+    const btns = $(".btn")
+    for (const btn of btns) {
+        $(btn).click(() => {
+           $(btn).toggleClass("btn-outline-dark")
+        })
+    }
+}
+changeBtn()
