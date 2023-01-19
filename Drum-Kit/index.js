@@ -1,4 +1,7 @@
 "use strict"
 
-const drumBtn = document.querySelector(".drum")
-drumBtn.addEventListener("click", ()=> {alert(`Good job.`)})
+const drumBtns = document.querySelectorAll(".drum");
+
+for (const drumBtn of drumBtns) {
+    drumBtn.addEventListener("click", ()=> {alert(`Good job.`)})
+}
