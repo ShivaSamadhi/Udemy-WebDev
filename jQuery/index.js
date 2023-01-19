@@ -5,4 +5,6 @@
 //     $('h1').css("color", "red")
 // })
 
-$('h1').addClass('big-title')
+$('h1').click(() => {
+    $('h1').toggleClass("big-title")
+})
