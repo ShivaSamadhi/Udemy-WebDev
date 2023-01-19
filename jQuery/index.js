@@ -13,9 +13,15 @@ const changeBtn = () => {
     const btns = $(".btn")
     for (const btn of btns) {
         const btnClick = $(btn)
-        btnClick.click(() => {
-           btnClick.toggleClass("btn-outline-dark")
-        })
+        btnClick.click(() => btnClick.toggleClass("btn-outline-dark"))
     }
 }
 changeBtn()
+
+const changeTitleText = () => {
+    const doc = $(document)
+    const title = $('h1')
+    doc.keypress((e) => title.text(e.key))
+
+}
+changeTitleText()
