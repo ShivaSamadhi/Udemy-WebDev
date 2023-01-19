@@ -57,3 +57,19 @@ const playSound = (instrument) => {
             return
         }
     }
+
+
+/*In order to standardize the creation of multiple objects that require the same properties, we can create a factory for it. This concept draws heavily on the principles of OOP
+Label the function, define the property names as parameters, then use the this keyword to assign those parameters as properties
+CANNOT BE DONE AS ARROW FUNCTION
+*/
+function BellBoy (name, age, hasWorkPermit, languages){
+  this.name = name;
+  this.age = age;
+  this.hasWorkPermit = hasWorkPermit;
+  this.languages = languages
+}
+
+const bellBoy1 = new BellBoy("Ramaj", 28, true, ["English", "Japanese"]);
+
+console.log(bellBoy1)
