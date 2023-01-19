@@ -3,18 +3,16 @@
 const drumBtns = document.querySelectorAll(".drum");
 const body = document.querySelector('body');
 
-body.addEventListener("keydown", (event) => {
-    const keyPress = event.key
+body.addEventListener("keydown", (e) => {
+    const keyPress = e.key
     playSound(keyPress)
 })
 
 for (const drumBtn of drumBtns) {
-
     drumBtn.addEventListener("click", () => {
         const btnClick = drumBtn.textContent
         playSound(btnClick)
     })
-
 }
 
 const playSound = (instrument) => {
