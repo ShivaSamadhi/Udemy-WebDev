@@ -5,6 +5,6 @@
 //     $('h1').css("color", "red")
 // })
 
-$('h1').click(() => {
+const changeTitleStyle = $('h1').click(() => {
     $('h1').toggleClass("big-title")
 })
