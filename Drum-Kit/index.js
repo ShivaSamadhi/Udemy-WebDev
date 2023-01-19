@@ -2,9 +2,14 @@
 
 const drumBtns = document.querySelectorAll(".drum");
 const playSound = () => {
-    const audio = new Audio('sounds/tom-1.mp3')
-    audio.play();
+    // const audio = new Audio('sounds/tom-1.mp3')
+    // audio.play();
     }
 for (const drumBtn of drumBtns) {
-    drumBtn.addEventListener("click", playSound)
+    // console.log(drumBtn)
+    const instrument = drumBtn.textContent
+    console.log(instrument)
+    drumBtn.addEventListener("click", () => {
+        playSound()
+    })
 }
