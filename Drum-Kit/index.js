@@ -62,7 +62,10 @@ const playSound = (instrument) => {
 
 const btnAnimation = (currentKey) => {
   const activeBtn = document.querySelector(`.${currentKey}`);
-  activeBtn.classList.toggle(`pressed`)
+  activeBtn.classList.toggle(`pressed`);
+  setTimeout(function () {
+      activeBtn.classList.toggle(`pressed`);
+  }, 500)
 }
 
 /*In order to standardize the creation of multiple objects that require the same properties, we can create a factory for it. This concept draws heavily on the principles of OOP
