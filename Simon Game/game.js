@@ -73,6 +73,19 @@ const comparePatterns = (currentLevel) => {
     }
 }
 
+const nextSequence = () => {
+    userPattern = []
+
+    level++
+    $('h1').text(`Level ${level}`)
+
+    const randomColor = btnColors[randomNum()]
+    gamePattern.push(randomColor)
+
+    colorFlashEvent(randomColor)
+    userBtnClickHandler()
+}
+
 const randomNum = () => {
     return Math.floor((Math.random()*4))
 }
@@ -100,31 +113,11 @@ const animatePressHandler = (currentColor) => {
   , 100)
 }
 
-
-
-
 const startOver = () => {
   level = 0;
   gamePattern = [];
   gameStarted = false
 }
 
-
-
-const nextSequence = () => {
-    userPattern = []
-
-    level++
-    $('h1').text(`Level ${level}`)
-
-    const randomColor = btnColors[randomNum()]
-    gamePattern.push(randomColor)
-
-    colorFlashEvent(randomColor)
-    userBtnClickHandler()
-}
-
-console.log(gamePattern)
-console.log(userPattern)
 
 
