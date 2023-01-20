@@ -60,6 +60,10 @@ const userBtnClickHandler = () => {
     })
 }
 
+const keyDownHandler = () => {
+$(document).keydown(nextSequence)
+}
+
 const nextSequence = () => {
     const randomColor = btnColors[randomNum()]
     const chosenColorBtn = $(`#${randomColor}`)
@@ -68,7 +72,6 @@ const nextSequence = () => {
 
     userBtnClickHandler()
 }
-nextSequence()
 
 console.log(gamePattern)
 
