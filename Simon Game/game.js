@@ -24,8 +24,10 @@ const randomNum = () => {
 }
 
 const playSound = (color) => {
-    let audio = new Audio(`sounds/${color}.mp3`);
+    $(document).ready(()=>{
+        let audio = new Audio(`sounds/${color}.mp3`);
         audio.play();
+    })
 }
 
 const colorFlash = (randomColor, chosenColorBtn) => {
@@ -33,7 +35,7 @@ const colorFlash = (randomColor, chosenColorBtn) => {
 
     chosenColorBtn.fadeOut(100).fadeIn(100)
 
-    playSound(`${randomColor}`)
+    playSound(randomColor)
 }
 
 const userBtnClickHandler = () => {
