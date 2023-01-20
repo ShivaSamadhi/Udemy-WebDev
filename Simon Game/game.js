@@ -29,13 +29,17 @@ const playSound = (color) => {
     audio.play();
 }
 
-const nextSequence = () => {
-    const randomColorChosen = btnColors[randomNum()]
-    const chosenColor = $(`#${randomColorChosen}`)
+const colorFlash = (randomColor, chosenColorBtn) => {
+    gamePattern.push(randomColor)
+    chosenColorBtn.fadeOut(100).fadeIn(100)
+    playSound(`${randomColor}`)
+}
 
-    gamePattern.push(randomColorChosen)
-    chosenColor.fadeOut(100).fadeIn(100)
-    playSound(`${randomColorChosen}`)
+const nextSequence = () => {
+    const randomColor = btnColors[randomNum()]
+    const chosenColorBtn = $(`#${randomColor}`)
+
+    colorFlash(randomColor, chosenColorBtn)
 
     const btn = $('.btn')
     btn.click((e) => {
