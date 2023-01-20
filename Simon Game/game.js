@@ -35,23 +35,26 @@ const colorFlash = (randomColor, chosenColorBtn) => {
     playSound(`${randomColor}`)
 }
 
+const userBtnClickHandler = () => {
+    const btn = $('.btn')
+    btn.click((e) => {
+        const selectedBtn = e.currentTarget
+        userPattern.push(selectedBtn.id)
+        console.log(userPattern)
+    })
+}
+
 const nextSequence = () => {
     const randomColor = btnColors[randomNum()]
     const chosenColorBtn = $(`#${randomColor}`)
 
     colorFlash(randomColor, chosenColorBtn)
 
-    const btn = $('.btn')
-    btn.click((e) => {
-        const selectedBtn = e.currentTarget
-        userPattern.push(selectedBtn.id)
-        console.log(userPattern)
-        //const userChosenColor
-    })
+    userBtnClickHandler()
 }
-
+nextSequence()
 
 console.log(gamePattern)
-nextSequence()
+
 
 
