@@ -18,6 +18,7 @@ You can use the Chrome console to verify that your code creates random numbers b
 const btnColors = [`red`, `blue`, `green`, `yellow`]
 const gamePattern = []
 const userPattern = []
+let gameStarted = false
 
 const randomNum = () => {
     return Math.floor((Math.random()*4))
@@ -61,8 +62,13 @@ const userBtnClickHandler = () => {
 }
 
 const keyDownHandler = () => {
-$(document).keydown(nextSequence)
+    const doc = $(document)
+    if (gameStarted === false){
+       doc.keydown(nextSequence);
+       gameStarted = true
+    }
 }
+keyDownHandler()
 
 const nextSequence = () => {
     const randomColor = btnColors[randomNum()]
