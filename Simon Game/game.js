@@ -19,6 +19,7 @@ const btnColors = [`red`, `blue`, `green`, `yellow`]
 const gamePattern = []
 const userPattern = []
 let gameStarted = false
+let level = 0
 
 const randomNum = () => {
     return Math.floor((Math.random()*4))
@@ -31,12 +32,12 @@ const playSound = (color) => {
     })
 }
 
-const colorFlashEvent = (randomColor, chosenColorBtn) => {
-    gamePattern.push(randomColor)
+const colorFlashEvent = (color) => {
 
+    const chosenColorBtn = $(`#${color}`)
     chosenColorBtn.fadeOut(100).fadeIn(100)
 
-    playSound(randomColor)
+    playSound(color)
 }
 
 const animatePressHandler = (currentColor) => {
@@ -47,46 +48,56 @@ const animatePressHandler = (currentColor) => {
   , 100)
 }
 
-const userBtnClickHandler = () => {
+const userBtnClickHandler = (randomColor) => {
     const btn = $('.btn')
 
     btn.click((e) => {
         const selectedBtn = e.currentTarget.id
-
-        userPattern.push(selectedBtn)
         animatePressHandler(selectedBtn)
-        playSound(selectedBtn)
 
-        console.log(userPattern)
+        if (randomColor === selectedBtn){
+            userPattern.push(selectedBtn)
+
+            console.log(userPattern)
+
+            playSound(selectedBtn)
+            nextSequence()
+        }
+        else
+            playSound(`wrong`)
+            $("h1").text(`Game Over`)
+
+        comparePatterns(gamePattern, userPattern)
     })
 }
 
 const startGameHandler = () => {
     const doc = $(document)
     if (gameStarted === false){
-       doc.keydown(nextSequence);
-       gameStarted = true
+       doc.keydown(() => {
+           level += 1
+           nextSequence()
+           gameStarted = true
+       });
     }
 }
 startGameHandler()
 
+
+
 const nextSequence = () => {
+    $('h1').text(`Level ${level}`)
+    level += 1
+
     const randomColor = btnColors[randomNum()]
-    const chosenColorBtn = $(`#${randomColor}`)
 
-    colorFlashEvent(randomColor, chosenColorBtn)
-
-    userBtnClickHandler()
-
-    if(userPattern === gamePattern)
-        nextSequence()
-
-    else
-        playSound(`wrong`)
-
+    console.log(randomColor)
+    gamePattern.push(randomColor)
+    colorFlashEvent(randomColor)
+    userBtnClickHandler(randomColor)
 }
 
 console.log(gamePattern)
-
+console.log(userPattern)
 
 
