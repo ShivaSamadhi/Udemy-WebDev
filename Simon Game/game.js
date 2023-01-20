@@ -25,21 +25,27 @@ const randomNum = () => {
 
 const playSound = (color) => {
     let audio = new Audio(`sounds/${color}.mp3`);
-    console.log(audio)
-    audio.play();
+        audio.play();
 }
 
 const colorFlash = (randomColor, chosenColorBtn) => {
     gamePattern.push(randomColor)
+
     chosenColorBtn.fadeOut(100).fadeIn(100)
+
     playSound(`${randomColor}`)
 }
 
 const userBtnClickHandler = () => {
     const btn = $('.btn')
+
     btn.click((e) => {
-        const selectedBtn = e.currentTarget
-        userPattern.push(selectedBtn.id)
+        const selectedBtn = e.currentTarget.id
+
+        userPattern.push(selectedBtn)
+
+        playSound(selectedBtn)
+
         console.log(userPattern)
     })
 }
