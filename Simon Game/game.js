@@ -38,6 +38,14 @@ const colorFlash = (randomColor, chosenColorBtn) => {
     playSound(randomColor)
 }
 
+const animatePress = (currentColor) => {
+  const color = $(`#${currentColor}`);
+  color.click(()=> color.toggleClass('pressed'))
+  setTimeout(()=>{
+      color.toggleClass('pressed');
+  }, 100)
+}
+
 const userBtnClickHandler = () => {
     const btn = $('.btn')
 
