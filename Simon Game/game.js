@@ -1,5 +1,5 @@
 "use strict"
-/*
+/*STEP 2
 1. Inside game.js create a new function called nextSequence()
 
 2. Inside the new function generate a new random number between 0 and 3, and store it in a variable called randomNumber
@@ -17,15 +17,37 @@ You can use the Chrome console to verify that your code creates random numbers b
 */
 const btnColors = [`red`, `blue`, `green`, `yellow`]
 const gamePattern = []
+const userPattern = []
 
 const randomNum = () => {
     return Math.floor((Math.random()*4))
 }
 
-const nextSequence = () => {
-
+const playSound = (color) => {
+    let audio = new Audio(`sounds/${color}.mp3`);
+    console.log(audio)
+    audio.play();
 }
-const randomColorChosen = btnColors[randomNum()]
-gamePattern.push(randomColorChosen)
 
-console.log(randomColorChosen)
+const nextSequence = () => {
+    const randomColorChosen = btnColors[randomNum()]
+    const chosenColor = $(`#${randomColorChosen}`)
+
+    gamePattern.push(randomColorChosen)
+    chosenColor.fadeOut(100).fadeIn(100)
+    playSound(`${randomColorChosen}`)
+
+    const btn = $('.btn')
+    btn.click((e) => {
+        const selectedBtn = e.currentTarget
+        userPattern.push(selectedBtn.id)
+        console.log(userPattern)
+        //const userChosenColor
+    })
+}
+
+
+console.log(gamePattern)
+nextSequence()
+
+
