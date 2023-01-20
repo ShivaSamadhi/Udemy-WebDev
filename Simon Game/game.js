@@ -39,11 +39,11 @@ const colorFlash = (randomColor, chosenColorBtn) => {
 }
 
 const animatePress = (currentColor) => {
-  const color = $(`#${currentColor}`);
-  color.click(()=> color.toggleClass('pressed'))
-  setTimeout(()=>{
-      color.toggleClass('pressed');
-  }, 100)
+  const color = $(`.${currentColor}`);
+  color.toggleClass('pressed')
+
+  setTimeout(()=> color.toggleClass('pressed')
+  , 100)
 }
 
 const userBtnClickHandler = () => {
@@ -53,7 +53,7 @@ const userBtnClickHandler = () => {
         const selectedBtn = e.currentTarget.id
 
         userPattern.push(selectedBtn)
-
+        animatePress(selectedBtn)
         playSound(selectedBtn)
 
         console.log(userPattern)
