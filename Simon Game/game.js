@@ -31,7 +31,7 @@ const playSound = (color) => {
     })
 }
 
-const colorFlash = (randomColor, chosenColorBtn) => {
+const colorFlashEvent = (randomColor, chosenColorBtn) => {
     gamePattern.push(randomColor)
 
     chosenColorBtn.fadeOut(100).fadeIn(100)
@@ -39,7 +39,7 @@ const colorFlash = (randomColor, chosenColorBtn) => {
     playSound(randomColor)
 }
 
-const animatePress = (currentColor) => {
+const animatePressHandler = (currentColor) => {
   const color = $(`.${currentColor}`);
   color.toggleClass('pressed')
 
@@ -54,29 +54,36 @@ const userBtnClickHandler = () => {
         const selectedBtn = e.currentTarget.id
 
         userPattern.push(selectedBtn)
-        animatePress(selectedBtn)
+        animatePressHandler(selectedBtn)
         playSound(selectedBtn)
 
         console.log(userPattern)
     })
 }
 
-const keyDownHandler = () => {
+const startGameHandler = () => {
     const doc = $(document)
     if (gameStarted === false){
        doc.keydown(nextSequence);
        gameStarted = true
     }
 }
-keyDownHandler()
+startGameHandler()
 
 const nextSequence = () => {
     const randomColor = btnColors[randomNum()]
     const chosenColorBtn = $(`#${randomColor}`)
 
-    colorFlash(randomColor, chosenColorBtn)
+    colorFlashEvent(randomColor, chosenColorBtn)
 
     userBtnClickHandler()
+
+    if(userPattern === gamePattern)
+        nextSequence()
+
+    else
+        playSound(`wrong`)
+
 }
 
 console.log(gamePattern)
