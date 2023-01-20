@@ -16,10 +16,38 @@ You can use the Chrome console to verify that your code creates random numbers b
 
 */
 const btnColors = [`red`, `blue`, `green`, `yellow`]
-const gamePattern = []
-const userPattern = []
+
+let gamePattern = []
+let userPattern = []
+
 let gameStarted = false
 let level = 0
+
+const startGameHandler = () => {
+    const doc = $(document)
+    if (!gameStarted){
+        doc.keydown(() => {
+            $("#level-title").text(`Level ${level}`);
+            nextSequence()
+            gameStarted = true
+        });
+    }
+}
+startGameHandler()
+
+const userBtnClickHandler = () => {
+    const btn = $('.btn')
+
+    btn.click((e) => {
+        const selectedBtn = e.currentTarget.id
+
+        userPattern.push(selectedBtn)
+        playSound(selectedBtn)
+        animatePressHandler(selectedBtn)
+
+        comparePatterns(userPattern.length-1)
+    })
+}
 
 const randomNum = () => {
     return Math.floor((Math.random()*4))
@@ -48,50 +76,42 @@ const animatePressHandler = (currentColor) => {
   , 100)
 }
 
-const userBtnClickHandler = () => {
-    const btn = $('.btn')
 
-    btn.click((e) => {
-        const selectedBtn = e.currentTarget.id
 
-        userPattern.push(selectedBtn)
-        playSound(selectedBtn)
-        animatePressHandler(selectedBtn)
 
-        comparePatterns(userPattern.length-1)
-    })
+const startOver = () => {
+  level = 0;
+  gamePattern = [];
+  gameStarted = false
 }
-
-
-const startGameHandler = () => {
-    const doc = $(document)
-    if (!gameStarted){
-       doc.keydown(() => {
-           $("#level-title").text(`Level ${level}`);
-           nextSequence()
-           gameStarted = true
-       });
-    }
-}
-startGameHandler()
 
 const comparePatterns = (currentLevel) => {
 
-    if(userPattern[currentLevel] === gamePattern[currentLevel]) {
+    if (userPattern[currentLevel] === gamePattern[currentLevel]) {
         console.log(`success`)
-        if (userPattern.length === gamePattern.length){
+        if (userPattern.length === gamePattern.length) {
             setTimeout(function () {
                 nextSequence();
             }, 1000);
         }
+    } else {
+            playSound(`wrong`)
+            console.log(`wrong`)
+            $("body").toggleClass("game-over");
 
+            setTimeout(()=> {
+                $("body").toggleClass("game-over")
+            }, 200);
+
+            $("h1").text(`Game Over. Press Any Key to Restart`);
+
+            startOver()
     }
-    else
-        playSound(`wrong`)
-        $("h1").text(`Game Over`)
 }
 
 const nextSequence = () => {
+    userPattern = []
+
     level++
     $('h1').text(`Level ${level}`)
 
