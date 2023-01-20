@@ -48,12 +48,13 @@ const userBtnClickHandler = () => {
         comparePatterns(userPattern.length-1)
     })
 }
+userBtnClickHandler()
 
 const comparePatterns = (currentLevel) => {
 
     if (gamePattern[currentLevel] === userPattern[currentLevel]) {
         console.log(`success`)
-        if (userPattern.length === gamePattern.length) {
+        if (gamePattern.length === userPattern.length) {
             setTimeout(function () {
                 nextSequence();
             }, 1000);
@@ -83,7 +84,7 @@ const nextSequence = () => {
     gamePattern.push(randomColor)
 
     colorFlashEvent(randomColor)
-    userBtnClickHandler()
+
 }
 
 const randomNum = () => {
