@@ -48,34 +48,26 @@ const animatePressHandler = (currentColor) => {
   , 100)
 }
 
-const userBtnClickHandler = (randomColor) => {
+const userBtnClickHandler = () => {
     const btn = $('.btn')
 
     btn.click((e) => {
         const selectedBtn = e.currentTarget.id
+
+        userPattern.push(selectedBtn)
+        playSound(selectedBtn)
         animatePressHandler(selectedBtn)
 
-        if (randomColor === selectedBtn){
-            userPattern.push(selectedBtn)
-
-            console.log(userPattern)
-
-            playSound(selectedBtn)
-            nextSequence()
-        }
-        else
-            playSound(`wrong`)
-            $("h1").text(`Game Over`)
-
-        comparePatterns(gamePattern, userPattern)
+        comparePatterns(userPattern.length-1)
     })
 }
 
+
 const startGameHandler = () => {
     const doc = $(document)
-    if (gameStarted === false){
+    if (!gameStarted){
        doc.keydown(() => {
-           level += 1
+           $("#level-title").text(`Level ${level}`);
            nextSequence()
            gameStarted = true
        });
@@ -83,18 +75,31 @@ const startGameHandler = () => {
 }
 startGameHandler()
 
+const comparePatterns = (currentLevel) => {
 
+    if(userPattern[currentLevel] === gamePattern[currentLevel]) {
+        console.log(`success`)
+        if (userPattern.length === gamePattern.length){
+            setTimeout(function () {
+                nextSequence();
+            }, 1000);
+        }
+
+    }
+    else
+        playSound(`wrong`)
+        $("h1").text(`Game Over`)
+}
 
 const nextSequence = () => {
+    level++
     $('h1').text(`Level ${level}`)
-    level += 1
 
     const randomColor = btnColors[randomNum()]
-
-    console.log(randomColor)
     gamePattern.push(randomColor)
+
     colorFlashEvent(randomColor)
-    userBtnClickHandler(randomColor)
+    userBtnClickHandler()
 }
 
 console.log(gamePattern)
