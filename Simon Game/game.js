@@ -49,6 +49,30 @@ const userBtnClickHandler = () => {
     })
 }
 
+const comparePatterns = (currentLevel) => {
+
+    if (gamePattern[currentLevel] === userPattern[currentLevel]) {
+        console.log(`success`)
+        if (userPattern.length === gamePattern.length) {
+            setTimeout(function () {
+                nextSequence();
+            }, 1000);
+        }
+    } else {
+        playSound(`wrong`)
+        console.log(`wrong`)
+        $("body").toggleClass("game-over");
+
+        setTimeout(()=> {
+            $("body").toggleClass("game-over")
+        }, 200);
+
+        $("h1").text(`Game Over. Press Any Key to Restart`);
+
+        startOver()
+    }
+}
+
 const randomNum = () => {
     return Math.floor((Math.random()*4))
 }
@@ -85,29 +109,7 @@ const startOver = () => {
   gameStarted = false
 }
 
-const comparePatterns = (currentLevel) => {
 
-    if (userPattern[currentLevel] === gamePattern[currentLevel]) {
-        console.log(`success`)
-        if (userPattern.length === gamePattern.length) {
-            setTimeout(function () {
-                nextSequence();
-            }, 1000);
-        }
-    } else {
-            playSound(`wrong`)
-            console.log(`wrong`)
-            $("body").toggleClass("game-over");
-
-            setTimeout(()=> {
-                $("body").toggleClass("game-over")
-            }, 200);
-
-            $("h1").text(`Game Over. Press Any Key to Restart`);
-
-            startOver()
-    }
-}
 
 const nextSequence = () => {
     userPattern = []
