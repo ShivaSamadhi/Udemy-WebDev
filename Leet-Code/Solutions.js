@@ -36,6 +36,13 @@ const romanToInt = (str) => {
                 else
                     integer += 1
                 break;
+
+            case `V`:
+                if(str[i-1] === `I`)
+                    integer
+                else
+                    integer += 5
+                break;
         }
 
     }
