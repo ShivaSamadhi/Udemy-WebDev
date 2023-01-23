@@ -28,7 +28,14 @@ const romanToInt = (str) => {
     let integer = 0
     for (let i = 0; i < str.length; i++){
         switch (str[i]) {
-
+            case `I`:
+                if(str[i+1] === `V`)
+                    integer += 4
+                else if(str[i+1] === `X`)
+                    integer += 9
+                else
+                    integer += 1
+                break;
         }
 
     }
