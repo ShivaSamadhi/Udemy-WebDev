@@ -24,3 +24,10 @@ Input: s = "III"
 Output: 3
 Explanation: III = 3.
  */
+const romanToInt = (str) => {
+    let integer = 0
+    for (let i = 0; i < s.length; i++){
+
+    }
+
+}
