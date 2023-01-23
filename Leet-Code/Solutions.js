@@ -43,6 +43,17 @@ const romanToInt = (str) => {
                 else
                     integer += 5
                 break;
+
+            case `X`:
+                if(str[i-1] === `I`)
+                    integer
+                else if(str[i+1] === `L`)
+                    integer += 40
+                else if(str[i+1] === `C`)
+                    integer += 90
+                else
+                    integer += 10
+                break;
         }
 
     }
