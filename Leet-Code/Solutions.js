@@ -39,14 +39,14 @@ const romanToInt = (str) => {
 
             case `V`:
                 if(str[i-1] === `I`)
-                    integer
+                    integer +=0
                 else
                     integer += 5
                 break;
 
             case `X`:
                 if(str[i-1] === `I`)
-                    integer
+                    integer +=0
                 else if(str[i+1] === `L`)
                     integer += 40
                 else if(str[i+1] === `C`)
@@ -87,7 +87,8 @@ const romanToInt = (str) => {
                     integer += 1000
                 break;
         }
-
     }
-
+    console.log(integer)
+    return integer
 }
+romanToInt("MCMXCIV")
