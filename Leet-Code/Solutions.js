@@ -54,6 +54,38 @@ const romanToInt = (str) => {
                 else
                     integer += 10
                 break;
+
+            case `L`:
+                if(str[i-1] === `X`)
+                    integer +=0
+                else
+                    integer += 50
+                break;
+
+            case `C`:
+                if(str[i-1] === `X`)
+                    integer +=0
+                else if(str[i+1] === `D`)
+                    integer += 400
+                else if(str[i+1] === `M`)
+                    integer += 900
+                else
+                    integer += 100
+                break;
+
+            case `D`:
+                if(str[i-1] === `C`)
+                    integer += 0
+                else
+                    integer += 500
+                break;
+
+            case `M`:
+                if(str[i-1] === `C`)
+                    integer += 0
+                else
+                    integer += 1000
+                break;
         }
 
     }
