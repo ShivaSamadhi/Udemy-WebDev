@@ -9,3 +9,13 @@
     width: 10%;
     margin: 3rem auto;
 }
+
+.mtn-position{
+    position: absolute;
+    top: 50px;
+}
+.cloud-position{
+    position: absolute;
+    top: 50px;
+    right: 100px;
+}
