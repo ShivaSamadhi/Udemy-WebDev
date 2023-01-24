@@ -12,7 +12,10 @@
 
 .mtn-position{
     position: absolute;
-    top: 50px;
+    top: 10px;
+    left: 25%;
+    z-index: -1;
+    opacity: 75%;
 }
 .cloud-position{
     position: absolute;
