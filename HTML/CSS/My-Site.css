@@ -22,3 +22,10 @@
     top: 50px;
     right: 100px;
 }
+ul{
+    list-style: none;
+    display: table;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    text-align: left;
+}
