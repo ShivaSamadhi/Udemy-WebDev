@@ -18,12 +18,21 @@ body{
 
 h1, h3 {
     color: lightgray;
+    text-align: center;
 }
 
 table{
     margin: 0 auto;
 }
 
-.center{
-margin: 0 auto;
+ul{
+    list-style: none;
+    display: table;
+    margin: 0 auto;
+    text-align: left;
+
+}
+
+div{
+
 }
