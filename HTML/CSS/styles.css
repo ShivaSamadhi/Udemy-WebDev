@@ -5,7 +5,10 @@ hr {
     border-width: 5px;
     width: 10%;
     margin: 3rem auto;
+}
 
+img{
+    margin-right: 2rem;
 }
 
 body{
