@@ -9,12 +9,3 @@
     width: 10%;
     margin: 3rem auto;
 }
-
-.z-axis{
-    z-index: -1;
-}
-.img-size{
-    width: 20rem;
-    height: 15rem;
-    margin-top: 100px;
-}
