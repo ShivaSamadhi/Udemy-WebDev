@@ -101,5 +101,6 @@ body{
     font-size: 1.5rem;
 }
 .card{
-    width: 30%
+    width: 100%;
+    height: 400px
 }
