@@ -72,3 +72,8 @@ body{
 .feat-mb{
     margin: 5rem auto;
 }
+
+/*testimonials*/
+.testimonials{
+    padding: 10% 7%;
+}
