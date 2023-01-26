@@ -55,7 +55,7 @@ body{
 .features-heading {
     font-family: "Montserrat", serif;
     font-weight: 900;
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 .features-p{
     color: #8f8f8f;
@@ -75,5 +75,9 @@ body{
 
 /*testimonials*/
 .testimonials{
-    padding: 10% 7%;
+    padding: 9% 9%;
+}
+.testimonials-h2{
+    font-size: 3rem;
+    font-weight: 900;
 }
