@@ -42,3 +42,8 @@ body{
 .btn{
     margin: 5% 3% 5% 0;
 }
+
+.img-width{
+    width: 60%;
+    transform: rotate(15deg);
+}
