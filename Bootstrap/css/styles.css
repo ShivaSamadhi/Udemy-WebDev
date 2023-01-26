@@ -64,6 +64,9 @@ body{
 .fa-size{
     font-size: 5em;
     margin-bottom: 1rem;
+    color: #ef8172;
+}
+.fa-size:hover{
     color: #ff4c86;
 }
 .feat-mb{
