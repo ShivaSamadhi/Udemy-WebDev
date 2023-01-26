@@ -79,5 +79,9 @@ body{
 }
 .testimonials-h2{
     font-size: 3rem;
+
+}
+.testimonials-name{
     font-weight: 900;
+    font-size: 1rem;
 }
