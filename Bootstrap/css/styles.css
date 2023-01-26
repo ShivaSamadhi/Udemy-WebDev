@@ -50,15 +50,22 @@ body{
 
 /*Features Section*/
 .features-margin{
-    margin: 5rem auto;
+    margin: 2rem auto;
 }
 .features-heading {
     font-family: "Montserrat", serif;
     font-weight: 900;
-    font-size: 1.5rem;
+    font-size: 2rem;
+}
+.features-p{
+    color: #8f8f8f;
+    padding: 0 3.7rem;
 }
 .fa-size{
     font-size: 5em;
     margin-bottom: 1rem;
-    color: #ef8172
+    color: #ff4c86;
+}
+.feat-mb{
+    margin: 5rem auto;
 }
