@@ -1,21 +1,29 @@
+body{
+    font-family: "Montserrat", serif;
+}
+
+/*Title Section*/
 .container-fluid{
     padding: 3% 7%;
 }
+
 .title-margin{
     margin: 2rem 0 1rem 0;
     padding-top: 2rem;
 
 }
+
 .title-color{
     background-color: #ff4c86;
 }
 
-body{
-    font-family: "Montserrat", serif;
-}
 .h1-text{
     font-family: "Montserrat", serif;
     font-weight: bolder;
     font-size: 3.5rem;
     line-height: 1.5;
+}
+
+.navbar-brand{
+    font-family: "Ubuntu", serif;
 }
