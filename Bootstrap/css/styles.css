@@ -10,9 +10,12 @@
     background-color: #ff4c86;
 }
 
+body{
+    font-family: "Montserrat", serif;
+}
 .h1-text{
     font-family: "Montserrat", serif;
-    font-weight: bold;
+    font-weight: bolder;
     font-size: 3.5rem;
     line-height: 1.5;
 }
