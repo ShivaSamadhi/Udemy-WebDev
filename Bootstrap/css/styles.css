@@ -92,5 +92,6 @@ body{
 }
 /*Press*/
 .logo-size{
-
+    width: 200px;
+    margin: auto 1rem;
 }
