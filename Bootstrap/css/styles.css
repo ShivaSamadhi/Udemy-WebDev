@@ -145,9 +145,25 @@ body{
 
 
     /*Testimonials*/
+    .testimonials-h2{
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+
+    }
+
     .logo-size{
         width: 15%;
         margin: 0 1rem 4rem 1rem;
     }
 
+    /*Pricing*/
+    #pricing{
+        padding: 3rem 3rem;
+    }
+    .h2-tablet{
+        font-family: "Montserrat", serif;
+        font-weight: bolder;
+        font-size: 3rem;
+        line-height: 1.5;
+    }
 }
