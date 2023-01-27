@@ -195,7 +195,7 @@ body{
         text-align: center;
         background-color: #ff4c86;
         color: #fff;
-        padding: 3rem 2rem;
+        padding: 5.5rem 2rem;
     }
     .cta-h3{
         font-family: "Montserrat", serif;
@@ -213,6 +213,11 @@ body{
         font-size: 3rem;
         line-height: 1.5;
         text-align: center;
+    }
+
+    .img-width{
+        width: 40%;
+        position: static;
     }
 
     .testimonials-h2{
@@ -235,5 +240,12 @@ body{
     .pricing-subheading{
         font-weight: 900;
         font-size: 1rem;
+    }
+    .cta-h3{
+        font-family: "Montserrat", serif;
+        font-weight: bolder;
+        font-size: 2rem;
+        line-height: 1.5;
+        text-align: center;
     }
 }
