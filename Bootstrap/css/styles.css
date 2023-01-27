@@ -120,6 +120,7 @@ body{
 }
 
 @media (max-width: 900px){
+    /*Title*/
     .h1-text{
         font-family: "Montserrat", serif;
         font-weight: bolder;
@@ -128,10 +129,19 @@ body{
         text-align: center;
     }
 
+    .btn-tablet{
+        justify-content: center;
+    }
+
     .img-width{
-        width: 20%;
+        width: 30%;
         position: static;
     }
 
+    /*Testimonials*/
+    .logo-size{
+        width: 15%;
+        margin: 0 1rem 4rem 1rem;
+    }
 
 }
