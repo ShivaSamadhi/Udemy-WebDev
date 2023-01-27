@@ -138,6 +138,12 @@ body{
         position: static;
     }
 
+    /*Features*/
+    .feat-mb{
+        margin: 2rem auto;
+    }
+
+
     /*Testimonials*/
     .logo-size{
         width: 15%;
