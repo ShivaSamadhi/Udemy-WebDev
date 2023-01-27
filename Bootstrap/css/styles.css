@@ -4,7 +4,7 @@ body{
 
 /*Title Section*/
 .container-fluid{
-    padding: 3% 7%;
+    padding: 5% 7%;
 }
 
 .title-margin{
@@ -44,13 +44,25 @@ body{
 }
 
 .img-width{
-    width: 60%;
+    width: 20%;
     transform: rotate(15deg);
+    position: absolute;
 }
 
 /*Features Section*/
+#features{
+    position: relative;
+    z-index: 1;
+    background-color: white;
+}
+.features{
+    position: relative;
+    z-index: 1;
+    background-color: white;
+}
 .features-margin{
-    margin: 2rem auto;
+    margin: 0 auto;
+    padding: 2rem 0;
 }
 .features-heading {
     font-family: "Montserrat", serif;
@@ -105,4 +117,21 @@ body{
 }
 .card{
     height: 400px
+}
+
+@media (max-width: 900px){
+    .h1-text{
+        font-family: "Montserrat", serif;
+        font-weight: bolder;
+        font-size: 3.5rem;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    .img-width{
+        width: 20%;
+        position: static;
+    }
+
+
 }
