@@ -133,6 +133,13 @@ body{
     line-height: 1.5;
     text-align: center;
 }
+
+/*Social Links*/
+.icon-style{
+    font-size: 2em;
+    margin: 1rem 1rem;
+    color: #ef8172;
+}
 @media (max-width: 900px){
     /*Title*/
     .h1-text{
