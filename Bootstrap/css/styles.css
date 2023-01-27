@@ -119,6 +119,10 @@ body{
     height: 400px
 }
 
+/*CTA*/
+.cta{
+    text-align: center;
+}
 @media (max-width: 900px){
     /*Title*/
     .h1-text{
