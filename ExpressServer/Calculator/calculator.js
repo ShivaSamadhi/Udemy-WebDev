@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+
 const app = express();
 
 
@@ -12,14 +13,19 @@ app.get("/", (req, res) => {
     res.sendFile(`${__dirname}/index.html`)
 })
 
+//Handles POST reqs made to the specified route
 app.post("/", (req, res) => {
+    //Allows me to view the form obj that is sent
     console.log(req.body)
 
+    //Obj Destructuring syntax to quickly navigate necessary info
     const {num1, num2} = req.body
     console.log(num1)
     console.log(num2)
 
-    res.send("Request Received ")
+    const result = parseFloat(num1) + parseFloat(num2)
+
+    res.send(`${result}`)
 })
 
 
