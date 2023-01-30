@@ -1,5 +1,10 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+
 const app = express();
+
+
+app.use(bodyParser.urlencoded({extended: true}))
 
 //Handles the GET reqs at the specified route
 app.get("/", (req, res) => {
@@ -10,6 +15,7 @@ app.get("/", (req, res) => {
 app.post(`/`, (req, res) => {
 
 })
+
 
 // Creates a request listener for the Port specified and runs the associated callback function
 app.listen(3000, () => {
