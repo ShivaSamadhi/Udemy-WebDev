@@ -13,6 +13,10 @@ app.get("/", (req, res) => {
     res.sendFile(`${__dirname}/index.html`)
 })
 
+app.get('/bmicalculator', (req, res) => {
+    res.sendFile(`${__dirname}/bmiCalculator.html`)
+})
+
 //Handles POST reqs made to the specified route
 app.post("/", (req, res) => {
     //Allows me to view the form obj that is sent
@@ -28,6 +32,14 @@ app.post("/", (req, res) => {
     res.send(`Answer is: ${result}`)
 })
 
+app.post("/bmicalculator", (req, res) => {
+
+    const {weight, height} = req.body
+
+    const bmiScore = Math.round(parseFloat(weight)/parseFloat(height)**2 )
+
+    res.send(`Your BMI is ${bmiScore}`)
+})
 
 
 // Creates a request listener for the Port specified and runs the associated callback function
