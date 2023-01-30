@@ -12,9 +12,16 @@ app.get("/", (req, res) => {
     res.sendFile(`${__dirname}/index.html`)
 })
 
-app.post(`/`, (req, res) => {
+app.post("/", (req, res) => {
+    console.log(req.body)
 
+    const {num1, num2} = req.body
+    console.log(num1)
+    console.log(num2)
+
+    res.send("Request Received ")
 })
+
 
 
 // Creates a request listener for the Port specified and runs the associated callback function
