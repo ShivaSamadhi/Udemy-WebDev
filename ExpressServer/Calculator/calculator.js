@@ -3,8 +3,12 @@ const app = express();
 
 //Handles the GET reqs at the specified route
 app.get("/", (req, res) => {
-    //Once the req is received, a specific file can be sent back to the client as the res using __dirname to create an absolute path to the file
+    //Once the req is received, a specific file can be sent back to the client as the res using __dirname to create an absolute path to the file from the server
     res.sendFile(`${__dirname}/index.html`)
+})
+
+app.post(`/`, (req, res) => {
+
 })
 
 // Creates a request listener for the Port specified and runs the associated callback function
