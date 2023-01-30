@@ -25,7 +25,7 @@ app.post("/", (req, res) => {
 
     const result = parseFloat(num1) + parseFloat(num2)
 
-    res.send(`${result}`)
+    res.send(`Answer is: ${result}`)
 })
 
 
