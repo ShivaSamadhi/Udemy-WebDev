@@ -9,7 +9,7 @@ const app = express();
 const weatherMap = `https://api.openweathermap.org/data/2.5/forecast`
 const lat = `lat=32.7831`
 const lon= `lon=-96.8067`
-const cityName = ``
+
 const units = `units=imperial`
 const apiKey = `appid=df70112efc82a0e3f98ed3fe21df78b5`
 const url = `${weatherMap}?${lat}&${lon}&${units}&${apiKey}`
@@ -44,28 +44,9 @@ app.post(`/`, (req, res) => {
         res.write(`<h1>${cityName} Temp: ${temp}F</h1>`)
         res.write(`<p>The weather is currently: ${description}</p>`)
         res.send()
+        })
     })
 })
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 app.listen(3000, () => {
