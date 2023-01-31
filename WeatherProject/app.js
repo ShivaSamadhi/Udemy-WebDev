@@ -12,6 +12,13 @@ app.get(`/`, (req, res) =>{
 
     https.get(weatherMap, (response) =>{
         console.log(response.statusCode)
+
+        response.on(`data`, (data)=>{
+            const weatherData = JSON.parse(data)
+            const {list: [{dt}]} = weatherData
+            console.log(dt)
+
+        })
     })
 
 
