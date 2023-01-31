@@ -23,7 +23,9 @@ app.get(`/`, (req, res) =>{
 
 app.post(`/`, (req, res) => {
     const request = req.body
-    console.log(request)
+
+    const {cityName} = request
+    console.log(cityName)
 })
 
 // https.get(url, (response) =>{
