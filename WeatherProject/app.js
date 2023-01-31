@@ -11,7 +11,7 @@ const weatherMap = `https://api.openweathermap.org/data/2.5/forecast?lat=44.34&l
 app.get(`/`, (req, res) =>{
 
     https.get(weatherMap, (response) =>{
-        console.log(response)
+        console.log(response.statusCode)
     })
 
 
