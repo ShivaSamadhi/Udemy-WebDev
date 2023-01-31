@@ -22,12 +22,9 @@ app.get(`/`, (req, res) =>{
 
             res.write(`<h1>Dallas Temp: ${temp}ºF</h1>`)
             res.write(`<p>The weather is currently: ${description}</p>`)
-            res.send
+            res.send()
         })
     })
-
-
-    res.send("Server: ACTIVE")
 
 })
 
