@@ -5,14 +5,12 @@ const {response} = require("express");
 
 const app = express();
 
-const weatherMap = `https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&appid=`
-const API_TOKEN = `df70112efc82a0e3f98ed3fe21df78b5`
+const weatherMap = `https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&appid=df70112efc82a0e3f98ed3fe21df78b5`
+
 
 app.get(`/`, (req, res) =>{
 
-    const url = `${weatherMap}${API_TOKEN}`
-
-    https.get(url, (response) =>{
+    https.get(weatherMap, (response) =>{
         console.log(response)
     })
 
