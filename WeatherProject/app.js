@@ -18,6 +18,11 @@ app.get(`/`, (req, res) =>{
 
 })
 
+app.post(`/`, (req, res) => {
+    const request = req.body
+    console.log(request)
+})
+
 // https.get(url, (response) =>{
 //     console.log(response.statusCode)
 //
