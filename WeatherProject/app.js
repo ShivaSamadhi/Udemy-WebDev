@@ -29,7 +29,7 @@ app.post(`/`, (req, res) => {
     const {cityName} = request
     console.log(cityName)
 
-    const cityUrl = `${weatherMap}?p=${cityName}&${units}&${apiKey}`
+    const cityUrl = `${weatherMap}?q=${cityName}&${units}&${apiKey}`
 
     https.get(cityUrl, (response) =>{
     console.log(response.statusCode)
@@ -39,7 +39,7 @@ app.post(`/`, (req, res) => {
         const {list: [{main: {temp}, weather: [{description}]}]} = weatherData
 
         console.log(temp)
-        console.log(description)
+        //console.log(description)
 
         res.write(`<h1>${cityName} Temp: ${temp}F</h1>`)
         res.write(`<p>The weather is currently: ${description}</p>`)
