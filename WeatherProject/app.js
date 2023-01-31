@@ -14,25 +14,25 @@ const url = `${weatherMap}?${lat}&${lon}&${units}&${apiKey}`
 
 app.get(`/`, (req, res) =>{
 
-    https.get(url, (response) =>{
-        console.log(response.statusCode)
-
-        response.on(`data`, (data)=>{
-            const weatherData = JSON.parse(data)
-            const {list: [{main: {temp}, weather: [{description}]}]} = weatherData
-
-            console.log(temp)
-            console.log(description)
-
-            res.write(`<h1>Dallas Temp: ${temp}F</h1>`)
-            res.write(`<p>The weather is currently: ${description}</p>`)
-            res.send()
-        })
-    })
+   res.sendFile(`${__dirname}/index.html`)
 
 })
 
-
+// https.get(url, (response) =>{
+//     console.log(response.statusCode)
+//
+//     response.on(`data`, (data)=>{
+//         const weatherData = JSON.parse(data)
+//         const {list: [{main: {temp}, weather: [{description}]}]} = weatherData
+//
+//         console.log(temp)
+//         console.log(description)
+//
+//         res.write(`<h1>Dallas Temp: ${temp}F</h1>`)
+//         res.write(`<p>The weather is currently: ${description}</p>`)
+//         res.send()
+//     })
+// })
 
 
 
