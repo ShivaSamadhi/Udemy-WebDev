@@ -15,7 +15,7 @@ app.get(`/`, (req, res) =>{
 
         response.on(`data`, (data)=>{
             const weatherData = JSON.parse(data)
-            const {list: [{main: {temp}, weather: [{description}]}]/*[{main: {temp}}]*/} = weatherData
+            const {list: [{main: {temp}, weather: [{description}]}]} = weatherData
             console.log(temp)
             console.log(description)
 
