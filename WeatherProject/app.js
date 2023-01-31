@@ -5,8 +5,12 @@ const {response} = require("express");
 
 const app = express();
 
-const weatherMap = `https://api.openweathermap.org/data/2.5/forecast?lat=32.7831&lon=-96.8067&units=imperial&appid=df70112efc82a0e3f98ed3fe21df78b5`
-
+const weatherMap = `https://api.openweathermap.org/data/2.5/forecast`
+const lat = `lat=32.7831`
+const lon= `lon=-96.8067`
+const units = `units=imperial`
+const apiKey = `appid=df70112efc82a0e3f98ed3fe21df78b5`
+const url = `${weatherMap}?${lat}&${lon}`
 
 app.get(`/`, (req, res) =>{
 
@@ -20,7 +24,7 @@ app.get(`/`, (req, res) =>{
             console.log(temp)
             console.log(description)
 
-            res.write(`<h1>Dallas Temp: ${temp}ºF</h1>`)
+            res.write(`<h1>Dallas Temp: ${temp}F</h1>`)
             res.write(`<p>The weather is currently: ${description}</p>`)
             res.send()
         })
