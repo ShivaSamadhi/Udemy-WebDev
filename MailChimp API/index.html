@@ -16,19 +16,31 @@
 
     <main class="form-signin w-100 m-auto">
         <img class="img-thumbnail img-margin" src="Public/Images/TK.png" alt="">
-        <form>
+        <form action="/" method="post">
             <h1 class="h3 mb-3 fw-normal text-center">ThunderKat Newsletter!</h1>
 
             <div class="form-floating ">
-                <input type="text" class="form-control top" id="firstName" placeholder="Password">
+                <input
+                        type="text"
+                        class="form-control top"
+                        id="firstName"
+                        name="firstName">
                 <label for="firstName">First Name</label>
             </div>
             <div class="form-floating ">
-                <input type="text" class="form-control middle" id="lastName" placeholder="Password">
+                <input
+                        type="text"
+                        class="form-control middle"
+                        id="lastName"
+                        name="lastName">
                 <label for="lastName">Last Name</label>
             </div>
             <div class="form-floating ">
-                <input type="email" class="form-control bottom" id="email" placeholder="name@example.com">
+                <input
+                        type="email"
+                        class="form-control bottom"
+                        id="email"
+                        name="email">
                 <label for="email">Email address</label>
             </div>
 
