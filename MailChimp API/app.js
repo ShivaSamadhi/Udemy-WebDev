@@ -41,13 +41,13 @@ app.post(`/`, (req, res) => {
 
     const options = {
         method: `POST`,
-        auth: `rjohnson:${process.env.MAILCHIMP_API_KEY}`
+        auth: `rjohnson:7dcc3c1268ad5eedbe5eb90d4619bcbf-us11`
     }
 
     const request = https.request(url, options, (response) => {
-        if (response.statusCode === 200){
-            res.sendFile(`${}`)
-        }
+
+        response.statusCode === 200 ? res.sendFile(`${__dirname}/success.html`) : res.sendFile(`${__dirname}/failure.html`)
+
         response.on(`data`, (data) => {
             const mcData = JSON.parse(data)
             console.log(mcData)
