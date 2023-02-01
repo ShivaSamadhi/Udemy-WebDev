@@ -1,0 +1,11 @@
+{
+  "name": "mailchimp-api",
+  "version": "1.0.0",
+  "description": "Newsletter App w/ MailChimp API",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ramaj Johnson",
+  "license": "ISC"
+}
