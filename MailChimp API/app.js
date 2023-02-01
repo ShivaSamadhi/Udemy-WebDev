@@ -23,6 +23,19 @@ app.post(`/`, (req, res) => {
 
     const{firstName, lastName, email} = request
 
+    const data = {
+        members: [
+            {
+               email_address: email,
+               status: `subscribed`,
+               merge_fields: {
+                   FNAME: firstName,
+                   LNAME: lastName
+               }
+            }
+        ]
+    }
+
     console.log(firstName)
 })
 
