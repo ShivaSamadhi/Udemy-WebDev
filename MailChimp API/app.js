@@ -21,9 +21,9 @@ app.post(`/`, (req, res) => {
     const request = req.body
     console.log(request)
 
-    const{firstName, lastName, email} = request
+    const {firstName, lastName, email} = request
 
-    const data = {
+    const mailchimpData = {
         members: [
             {
                email_address: email,
@@ -36,7 +36,16 @@ app.post(`/`, (req, res) => {
         ]
     }
 
-    console.log(firstName)
+    const mailchimpJSON = JSON.stringify(mailchimpData)
+
+    const url = `https://us6.api.mailchimp.com/3.0/list/d7c3ce99e4`
+
+    const
+
+    https.request(url, options, (response) => {
+
+    })
+
 })
 
 
