@@ -15,21 +15,6 @@ const units = `units=imperial`
 const apiKey = `appid=df70112efc82a0e3f98ed3fe21df78b5`
 const url = `${weatherMap}?${lat}&${lon}&${units}&${apiKey}`
 
-const weatherAPIReq = (url) => {
-    https.get(url, (response) =>{
-        console.log(response.statusCode)
-
-        response.on(`data`, (data)=>{
-
-            const weatherData = JSON.parse(data)
-
-            const {list: [{main: {temp}, weather: [{description}]}]} = weatherData
-
-            return [temp, description]
-        })
-    })
-}
-
 
 app.use(bodyParser.urlencoded({extended: true}))
 
@@ -48,11 +33,20 @@ app.post(`/`, (req, res) => {
 
     const cityUrl = `${weatherMap}?q=${cityName}&${units}&${apiKey}`
 
-    console.log(weatherAPIReq(cityUrl))
+    https.get(url, (response) =>{
+        console.log(response.statusCode)
 
-    res.write(`<h1>${cityName} Temp: ${temp}F</h1>`)
-    res.write(`<p>The weather is currently: ${description}</p>`)
-    res.send()
+        response.on(`data`, (data)=>{
+
+            const weatherData = JSON.parse(data)
+
+            const {list: [{main: {temp}, weather: [{description}]}]} = weatherData
+
+            res.write(`<h1>${cityName} Temp: ${temp}F</h1>`)
+            res.write(`<p>The weather is currently: ${description}</p>`)
+            res.send()
+        })
+    })
 })
 
 //Port Listener
