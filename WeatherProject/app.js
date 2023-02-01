@@ -3,6 +3,7 @@ const express = require('express');
 const https = require('https');
 const {response} = require("express");
 const bodyParser = require(`body-parser`)
+const res = require("express/lib/response");
 
 const app = express();
 
@@ -14,7 +15,7 @@ const units = `units=imperial`
 const apiKey = `appid=df70112efc82a0e3f98ed3fe21df78b5`
 const url = `${weatherMap}?${lat}&${lon}&${units}&${apiKey}`
 
-const weatherAPIReq = (url) => {
+const weatherAPIReq = (url, cityName) => {
     https.get(url, (response) =>{
         console.log(response.statusCode)
 
@@ -50,10 +51,10 @@ app.post(`/`, (req, res) => {
 
     const cityUrl = `${weatherMap}?q=${cityName}&${units}&${apiKey}`
 
-    weatherAPIReq(cityUrl)
+    weatherAPIReq(cityUrl, cityName)
 })
 
-
+//Port Listener
 app.listen(3000, () => {
     console.log("Server Started: Port 3000")
 });
