@@ -38,9 +38,12 @@ app.post(`/`, (req, res) => {
 
     const mailchimpJSON = JSON.stringify(mailchimpData)
 
-    const url = `https://us6.api.mailchimp.com/3.0/list/d7c3ce99e4`
+    const url = `https://us11.api.mailchimp.com/3.0/list/d7c3ce99e4`
 
-    const
+    const options = {
+        method: `POST`,
+        auth: `rjohnson:${process.env.MAILCHIMP_API_KEY}`
+    }
 
     https.request(url, options, (response) => {
 
