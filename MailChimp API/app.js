@@ -11,8 +11,13 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 //HTTPS Requests
 
+app.get(`/`, (req, res) => {
+    res.sendFile(`${__dirname}/index.html`)
+})
 
+app.post(`/`, (req, res) => {
 
+})
 
 
 
