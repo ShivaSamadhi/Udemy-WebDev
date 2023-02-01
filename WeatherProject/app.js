@@ -11,8 +11,8 @@ const lat = `lat=32.7831`
 const lon= `lon=-96.8067`
 
 const units = `units=imperial`
-const apiKey = `appid=df70112efc82a0e3f98ed3fe21df78b5`
-const url = `${weatherMap}?${lat}&${lon}&${units}&${apiKey}`
+
+const url = `${weatherMap}?${lat}&${lon}&${units}&appid=${process.env.WEATHER_API_KEY}`
 
 
 app.use(bodyParser.urlencoded({extended: true}))
