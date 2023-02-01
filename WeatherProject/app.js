@@ -20,11 +20,10 @@ const weatherAPIReq = (url, cityName) => {
         console.log(response.statusCode)
 
         response.on(`data`, (data)=>{
-            const weatherData = JSON.parse(data)
-            const {list: [{main: {temp}, weather: [{description}]}]} = weatherData
 
-            console.log(temp)
-            //console.log(description)
+            const weatherData = JSON.parse(data)
+
+            const {list: [{main: {temp}, weather: [{description}]}]} = weatherData
 
             res.write(`<h1>${cityName} Temp: ${temp}F</h1>`)
             res.write(`<p>The weather is currently: ${description}</p>`)
