@@ -1,9 +1,8 @@
 //Required Modules
-// const express = require(`express`);
-const {express, request, response} = require(`express`)
+const express = require(`express`);
 const https = require('https');
 const bodyParser = require(`body-parser`);
-
+const {request, response} = require(`express`)
 
 
 //Express App
@@ -23,6 +22,8 @@ app.post(`/`, (req, res) => {
     console.log(request)
 
     const{firstName, lastName, email} = request
+
+    console.log(firstName)
 })
 
 
