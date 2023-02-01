@@ -45,6 +45,9 @@ app.post(`/`, (req, res) => {
     }
 
     const request = https.request(url, options, (response) => {
+        if (response.statusCode === 200){
+            res.sendFile(`${}`)
+        }
         response.on(`data`, (data) => {
             const mcData = JSON.parse(data)
             console.log(mcData)
@@ -53,6 +56,8 @@ app.post(`/`, (req, res) => {
 
     request.write(mailchimpJSON)
     request.end()
+
+
 })
 
 
