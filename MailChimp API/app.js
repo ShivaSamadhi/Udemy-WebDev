@@ -18,10 +18,9 @@ app.get(`/`, (req, res) => {
 })
 
 app.post(`/`, (req, res) => {
-    const request = req.body
-    console.log(request)
+    const form = req.body
 
-    const {firstName, lastName, email} = request
+    const {firstName, lastName, email} = form
 
     const mailchimpData = {
         members: [
@@ -38,17 +37,22 @@ app.post(`/`, (req, res) => {
 
     const mailchimpJSON = JSON.stringify(mailchimpData)
 
-    const url = `https://us11.api.mailchimp.com/3.0/list/d7c3ce99e4`
+    const url = `https://us11.api.mailchimp.com/3.0/lists/d7c3ce99e4`
 
     const options = {
         method: `POST`,
         auth: `rjohnson:${process.env.MAILCHIMP_API_KEY}`
     }
 
-    https.request(url, options, (response) => {
-
+    const request = https.request(url, options, (response) => {
+        response.on(`data`, (data) => {
+            const mcData = JSON.parse(data)
+            console.log(mcData)
+        } )
     })
 
+    request.write(mailchimpJSON)
+    request.end()
 })
 
 
