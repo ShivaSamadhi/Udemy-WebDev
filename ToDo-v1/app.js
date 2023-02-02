@@ -11,7 +11,9 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 //Requests
 app.get(`/`, (req, res) => {
-    res.sendFile(`${__dirname}/index.html`)
+    let today = new Date();
+
+    today.getDay() === 6 || today.getDay() === 0 ? res.send(`It's the Weekend`) : res.send(`Get to Work`)
 })
 
 //Port Listener
