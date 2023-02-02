@@ -12,8 +12,9 @@ app.use(bodyParser.urlencoded({extended: true}))
 //Requests
 app.get(`/`, (req, res) => {
     let today = new Date();
+    let currentDay = today.getDay()
 
-    today.getDay() === 6 || today.getDay() === 0 ? res.send(`It's the Weekend`) : res.send(`Get to Work`)
+    currentDay === 6 || currentDay === 0 ? res.send(`It's the Weekend`) : res.send(`Get to Work`)
 })
 
 //Port Listener
