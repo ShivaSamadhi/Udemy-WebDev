@@ -55,8 +55,6 @@ app.post(`/`, (req, res) => {
 
     request.write(mailchimpJSON)
     request.end()
-
-
 })
 
 
