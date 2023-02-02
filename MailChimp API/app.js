@@ -3,8 +3,7 @@ const express = require(`express`);
 const https = require('https');
 const bodyParser = require(`body-parser`);
 const {request, response} = require(`express`)
-const env = require('../webpack.config.js');
-const token = process.env.MAILCHIMP_API_KEY
+
 //Express App
 const app = express();
 
@@ -41,10 +40,8 @@ app.post(`/`, (req, res) => {
 
     const options = {
         method: `POST`,
-        auth: `rjohnson:${token}`
+        auth: `rjohnson:fdf53709b4879705cb95565d40d06df7-us11`
     }
-
-    //7dcc3c1268ad5eedbe5eb90d4619bcbf-us11
 
     const request = https.request(url, options, (response) => {
 
