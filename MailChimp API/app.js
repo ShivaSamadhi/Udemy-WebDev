@@ -58,7 +58,7 @@ app.post(`/`, (req, res) => {
 })
 
 app.post(`/failure`, (req, res) => {
-    res.sendFile(`${__dirname}/index.html`)
+    res.redirect(`/`)
 })
 
 
