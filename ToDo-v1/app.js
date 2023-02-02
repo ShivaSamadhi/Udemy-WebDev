@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 //Requests
 app.get(`/`, (req, res) => {
-    res.send(`Hello`)
+    res.sendFile(`${__dirname}/index.html`)
 })
 
 //Port Listener
