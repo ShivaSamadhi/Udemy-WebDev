@@ -27,7 +27,7 @@
         </div>
         <%}%>
 
-        <form class="item" action="<%= route %>" method="post">
+        <form class="item" action="<%= postRoute %>" method="post">
             <input
                     type="text"
                     name="todoItem"
@@ -42,6 +42,19 @@
                 +
             </button>
         </form>
+
+        <div class="container text-center mt-2 mb-2">
+            <a href=<%=changeList%>>
+                <button class="btn btn-secondary w-50">
+                    <%if(postRoute === `/`){%>
+                        Work List
+                    <%} else {%>
+                        Main List
+                    <%}%>
+                </button>
+            </a>
+        </div>
+
     </div>
 
 

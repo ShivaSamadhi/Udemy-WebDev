@@ -7,6 +7,7 @@ const {request, response} = require(`express`)
 //Global Variables
 let todoItems = []
 let workItems = []
+let changeList = ``
 //Express App
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(express.static('public'))
 //Requests
 app.get(`/`, (req, res) => {
     const route = `/`
+    changeList =`/work`
     let today = new Date();
 
     const dateOptions = {
@@ -31,7 +33,13 @@ app.get(`/`, (req, res) => {
     let currentDay = today.toLocaleDateString(`en-US`, dateOptions)
 
 
-    res.render(`list`, {listTitle: currentDay, todoItems: todoItems, route: route})
+    res.render(`list`,
+        {
+            listTitle: currentDay,
+            todoItems: todoItems,
+            postRoute: route,
+            changeList: changeList
+        })
 
 })
 
@@ -45,7 +53,14 @@ app.post(`/`, (req, res) => {
 
 app.get(`/work`, (req, res) => {
     const route =`/work`
-    res.render(`list`, {listTitle: "Work List", todoItems: workItems, route: route})
+    changeList =`/`
+    res.render(`list`,
+        {
+        listTitle: "Work List",
+        todoItems: workItems,
+        postRoute: route,
+        changeList: changeList
+        })
 })
 
 app.post(`/work`, (req,res) => {
