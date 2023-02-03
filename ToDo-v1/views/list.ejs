@@ -15,7 +15,13 @@
         <li>Code</li>
         <li>Make Lunch</li>
         <li>Meditate</li>
+        <%for (const item of todoItems) {%>
+            <li><%item%></li>
+        <%}%>
     </ul>
+
+
+
 
     <form action="/" method="post">
         <label for="todoItem">
