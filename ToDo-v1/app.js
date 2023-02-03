@@ -7,7 +7,9 @@ const {request, response} = require(`express`)
 //Express App
 const app = express();
 
+app.set(`view engine`, `ejs`)
 app.use(bodyParser.urlencoded({extended: true}))
+
 
 //Requests
 app.get(`/`, (req, res) => {
