@@ -17,9 +17,7 @@ const getDay = () => {
         weekday: `long`,
     }
 
-    let currentDay = today.toLocaleDateString(`en-US`, dateOptions)
-
-    return currentDay
+    return today.toLocaleDateString(`en-US`, dateOptions)
 }
 
 module.exports.getDate = getDate;
