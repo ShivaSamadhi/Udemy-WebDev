@@ -15,10 +15,15 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.get(`/`, (req, res) => {
     let today = new Date();
     let currentDay = today.getDay()
+    let dayMessage = ''
 
-    currentDay === 6 || currentDay === 0 ? res.write(`It's the Weekend`) : res.write(`Get to Work`)
+    if(currentDay === 6 || currentDay === 0)
+        dayMessage = `the WEEKEND!`
+    else
+        dayMessage = `a WEEKDAY!`
 
-    res.send()
+    res.render(`list`, {kindOfDay: dayMessage})
+
 })
 
 //Port Listener
