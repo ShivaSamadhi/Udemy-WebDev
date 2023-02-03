@@ -14,7 +14,9 @@ app.get(`/`, (req, res) => {
     let today = new Date();
     let currentDay = today.getDay()
 
-    currentDay === 6 || currentDay === 0 ? res.send(`It's the Weekend`) : res.send(`Get to Work`)
+    currentDay === 6 || currentDay === 0 ? res.write(`It's the Weekend`) : res.write(`Get to Work`)
+
+    res.send()
 })
 
 //Port Listener
