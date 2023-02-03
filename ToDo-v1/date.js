@@ -1,5 +1,4 @@
-
-const getDate = () => {
+module.exports.getDate = () => {
     let today = new Date();
 
     const dateOptions = {
@@ -10,7 +9,8 @@ const getDate = () => {
 
     return today.toLocaleDateString(`en-US`, dateOptions)
 }
-const getDay = () => {
+
+module.exports.getDay = () => {
     let today = new Date();
 
     const dateOptions = {
@@ -20,5 +20,4 @@ const getDay = () => {
     return today.toLocaleDateString(`en-US`, dateOptions)
 }
 
-module.exports.getDate = getDate;
-module.exports.getDay = getDay;
+
