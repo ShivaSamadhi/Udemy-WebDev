@@ -31,8 +31,7 @@ app.get(`/`, (req, res) => {
 })
 
 app.post(`/`, (req, res) => {
-    const request = req.body
-    const {todoItem} = request
+    const {todoItem} = req.body
 
     todoItems.push(todoItem)
 
