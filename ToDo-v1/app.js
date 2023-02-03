@@ -39,6 +39,8 @@ app.get(`/`, (req, res) => {
         case 6:
             day = `Saturday`
             break;
+        default:
+            console.log(`error`)
     }
 
     res.render(`list`, {day: day})
