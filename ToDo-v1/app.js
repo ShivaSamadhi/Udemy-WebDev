@@ -6,6 +6,7 @@ const {request, response} = require(`express`)
 
 //Global Variables
 let todoItems = []
+let workItems = []
 //Express App
 const app = express();
 
@@ -29,7 +30,7 @@ app.get(`/`, (req, res) => {
     let currentDay = today.toLocaleDateString(`en-US`, dateOptions)
 
 
-    res.render(`list`, {currentDay: currentDay, todoItems: todoItems})
+    res.render(`list`, {listTitle: currentDay, todoItems: todoItems})
 
 })
 
@@ -41,6 +42,11 @@ app.post(`/`, (req, res) => {
     res.redirect(`/`)
 })
 
+app.get(`/work`, (req, res) => {
+    res.render(`list`, {listTitle: "Work List", todoItems: workItems})
+})
+
+app.post(`/work`, (req,res) => {})
 //Port Listener
 app.listen(8080, () => {
     console.log("Server Started: Port 8080")
