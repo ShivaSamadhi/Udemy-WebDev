@@ -3,13 +3,15 @@ const express = require(`express`);
 const https = require('https');
 const bodyParser = require(`body-parser`);
 const {request, response} = require(`express`)
-const req = require("express/lib/request");
-const res = require("express/lib/response");
+const {getDate, getDay} = require(`${__dirname}/date.js`)
+
+
 
 //Global Variables
 let todoItems = []
 let workItems = []
 let changeList = ``
+
 //Express App
 const app = express();
 
@@ -25,16 +27,7 @@ app.get(`/`, (req, res) => {
     const route = `/`
     changeList =`/work`
 
-    let today = new Date();
-
-    const dateOptions = {
-        weekday: `long`,
-        day: `numeric`,
-        month: `short`
-    }
-
-    let currentDay = today.toLocaleDateString(`en-US`, dateOptions)
-
+   let currentDay = getDate()
 
     res.render(`list`,
         {
