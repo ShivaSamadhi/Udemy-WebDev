@@ -24,6 +24,7 @@ app.use(express.static('public'))
 app.get(`/`, (req, res) => {
     const route = `/`
     changeList =`/work`
+
     let today = new Date();
 
     const dateOptions = {
