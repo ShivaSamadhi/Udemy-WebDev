@@ -27,7 +27,7 @@
         </div>
         <%}%>
 
-        <form class="item" action="/" method="post">
+        <form class="item" action="<%= route %>" method="post">
             <input
                     type="text"
                     name="todoItem"
@@ -35,7 +35,10 @@
                     placeholder="New Item"
                     autocomplete="pff">
 
-            <button class="" type="submit">
+            <button
+                    name="list"
+                    type="submit"
+                    >
                 +
             </button>
         </form>

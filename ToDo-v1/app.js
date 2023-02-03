@@ -19,6 +19,7 @@ app.use(express.static('public'))
 
 //Requests
 app.get(`/`, (req, res) => {
+    const route = `/`
     let today = new Date();
 
     const dateOptions = {
@@ -30,7 +31,7 @@ app.get(`/`, (req, res) => {
     let currentDay = today.toLocaleDateString(`en-US`, dateOptions)
 
 
-    res.render(`list`, {listTitle: currentDay, todoItems: todoItems})
+    res.render(`list`, {listTitle: currentDay, todoItems: todoItems, route: route})
 
 })
 
@@ -43,7 +44,8 @@ app.post(`/`, (req, res) => {
 })
 
 app.get(`/work`, (req, res) => {
-    res.render(`list`, {listTitle: "Work List", todoItems: workItems})
+    const route =`/work`
+    res.render(`list`, {listTitle: "Work List", todoItems: workItems, route: route})
 })
 
 app.post(`/work`, (req,res) => {
