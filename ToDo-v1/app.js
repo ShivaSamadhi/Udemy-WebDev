@@ -3,6 +3,8 @@ const express = require(`express`);
 const https = require('https');
 const bodyParser = require(`body-parser`);
 const {request, response} = require(`express`)
+const req = require("express/lib/request");
+const res = require("express/lib/response");
 
 //Global Variables
 let todoItems = []
@@ -70,6 +72,11 @@ app.post(`/work`, (req,res) => {
 
     res.redirect(`/work`)
 })
+
+app.get(`/about`, (req, res)=>{
+    res.render(`about`)
+})
+
 //Port Listener
 app.listen(8080, () => {
     console.log("Server Started: Port 8080")
