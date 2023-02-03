@@ -28,6 +28,12 @@ app.get(`/`, (req, res) => {
 
 })
 
+app.post(`/`, (req, res) => {
+    const request = req.body
+    const {todoItem} = request
+    console.log(todoItem)
+})
+
 //Port Listener
 app.listen(8080, () => {
     console.log("Server Started: Port 8080")
