@@ -46,7 +46,13 @@ app.get(`/work`, (req, res) => {
     res.render(`list`, {listTitle: "Work List", todoItems: workItems})
 })
 
-app.post(`/work`, (req,res) => {})
+app.post(`/work`, (req,res) => {
+    const {todoItem} = req.body
+
+    workItems.push(todoItem)
+
+    res.redirect(`/work`)
+})
 //Port Listener
 app.listen(8080, () => {
     console.log("Server Started: Port 8080")
