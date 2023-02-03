@@ -8,9 +8,7 @@ const getDate = () => {
         month: `short`
     }
 
-    let currentDay = today.toLocaleDateString(`en-US`, dateOptions)
-
-    return currentDay
+    return today.toLocaleDateString(`en-US`, dateOptions)
 }
 const getDay = () => {
     let today = new Date();

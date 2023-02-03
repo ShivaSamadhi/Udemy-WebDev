@@ -27,7 +27,7 @@ app.get(`/`, (req, res) => {
     const route = `/`
     changeList =`/work`
 
-   let currentDay = getDate()
+   let currentDay = getDay()
 
     res.render(`list`,
         {
