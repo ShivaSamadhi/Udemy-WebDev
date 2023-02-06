@@ -27,7 +27,9 @@ console.log(para2Class)
 
 //Input Event Listener
 let textInput = document.querySelector(`#textInput`)
+console.log(textInput.maxLength)
+
 const strCount = () => {
 
 }
-textInput.addEventListener(`keydown`, ())
+textInput.addEventListener(`keydown`, ()=>{})
