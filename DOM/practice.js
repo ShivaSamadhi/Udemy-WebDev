@@ -27,10 +27,12 @@ console.log(para2Class)
 
 //Input Event Listener
 let textInput = document.querySelector(`#textInput`)
+let charCount = document.querySelector(`#charCount`)
+
 let maxCount = textInput.maxLength
 let userInput
 let remainingChars
-let charCount = document.querySelector(`#charCount`)
+
 charCount.textContent = `Character Count: ${maxCount}/${maxCount}`
 
 
@@ -42,6 +44,8 @@ const strCount = () => {
 
     if (remainingChars <= 10)
         textInput.classList.add(`bg-red`)
+    else
+        textInput.classList.remove(`bg-red`)
 
 }
 
