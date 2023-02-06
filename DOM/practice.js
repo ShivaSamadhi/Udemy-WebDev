@@ -42,12 +42,13 @@ const strCount = (e) => {
     charCount.textContent = `${remainingChars}/${maxCount}`
 
     if (remainingChars <= 10){
-        textInput.classList.remove(`bg-yellow`)
+        textInput.classList.toggle(`bg-yellow`)
         textInput.classList.add(`bg-red`)
     }
     else
         textInput.classList.remove(`bg-red`)
 
 }
+
 
 textInput.addEventListener(`input`, strCount)
