@@ -1,6 +1,6 @@
 "use strict"
 
-const userNum = document.querySelector(`#subBtn1`)
+const userNum = document.querySelector(`#userNum`)
 const forLoopDiv = document.querySelector(`#forLoops`)
 
 
@@ -13,7 +13,7 @@ const addingLoop = () => {
 
   let count = 0
 
-  const numInput = document.querySelector(`#userNum`).value;
+  const numInput = userNum.value;
 
   const sumElement = document.createElement(`h6`)
   sumElement.id = `sumElement`
@@ -27,4 +27,4 @@ const addingLoop = () => {
 
   forLoopDiv.append(sumElement)
 }
-submitBtn.addEventListener(`click`, addingLoop)
+userNum.addEventListener(`input`, addingLoop)
