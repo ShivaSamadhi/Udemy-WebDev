@@ -27,9 +27,22 @@ console.log(para2Class)
 
 //Input Event Listener
 let textInput = document.querySelector(`#textInput`)
-console.log(textInput.maxLength)
+let maxCount = textInput.maxLength
+let userInput
+let remainingChars
+let charCount = document.querySelector(`#charCount`)
+charCount.textContent = `Character Count: ${maxCount}/${maxCount}`
+
 
 const strCount = () => {
+    userInput = textInput.value.length;
+    remainingChars = maxCount - userInput
+
+    charCount.textContent = `Character Count: ${remainingChars}/${maxCount}`
+
+    if (remainingChars <= 10)
+        textInput.classList.add(`bg-red`)
 
 }
-textInput.addEventListener(`keydown`, ()=>{})
+
+textInput.addEventListener(`keydown`, strCount)
