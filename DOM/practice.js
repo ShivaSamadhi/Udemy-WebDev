@@ -31,14 +31,14 @@ let charCount = document.querySelector(`#charCount`)
 
 let maxCount = textInput.maxLength
 
-charCount.textContent = `Character Count: ${maxCount}/${maxCount}`
+charCount.textContent = `${maxCount}/${maxCount}`
 
 
 const strCount = (e) => {
     let userInput = e.target.value.length;
     let remainingChars = maxCount - userInput
 
-    charCount.textContent = `Character Count: ${remainingChars}/${maxCount}`
+    charCount.textContent = `${remainingChars}/${maxCount}`
 
     if (remainingChars <= 10)
         textInput.classList.add(`bg-red`)
