@@ -1,6 +1,11 @@
 .bg-red{
    background: rgba(214, 69, 65);
 }
+
+.bg-yellow{
+   background: rgba(237, 233, 157);
+}
+
 span{
    margin: auto 1rem;
 }
