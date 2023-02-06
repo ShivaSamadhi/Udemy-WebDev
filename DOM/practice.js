@@ -1,7 +1,11 @@
 "use strict"
 
-let paragraph = document.querySelector(`p > a`);
+let paraLink = document.querySelector(`p > a`);
 
-console.log(paragraph)
+console.log(paraLink)
 
-paragraph.getAttribute(`href`)
+
+
+paraLink.setAttribute(`href`, `https://www.youtube.com`)
+
+console.log(paraLink.getAttribute(`href`))
