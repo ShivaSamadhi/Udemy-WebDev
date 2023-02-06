@@ -20,4 +20,7 @@ console.log(bodyElem)
 
 let para2 = document.querySelector(`p:nth-of-type(2)`)
 console.log(para2)
-
+para2.setAttribute(`class`, `para2`)
+para2.textContent = `Hello`
+let para2Class = para2.getAttribute(`class`)
+console.log(para2Class)
