@@ -30,15 +30,13 @@ let textInput = document.querySelector(`#textInput`)
 let charCount = document.querySelector(`#charCount`)
 
 let maxCount = textInput.maxLength
-let userInput = textInput.value.length
-let remainingChars = maxCount - userInput
 
-charCount.textContent = `Character Count: ${remainingChars}/${maxCount}`
+charCount.textContent = `Character Count: ${maxCount}/${maxCount}`
 
 
-const strCount = () => {
-    userInput = textInput.value.length;
-    remainingChars = maxCount - userInput
+const strCount = (e) => {
+    let userInput = e.target.value.length;
+    let remainingChars = maxCount - userInput
 
     charCount.textContent = `Character Count: ${remainingChars}/${maxCount}`
 
