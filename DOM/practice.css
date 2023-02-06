@@ -1,3 +1,6 @@
 .bg-red{
    background: rgba(214, 69, 65);
 }
+form{
+   display: flex;
+}
