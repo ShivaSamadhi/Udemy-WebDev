@@ -1,5 +1,5 @@
-module.exports.getDate = () => {
-    let today = new Date();
+exports.getDate = () => {
+    const today = new Date();
 
     const dateOptions = {
         weekday: `long`,
@@ -10,8 +10,8 @@ module.exports.getDate = () => {
     return today.toLocaleDateString(`en-US`, dateOptions)
 }
 
-module.exports.getDay = () => {
-    let today = new Date();
+exports.getDay = () => {
+    const today = new Date();
 
     const dateOptions = {
         weekday: `long`,

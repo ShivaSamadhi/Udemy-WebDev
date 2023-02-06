@@ -8,8 +8,8 @@ const {getDate, getDay} = require(`${__dirname}/date.js`)
 
 
 //Global Variables
-let todoItems = []
-let workItems = []
+const todoItems = []
+const workItems = []
 let changeList = ``
 
 //Express App
