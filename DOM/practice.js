@@ -30,10 +30,10 @@ let textInput = document.querySelector(`#textInput`)
 let charCount = document.querySelector(`#charCount`)
 
 let maxCount = textInput.maxLength
-let userInput
-let remainingChars
+let userInput = textInput.value.length
+let remainingChars = maxCount - userInput
 
-charCount.textContent = `Character Count: ${maxCount}/${maxCount}`
+charCount.textContent = `Character Count: ${remainingChars}/${maxCount}`
 
 
 const strCount = () => {
@@ -49,4 +49,4 @@ const strCount = () => {
 
 }
 
-textInput.addEventListener(`keydown`, strCount)
+textInput.addEventListener(`input`, strCount)
