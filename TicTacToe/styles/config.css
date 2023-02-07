@@ -1,7 +1,22 @@
 .config h2{
     margin: .5rem 0;
+    font-weight: bold;
+
 }
+.config
 
 .playerNameDiv{
     margin-bottom: 1rem;
+}
+
+.nameInput{
+    border: none;
+    width: 30%;
+    text-align: center;
+    border-radius: .25rem;
+}
+
+.gameConfig{
+    width: 90%;
+    max-width: 40rem;
 }
