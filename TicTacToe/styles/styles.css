@@ -14,3 +14,7 @@
 .btn{
     background-color: #7446f6;
 }
+
+.btn:hover{
+    background-color: #5614bc;
+}
