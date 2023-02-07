@@ -1,4 +1,5 @@
 const  openPlayerConfig = (e) => {
+    editPlayerID = +e.target.dataset.playerID
     configOverlay.style.display = `block`
     configBackdrop.style.display = `block`
 }
@@ -20,4 +21,6 @@ const savePlayerConfig = (e) => {
         configErr.textContent = `Invalid Player Name. Try Again!`
         return;
     }
+
+    const updatePlayerData = document.querySelector(`#p${editPlayerID}Data`)
 }

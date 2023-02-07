@@ -1,3 +1,6 @@
+//Globals
+let editPlayerID = 0
+
 //DOM Selectors
 const configOverlay = document.querySelector(`#overlay`)
 const configBackdrop = document.querySelector(`#backdrop`)
