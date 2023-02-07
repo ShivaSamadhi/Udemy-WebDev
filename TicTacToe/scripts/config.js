@@ -7,3 +7,8 @@ const closePlayerConfig = () => {
     configOverlay.style.display = `none`
     configBackdrop.style.display = `none`
 }
+
+const savePlayerConfig = (e) => {
+    e.preventDefault()
+
+}
