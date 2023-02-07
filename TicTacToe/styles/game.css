@@ -1,0 +1,35 @@
+.gameField{
+    margin: 2rem 0 4rem 0;
+    /*display: none;*/
+}
+
+.gameField article{
+    width: 90%;
+    max-width: 40rem;
+    margin: auto;
+    padding: 1rem 2rem;
+    background-color: #513ab2;
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    border-radius: 6px;
+    display: none;
+}
+
+.gameField h3{
+    font-size: 2.5rem;
+    margin: .5rem 0;
+}
+
+.gameField p{
+    font-size: 1.25rem;
+}
+
+.activePlayerName{
+    font-weight: bold;
+    color: #7446f6;
+}
+
+.gameBoard{
+    list-style: none;
+    margin: 1rem 0;
+}

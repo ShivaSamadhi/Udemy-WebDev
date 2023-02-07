@@ -24,18 +24,22 @@
 
 .gameConfig h2{
     font-size: 1rem;
+    margin: .5rem 0;
     color: #ffffff;
     font-weight: bold;
 }
 
 .gameConfig h3{
     font-size: 1.5rem;
+    margin: .5rem 0;
     color: #7446f6;
 }
 
 .gameConfig p {
-    color: #7446f6;
-    font-size: 1.25rem;
+    color: white;
+    font-size: 2rem;
+    margin: .5rem 0;
+    font-weight: bold;
 }
 
 .listStyle{
@@ -50,4 +54,5 @@
     width: 50%;
     background-color: #cbb6f4;
     border-radius: .5rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
 }

@@ -21,10 +21,12 @@
 <!--Custom Styles-->
     <link rel="stylesheet" href="styles/overlays.css">
     <link rel="stylesheet" href="styles/config.css">
+    <link rel="stylesheet" href="styles/game.css">
     <link rel="stylesheet" href="styles/styles.css">
-
 <!--Custom Styles-->
+
 </head>
+
 <body class="body">
 <!--Header-->
     <header id="mainHeader" class="mainHeader text-center">
@@ -39,6 +41,8 @@
 
 <!--Game Board-->
     <main>
+
+<!--Modal-->
         <div class="backdrop"></div>
         <aside class="overlay config text-center">
             <h2>
@@ -61,7 +65,9 @@
                 </div>
             </form>
         </aside>
+<!--Modal-->
 
+<!--Game Config-->
         <section id="gameConfig" class="gameConfig text-center">
             <ol class="d-flex listStyle">
                 <li class="">
@@ -98,8 +104,10 @@
                 </li>
             </ol>
         </section>
+<!--Game Config-->
 
-        <section id="gameField">
+<!--Game Field-->
+        <section id="gameField" class="gameField text-center">
             <article>
                 <h3>
                     You Won <span id="winnerName">
@@ -113,12 +121,12 @@
             
             <p>
                 Its Your Turn:
-                <span id="activePlayerName">
+                <span id="activePlayerName" class="activePlayerName">
                     PlayerName
                 </span>
             </p>
 
-            <ol>
+            <ol id="gameBoard" class="gameBoard">
                 <li></li>
                 <li></li>
                 <li></li>
@@ -132,6 +140,7 @@
                 <li></li>
             </ol>
         </section>
+<!--Game Field-->
 
     </main>
 <!--Game Board-->
