@@ -3,10 +3,19 @@
     font-weight: bold;
 
 }
-.config
 
 .playerNameDiv{
     margin-bottom: 1rem;
+}
+
+.configErr label{
+    color: #FF0000FF;
+}
+
+.configErr input{
+    border-color: #FF0000FF;
+    color: #FF0000FF;
+    background-color: #f8a7a7;
 }
 
 .nameInput{

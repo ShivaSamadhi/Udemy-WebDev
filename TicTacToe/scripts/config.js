@@ -6,6 +6,8 @@ const  openPlayerConfig = (e) => {
 const closePlayerConfig = () => {
     configOverlay.style.display = `none`
     configBackdrop.style.display = `none`
+    playerNameDiv.classList.remove(`configErr`)
+    configErr.textContent = ``
 }
 
 const savePlayerConfig = (e) => {
@@ -14,7 +16,8 @@ const savePlayerConfig = (e) => {
     const enteredPlayerName = formData.get(`playerName`).trim()
 
     if (!enteredPlayerName){
-       configErr.textContent = `Invalid Player Name. Try Again!`
+        playerNameDiv.classList.add(`configErr`)
+        configErr.textContent = `Invalid Player Name. Try Again!`
         return;
     }
 }
