@@ -44,3 +44,10 @@
     padding: 0;
     justify-content: space-evenly;
 }
+.listStyle li{
+    margin: 1rem;
+    padding: 1rem;
+    width: 50%;
+    background-color: #cbb6f4;
+    border-radius: .5rem;
+}

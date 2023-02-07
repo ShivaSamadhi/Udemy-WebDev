@@ -2,11 +2,15 @@
     margin: 0;
     font-family: 'Roboto', sans-serif;
     color: #393E46;
-    background-color: #cbb6f4;
+    background-color: #e3d9f6;
 }
 
 .mainHeader{
     background-color: #7446f6;
     color: #ffffff;
     padding: 2rem 5%;
+}
+
+.btn{
+    background-color: #7446f6;
 }
