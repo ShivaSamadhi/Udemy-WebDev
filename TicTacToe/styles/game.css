@@ -32,4 +32,15 @@
 .gameBoard{
     list-style: none;
     margin: 1rem 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 6rem);
+    grid-template-rows: repeat(3, 6rem);
+    justify-content: center;
+    gap: .75rem;
+
+}
+
+.gameBoard li{
+    background-color: #7446f6;
 }
