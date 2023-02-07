@@ -2,6 +2,9 @@
 const configOverlay = document.querySelector(`#overlay`)
 const configBackdrop = document.querySelector(`#backdrop`)
 const configForm = document.querySelector(`#configForm`)
+const
+const configErr = document.querySelector(`#configErr`)
+
 
 const cancelBtn = document.querySelector(`#cancelBtn`)
 const confirmBtn = document.querySelector(`#confirmBtn`)

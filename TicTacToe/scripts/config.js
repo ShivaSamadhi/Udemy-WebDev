@@ -10,5 +10,11 @@ const closePlayerConfig = () => {
 
 const savePlayerConfig = (e) => {
     e.preventDefault()
+    const formData = new FormData(e.target)
+    const enteredPlayerName = formData.get(`playerName`).trim()
 
+    if (!enteredPlayerName){
+       configErr.textContent = `Invalid Player Name. Try Again!`
+        return;
+    }
 }
