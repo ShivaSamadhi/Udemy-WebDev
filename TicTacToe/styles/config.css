@@ -19,4 +19,21 @@
 .gameConfig{
     width: 90%;
     max-width: 40rem;
+    margin: 3rem auto;
+}
+
+.gameConfig h2{
+    font-size: 1rem;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.gameConfig h3{
+    font-size: 1.5rem;
+    color: #7446f6;
+}
+
+.gameConfig p {
+    color: #7446f6;
+    font-size: 1.25rem;
 }
