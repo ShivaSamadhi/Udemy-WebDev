@@ -1,0 +1,17 @@
+Configure Player Names
+-Input form, modal overlay
+-Input Validation/Feedback
+
+(Re)Start Game
+-Start Game button to clear game board or Game Over message
+
+Turn-based Gameplay
+-Turns switch automatically
+-Each player has their own symbol
+
+Select Field & Winner Check
+-Players can select clickable fields to make a move
+-Check for Winner or Draw after every turn
+
+Game Over
+-Present game over message upon Win or Draw when game is over
