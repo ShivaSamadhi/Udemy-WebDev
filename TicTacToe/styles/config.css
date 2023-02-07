@@ -1,3 +1,7 @@
 .config h2{
     margin: .5rem 0;
 }
+
+.playerNameDiv{
+    margin-bottom: 1rem;
+}
