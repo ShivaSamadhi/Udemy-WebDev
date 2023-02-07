@@ -1,5 +1,5 @@
 const  openPlayerConfig = (e) => {
-    editPlayerID = +e.target.dataset.playerID
+    editPlayerID = +e.target.dataset.playerid
     configOverlay.style.display = `block`
     configBackdrop.style.display = `block`
 }
@@ -23,4 +23,5 @@ const savePlayerConfig = (e) => {
     }
 
     const updatePlayerData = document.querySelector(`#p${editPlayerID}Data`)
+    updatePlayerData.textContent = enteredPlayerName
 }
