@@ -9,6 +9,7 @@ const closePlayerConfig = () => {
     configBackdrop.style.display = `none`
     playerNameDiv.classList.remove(`configErr`)
     configErr.textContent = ``
+    playerName.value = ``
 }
 
 const savePlayerConfig = (e) => {
@@ -26,4 +27,6 @@ const savePlayerConfig = (e) => {
     updatePlayerData.textContent = enteredPlayerName
 
     players[editPlayerID-1].name = enteredPlayerName
+
+    closePlayerConfig()
 }

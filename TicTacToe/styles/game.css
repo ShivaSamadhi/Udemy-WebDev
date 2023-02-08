@@ -1,6 +1,6 @@
 .gameField{
     margin: 2rem 0 5.5rem 0;
-    /*display: none;*/
+    display: none;
 }
 
 .gameField article{
