@@ -11,6 +11,7 @@ const startGame = () => {
   if(players[0].name === `` || players[1].name === ``)
       return alert(`Enter Valid Names For Both Players`)
 
+  // activePlayer.style.display = `block`
   activePlayerName.textContent = players[0].name
 
   gameField.style.display = `block`;
@@ -69,8 +70,6 @@ const checkWinner = (playerName, playerArr) => {
         winnerName.textContent = `${playerName}`
         activePlayer.style.display = `none`
 
-        p1.capturedSpaces = []
-        p2.capturedSpaces = []
 
     }
     else
@@ -78,18 +77,18 @@ const checkWinner = (playerName, playerArr) => {
 }
 
 const gameOver = () => {
-    const allCapturesSpaces = p1CapturedSpaces.concat(p2CapturedSpaces)
+    let allCapturesSpaces = p1CapturedSpaces.concat(p2CapturedSpaces)
 
     if (compareArr(allCapturesSpaces, gameOverArr)){
         gameFieldArticle.style.display = `block`
         winner.textContent = `Issa Draw!`
         activePlayer.style.display = `none`
 
-        p1.capturedSpaces = []
-        p2.capturedSpaces = []
 
         for (const btn of gameBoardBtns) {
             btn.removeEventListener(`click`, addPlayerSymbol)
         }
     }
+
+
 }
