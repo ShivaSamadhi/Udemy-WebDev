@@ -3,7 +3,7 @@
     display: none;
 }
 
-.gameField article{
+.gameFieldArticle{
     width: 90%;
     max-width: 40rem;
     margin: auto;

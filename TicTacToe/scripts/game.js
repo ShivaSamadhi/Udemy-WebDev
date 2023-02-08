@@ -16,22 +16,56 @@ const startGame = () => {
 
 const addPlayerSymbol = (e) => {
     let eTarget = e.target
-    console.log(eTarget)
+
     switch (activePlayerName.textContent) {
-        case `${players[0].name}`:
+        case `${p1.name}`:
+
             eTarget.textContent = `${players[0].symbol}`
             eTarget.classList.add(`disabled`)
+
+            p1CapturedSpaces.push(+eTarget.id)
+            checkWinner(p1.name, p1CapturedSpaces)
+
             activePlayerName.textContent = players[1].name
             break;
 
-        case `${players[1].name}`:
+        case `${p2.name}`:
+
             eTarget.textContent = `${players[1].symbol}`
             eTarget.classList.add(`disabled`)
+
+            p2CapturedSpaces.push(+eTarget.id)
+            checkWinner(p2.name, p2CapturedSpaces)
+
             activePlayerName.textContent = players[0].name
             break;
 
         default:
             break;
     }
+
+}
+
+const compareArr = (playerArr, winConditionArr) => {
+  return winConditionArr.every(num => {
+      return playerArr.includes(num)
+  })
+}
+
+const checkWinner = (playerName, playerArr) => {
+    if (compareArr(playerArr, winConditions.win1) ||
+        compareArr(playerArr, winConditions.win2) ||
+        compareArr(playerArr, winConditions.win3) ||
+        compareArr(playerArr, winConditions.win4) ||
+        compareArr(playerArr, winConditions.win5) ||
+        compareArr(playerArr, winConditions.win6) ||
+        compareArr(playerArr, winConditions.win7) ||
+        compareArr(playerArr, winConditions.win8)){
+
+        winner.style.display = `block`
+        winnerName.textContent = `${playerName}`
+        activePlayer.style.display = `none`
+    }
+
 
 }
