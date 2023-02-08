@@ -1,5 +1,7 @@
 const startGame = () => {
 
+    gameFieldArticle.style.display = `none`
+
     for (const btn of gameBoardBtns) {
         btn.classList.remove(`disabled`)
         btn.textContent = ``
@@ -62,7 +64,7 @@ const checkWinner = (playerName, playerArr) => {
         compareArr(playerArr, winConditions.win7) ||
         compareArr(playerArr, winConditions.win8)){
 
-        winner.style.display = `block`
+        gameFieldArticle.style.display = `block`
         winnerName.textContent = `${playerName}`
         activePlayer.style.display = `none`
     }
