@@ -29,6 +29,9 @@ const addPlayerSymbol = (e) => {
             eTarget.classList.add(`disabled`)
             activePlayerName.textContent = players[0].name
             break;
+
+        default:
+            break;
     }
 
 }
