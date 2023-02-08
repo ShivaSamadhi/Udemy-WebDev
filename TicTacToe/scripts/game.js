@@ -1,4 +1,6 @@
 const startGame = () => {
+    p1.capturedSpaces = []
+    p2.capturedSpaces = []
 
     for (const btn of gameBoardBtns) {
         btn.classList.remove(`disabled`)
@@ -67,9 +69,9 @@ const checkWinner = (playerName, playerArr) => {
         winnerName.textContent = `${playerName}`
         activePlayer.style.display = `none`
 
-        for (const btn of gameBoardBtns) {
-            btn.removeEventListener(`click`, addPlayerSymbol)
-        }
+        p1.capturedSpaces = []
+        p2.capturedSpaces = []
+
     }
     else
         gameOver()
@@ -82,6 +84,9 @@ const gameOver = () => {
         gameFieldArticle.style.display = `block`
         winner.textContent = `Issa Draw!`
         activePlayer.style.display = `none`
+
+        p1.capturedSpaces = []
+        p2.capturedSpaces = []
 
         for (const btn of gameBoardBtns) {
             btn.removeEventListener(`click`, addPlayerSymbol)
