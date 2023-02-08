@@ -31,6 +31,8 @@ const winConditions = {
     win8: [3,5,7]
 }
 
+const gameOverArr = [1,2,3,4,5,6,7,8,9]
+
 //DOM Selectors
 const configOverlay = document.querySelector(`#overlay`)
 const configBackdrop = document.querySelector(`#backdrop`)
@@ -40,6 +42,7 @@ const configErr = document.querySelector(`#configErr`)
 const playerName = document.querySelector(`#playerName`)
 const gameField = document.querySelector(`#gameField`)
 const gameFieldArticle = document.querySelector(`#gameFieldArticle`)
+const winner = document.querySelector(`#winner`)
 const winnerName = document.querySelector(`#winnerName`)
 let activePlayer = document.querySelector(`#activePlayer`)
 let activePlayerName = document.querySelector(`#activePlayerName`)
