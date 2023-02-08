@@ -1,6 +1,17 @@
 //Globals
 let editPlayerID = 0
 
+const players = [
+    {
+        name: ``,
+        symbol: `X`
+    },
+    {
+        name: ``,
+        symbol: `O`
+    }
+]
+
 //DOM Selectors
 const configOverlay = document.querySelector(`#overlay`)
 const configBackdrop = document.querySelector(`#backdrop`)

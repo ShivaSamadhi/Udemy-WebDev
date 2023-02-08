@@ -24,4 +24,6 @@ const savePlayerConfig = (e) => {
 
     const updatePlayerData = document.querySelector(`#p${editPlayerID}Data`)
     updatePlayerData.textContent = enteredPlayerName
+
+    players[editPlayerID-1].name = enteredPlayerName
 }
