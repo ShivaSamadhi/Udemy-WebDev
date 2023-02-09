@@ -31,8 +31,19 @@ app.post(`/stored-user`, (req, res)=>{
     const {enteredName} = request
     console.log(enteredName)
 
+    //Construct absolute file path
     const filePath = path.join(__dirname,`data`,`users.json`)
-    fs.writeFileSync(filePath, )
+
+    //Read file data stored at absolute path as raw text
+    const fileData = fs.readFileSync(filePath)
+    //Parse file data into JSON format
+    const existingUsers = JSON.parse(fileData)
+    //Push entered name into array stored in file
+    existingUsers.push(enteredName)
+    //Convert JSON back to raw text
+    const newUserAdded = JSON.stringify(existingUsers)
+    //Write raw data into file
+    fs.writeFileSync(filePath, newUserAdded)
 
     res.send(`
         <h1> Success! ${enteredName} was added </h1>
