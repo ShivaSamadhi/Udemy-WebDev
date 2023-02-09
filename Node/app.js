@@ -7,7 +7,10 @@
 const express = require(`express`)
 const https = require(`https`)
 const bodyParser = require(`body-parser`)
+
 const app = express()
+
+app.use(bodyParser.urlencoded({extended: true}))
 
 app.get(`/currenttime`, (req, res) => {
     res.send(`
@@ -19,7 +22,15 @@ app.get(`/`, (req, res)=>{
     res.sendFile(`${__dirname}/index.html`)
 })
 
-app.
+app.post(`/stored-user`, (req, res)=>{
+    const request = req.body
+    const {enteredName} = request
+    console.log(enteredName)
+    res.send(`
+        <h1> Success! </h1>
+    `)
+
+})
 
 
 
