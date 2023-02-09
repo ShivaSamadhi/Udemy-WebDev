@@ -1,6 +1,11 @@
 const https = require(`https`)
 
-const server = https.createServer()
+const requestHandler = (req, res) => {
+    res.statusCode = 200
+    res.end(`<h1>Hello World</h1>`)
+}
+
+const server = https.createServer(requestHandler)
 
 
 
@@ -25,4 +30,4 @@ const server = https.createServer()
 
 
 
-server.listen(8080)
+server.listen(3000)
