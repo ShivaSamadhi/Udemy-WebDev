@@ -1,15 +1,30 @@
+//1.CD into directory then npm init through terminal
+//2.Install express via terminal
+//3.Require it in app.jss
+//4.Call the express function and store it in const app
+//5.Set up port listener, move to bottom of file
+
+const express = require(`express`)
 const https = require(`https`)
 
-const requestHandler = (request, response) => {
-    response.statusCode = 200
-    response.end(`<h1>Hello World</h1>`)
-}
+const app = express()
 
-const server = https.createServer(requestHandler)
+app.get(`/`)
 
 
 
 
 
 
-server.listen(3000)
+
+
+
+
+
+
+
+
+
+app.listen(8080, () => {
+    console.log("Server Started: Port 8080")}
+)
