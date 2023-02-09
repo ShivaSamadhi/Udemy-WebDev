@@ -9,7 +9,11 @@ const https = require(`https`)
 
 const app = express()
 
-app.get(`/`)
+app.get(`/currenttime`, (req, res) => {
+    res.send(`
+        <h1> ${new Date().toISOString()} </h1>
+    `)
+})
 
 
 
