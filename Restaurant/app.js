@@ -27,9 +27,9 @@ app.get(`/recommendations`, (req, res)=>{
 })
 app.post(`/recommendations`, (req, res)=>{
     const restaurant = req.body
+
     //Construct absolute file path
     const filePath = `${__dirname}/data/restaurants.json`
-
     //Read file data stored at absolute path as raw text
     const fileData = fs.readFileSync(filePath)
     //Parse file data into JSON format
@@ -40,6 +40,8 @@ app.post(`/recommendations`, (req, res)=>{
     const newRestaurantAdded = JSON.stringify(storedRestaurants)
     //Write raw data into file
     fs.writeFileSync(filePath, newRestaurantAdded)
+
+    res.redirect(`/confirm`)
 })
 app.get(`/confirm`, (req, res)=>{
     res.sendFile(`${__dirname}/views/confirm.html`)
