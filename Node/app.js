@@ -51,7 +51,15 @@ app.post(`/stored-user`, (req, res)=>{
 
 })
 
+app.get(`/users`, ()=>{
+    //Construct absolute file path
+    const filePath = path.join(__dirname,`data`,`users.json`)
 
+    //Read file data stored at absolute path as raw text
+    const fileData = fs.readFileSync(filePath)
+    //Parse file data into JSON format
+    const existingUsers = JSON.parse(fileData)
+})
 
 
 
