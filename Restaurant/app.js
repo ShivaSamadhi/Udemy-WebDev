@@ -6,10 +6,14 @@ const app = express();
 
 app.set(`view engine`, `ejs`)
 
+app.use(express.static('frontend'))
 
 
-app.use(express.static('public'))
-
+app.get(`/`, (req, res)=>{
+    res.send(`
+    <h1>Hello World</h1>
+    `)
+})
 
 app.listen(8080, () => {
     console.log("Server Started: Port 8080")
