@@ -51,7 +51,7 @@ app.post(`/stored-user`, (req, res)=>{
 
 })
 
-app.get(`/users`, ()=>{
+app.get(`/users`, (req, res)=>{
     //Construct absolute file path
     const filePath = path.join(__dirname,`data`,`users.json`)
 
@@ -59,6 +59,16 @@ app.get(`/users`, ()=>{
     const fileData = fs.readFileSync(filePath)
     //Parse file data into JSON format
     const existingUsers = JSON.parse(fileData)
+
+    let responseData = `<ul>`
+
+    for (const user of existingUsers) {
+        responseData += `<li>${user}</li>`
+    }
+
+    responseData += `</ul>`
+
+    res.send(responseData)
 })
 
 
