@@ -4,27 +4,29 @@ const bodyParser = require(`body-parser`);
 const fs = require("fs");
 
 const app = express();
+app.use(bodyParser.urlencoded({extended: true}))
 
+//EJS View Engine
 app.set(`views`, `${__dirname}/views`)
 app.set(`view engine`, `ejs`)
 
-app.use(express.static('public'))
-app.use(bodyParser.urlencoded({extended: true}))
+
 
 app.get(`/`, (req, res)=>{
+    //Instead of the .sendFile used previously, EJS allows us to utilize .render
     res.render(`index`)
 })
 
 app.get(`/restaurants`, (req, res)=>{
-res.sendFile(`${__dirname}/views/restaurants.html`)
+    res.render(`restaurants`)
 })
 
 app.get(`/aboutus`, (req, res)=>{
-    res.sendFile(`${__dirname}/views/about.html`)
+    res.render(`about`)
 })
 
 app.get(`/recommendations`, (req, res)=>{
-    res.sendFile(`${__dirname}/views/recommend.html`)
+    res.render(`index`)
 })
 app.post(`/recommendations`, (req, res)=>{
     const restaurant = req.body
