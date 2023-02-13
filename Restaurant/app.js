@@ -1,7 +1,9 @@
+const fs = require("fs");
 const express = require(`express`);
 const https = require('https');
 const bodyParser = require(`body-parser`);
-const fs = require("fs");
+const ejs = require(`ejs`)
+
 
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}))
@@ -10,15 +12,21 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.set(`views`, `${__dirname}/views`)
 app.set(`view engine`, `ejs`)
 
-
-
 app.get(`/`, (req, res)=>{
-    //Instead of the .sendFile used previously, EJS allows us to utilize .render
+    //Instead of the .sendFile used previously, EJS allows us to utilize .render which will parse an EJS template and render it as standard html
     res.render(`index`)
 })
 
 app.get(`/restaurants`, (req, res)=>{
-    res.render(`restaurants`)
+    //Construct absolute file path
+    const filePath = `${__dirname}/data/restaurants.json`
+    //Read file data stored at absolute path as raw text
+    const fileData = fs.readFileSync(filePath)
+    //Parse file data into JSON format
+    const storedRestaurants = JSON.parse(fileData)
+    const totalRestaurants = storedRestaurants.length
+
+    res.render(`restaurants`, { totalRestaurants: totalRestaurants })
 })
 
 app.get(`/aboutus`, (req, res)=>{
@@ -26,7 +34,7 @@ app.get(`/aboutus`, (req, res)=>{
 })
 
 app.get(`/recommendations`, (req, res)=>{
-    res.render(`index`)
+    res.render(`recommend`)
 })
 app.post(`/recommendations`, (req, res)=>{
     const restaurant = req.body
@@ -46,8 +54,9 @@ app.post(`/recommendations`, (req, res)=>{
 
     res.redirect(`/confirm`)
 })
+
 app.get(`/confirm`, (req, res)=>{
-    res.sendFile(`${__dirname}/views/confirm.html`)
+    res.render(`confirm`)
 })
 
 app.listen(8080, () => {
