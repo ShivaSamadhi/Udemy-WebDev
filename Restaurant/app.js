@@ -27,7 +27,7 @@ app.get(`/restaurants`, (req, res)=>{
     const storedRestaurants = JSON.parse(fileData)
     const totalRestaurants = storedRestaurants.length
 
-    res.render(`restaurants`, { totalRestaurants: totalRestaurants })
+    res.render(`restaurants`, { totalRestaurants: totalRestaurants, storedRestaurants: storedRestaurants })
 })
 
 app.get(`/aboutus`, (req, res)=>{
