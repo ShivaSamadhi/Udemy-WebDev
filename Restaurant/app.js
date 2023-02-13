@@ -5,13 +5,14 @@ const fs = require("fs");
 
 const app = express();
 
+app.set(`views`, `${__dirname}/views`)
 app.set(`view engine`, `ejs`)
 
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({extended: true}))
 
 app.get(`/`, (req, res)=>{
-    res.sendFile(`${__dirname}/views/index.html`)
+    res.render(`index`)
 })
 
 app.get(`/restaurants`, (req, res)=>{
