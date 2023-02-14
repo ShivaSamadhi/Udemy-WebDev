@@ -9,7 +9,11 @@
             <li class="singlePost">
                 <article>
                     <h3><%= post.postTitle%></h3>
-                    <p><%= post.postBody %></p>
+                    <% if (post.postBody.length > 100){%>
+                        <p><%= post.postBody.substring(0,100) %> ...</p>
+                    <%} else {%>
+                        <p><%= post.postBody %></p>
+                    <%}%>
                 </article>
             </li>
         <%}%>

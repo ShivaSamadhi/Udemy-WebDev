@@ -52,7 +52,7 @@ app.get(`/posts/:postName`, (req, res)=>{
   savedPosts.forEach(post =>{
     const postTitle = _.lowerCase(post.postTitle)
     if ( postTitle === postParam)
-      console.log(`Match Found`)
+      res.render(`post`, {postTitle: post.postTitle, postBody: post.postBody})
   })
 })
 
