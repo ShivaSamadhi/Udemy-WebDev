@@ -51,6 +51,7 @@ app.get(`/posts/:postName`, (req, res)=>{
 
   savedPosts.forEach(post =>{
     const postTitle = _.lowerCase(post.postTitle)
+
     if ( postTitle === postParam)
       res.render(`post`, {postTitle: post.postTitle, postBody: post.postBody})
   })
