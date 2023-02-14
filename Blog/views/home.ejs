@@ -1,5 +1,18 @@
 
     <%- include(`partials/header`)%>
-    <h1>Hello World</h1>
-    <p><%= homeStartingContent %></p>
+    <h1>Home</h1>
+    <% if (totalPosts === 0) {%>
+        <p><%= homeStartingContent %></p>
+    <%} else {%>
+        <ul id="postList" class="postList">
+            <% for(post of savedPosts) {%>
+                <li class="singlePost">
+                    <article>
+                        <h3><%= post.postTitle%></h3>
+                        <p><%= post.postBody %></p>
+                    </article>
+                </li>
+            <%}%>
+        </ul>
+    <%}%>
     <%- include(`partials/footer`)%>

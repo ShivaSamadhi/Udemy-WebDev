@@ -18,7 +18,16 @@ app.use(express.static("public"));
 
 
 app.get(`/`, (req, res)=>{
-  res.render(`home`, { homeStartingContent: homeStartingContent})
+  const filePath = `${__dirname}/data/blog-posts.json`
+
+  const fileData = fs.readFileSync(filePath)
+
+  const savedPosts = JSON.parse(fileData)
+
+  const totalPosts = savedPosts.length
+
+  res.render(`home`, { homeStartingContent: homeStartingContent, savedPosts: savedPosts,
+  totalPosts: totalPosts})
 })
 
 app.get(`/about`, (req, res)=>{

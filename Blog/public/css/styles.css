@@ -55,3 +55,7 @@
     border-top-left-radius: 2rem;
     border-bottom-left-radius: 2rem;
 }
+
+.postList{
+    list-style: none;
+}
