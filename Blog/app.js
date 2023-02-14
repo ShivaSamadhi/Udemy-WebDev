@@ -45,8 +45,10 @@ app.get(`/posts/:postName`, (req, res)=>{
 
   const savedPosts = JSON.parse(fileData)
 
+  const postParam = req.params.postName
+
   savedPosts.forEach(post =>{
-    if (post.postTitle === req.params.postName)
+    if (post.postTitle === postParam)
       console.log(`Match Found`)
   })
 })
