@@ -1,8 +1,16 @@
 
     <%- include(`partials/header`)%>
     <h1>Compose</h1>
-    <form action="/compose" method="post" class="text-center input-group">
-        <textarea name="blogPost" id="blogPost" cols="60" rows="10" placeholder="Speak Your Mind, Free Your Heart..."></textarea>
-        <button class="btn composeBtn " type="submit">Publish</button>
+    <form action="/compose" method="post" class="">
+        <div class="container input-group inputDiv">
+            <label class="form-label" for="postTitle">Title</label>
+            <input class="form-control inputStyle" type="text" name="postTitle" id="postTitle" required>
+        </div>
+
+        <div class="container input-group inputDiv">
+            <label class="form-label" for="postBody">Post</label>
+            <textarea class="form-control inputStyle" name="postBody" id="postBody" cols="60" rows="10" placeholder="Speak Your Mind, Free Your Heart..." required></textarea>
+        </div>
+        <button class="btn composeBtn" type="submit">Publish</button>
     </form>
     <%- include(`partials/footer`)%>

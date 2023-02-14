@@ -34,7 +34,21 @@ app.get(`/compose`, (req, res)=>{
 })
 
 app.post(`/compose`,(req, res)=>{
+  const blogPost = req.body
 
+  const filePath = `${__dirname}/data/blog-posts.json`
+
+  const fileData = fs.readFileSync(filePath)
+
+  const savedPosts = JSON.parse(fileData)
+
+  savedPosts.push(blogPost)
+
+  const newPostSaved = JSON.stringify(savedPosts)
+
+  fs.writeFileSync(filePath, newPostSaved)
+
+  res.redirect(`/`)
 })
 
 

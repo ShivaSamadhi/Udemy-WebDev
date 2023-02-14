@@ -37,4 +37,21 @@
 .composeBtn{
     margin: 1rem auto;
     display: block;
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+}
+.composeBtn:hover{
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.inputDiv{
+    margin: 1.5rem auto
+}
+
+.inputStyle{
+    border: 1px solid #f1f1f1;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
 }
