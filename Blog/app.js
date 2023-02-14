@@ -1,5 +1,5 @@
-//jshint esversion:6
 
+const fs = require("fs");
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -10,6 +10,7 @@ const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rho
 
 const app = express();
 
+app.set(`views`, `${__dirname}/views`)
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
