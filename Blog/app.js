@@ -38,6 +38,19 @@ app.get(`/contact`, (req, res)=>{
   res.render(`contact`, { contactContent: contactContent})
 })
 
+app.get(`/posts/:postName`, (req, res)=>{
+  const filePath = `${__dirname}/data/blog-posts.json`
+
+  const fileData = fs.readFileSync(filePath)
+
+  const savedPosts = JSON.parse(fileData)
+
+  savedPosts.forEach(post =>{
+    if (post.postTitle === req.params.postName)
+      console.log(`Match Found`)
+  })
+})
+
 app.get(`/compose`, (req, res)=>{
   res.render(`compose`)
 })
