@@ -21,6 +21,9 @@ app.get(`/`, (req, res)=>{
   res.render(`home`, { homeStartingContent: homeStartingContent})
 })
 
+app.get(`/about`, (req, res)=>{
+  res.render(`about`, { aboutContent: aboutContent})
+})
 
 
 
