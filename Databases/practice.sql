@@ -48,4 +48,11 @@ SELECT user, host FROM mysql.user;
 
 # 3
 CREATE USER 'anne'@'localhost' IDENTIFIED BY 'password';
-GRANT ALL ON mysql.user TO 'anne'@'localhost'
+GRANT ALL ON mysql.user TO 'anne'@'localhost';
+
+# 4
+CREATE USER 'jean'@'localhost' IDENTIFIED BY 'password';
+Grant SELECT On *.* To 'jean'@'localhost';
+
+# 5
+Drop USER 'jean'@'localhost', 'anne'@'localhost', 'joe'@'localhost'
