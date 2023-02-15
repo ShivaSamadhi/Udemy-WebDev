@@ -42,14 +42,10 @@
 
 # mysql -p
 
-
-
-
-
-
-
-
-
-
+# 1-2
 CREATE USER 'joe'@'localhost' IDENTIFIED BY 'password';
 SELECT user, host FROM mysql.user;
+
+# 3
+CREATE USER 'anne'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL ON mysql.user TO 'anne'@'localhost'
