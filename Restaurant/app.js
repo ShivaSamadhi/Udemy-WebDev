@@ -1,6 +1,7 @@
 const fs = require("fs");
 const express = require(`express`);
 const bodyParser = require(`body-parser`);
+const _ = require(`lodash`)
 const ejs = require(`ejs`)
 
 
