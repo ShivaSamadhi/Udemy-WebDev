@@ -30,9 +30,28 @@ app.get(`/restaurants`, (req, res)=>{
     res.render(`restaurants`, { totalRestaurants: totalRestaurants, storedRestaurants: storedRestaurants })
 })
 
-app.get(`restaurants/:details`, (req, res)=>{
+app.get(`restaurants/:details`, (req, res)=> {
+    const filePath = `${__dirname}/data/restaurants.json`
+
+    const fileData = fs.readFileSync(filePath)
+
+    const savedRestaurants = JSON.parse(fileData)
+
     const restaurantId = _.lowerCase(req.params.details)
-    res.render(`restaurant-detail`, {restaurantId: restaurantId})
+
+
+    savedRestaurants.forEach(restaurant => {
+        const restName = _.lowerCase(restaurant.name)
+
+        if (restName === restaurantId)
+            res.render(`restaurant-detail`, {
+                restName: restaurant.name,
+                restAddress: restaurant.address,
+                restCuisine: restaurant.cuisine,
+                restWebsite: restaurant.website,
+                restDescription: restaurant.description
+            })
+    })
 })
 
 app.get(`/aboutus`, (req, res)=>{
@@ -42,6 +61,7 @@ app.get(`/aboutus`, (req, res)=>{
 app.get(`/recommendations`, (req, res)=>{
     res.render(`recommend`)
 })
+
 app.post(`/recommendations`, (req, res)=>{
     const restaurant = req.body
 

@@ -8,10 +8,10 @@
 <%- include(`partials/header`) %>
 <%- include(`partials/nav`) %>
 <main>
-    <h1>Recommended restaurants</h1>
-    <p></p>
-    <p></p>
-    <p><a href=""></a></p>
+    <h1><%= restName %></h1>
+    <p><%= restCuisine %> | <%= restAddress%></p>
+    <p><%= restDescription %></p>
+    <p><a href=<%= restWebsite %>>Click</a></p>
 </main>
 </body>
 </html>
