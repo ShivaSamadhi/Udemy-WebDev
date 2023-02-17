@@ -31,7 +31,7 @@ app.get(`/restaurants`, (req, res)=>{
     res.render(`restaurants`, { totalRestaurants: totalRestaurants, storedRestaurants: storedRestaurants })
 })
 
-app.get(`restaurants/:resId`, (req, res)=> {
+app.get(`/restaurants/:resId`, (req, res)=> {
     const filePath = `${__dirname}/data/restaurants.json`
 
     const fileData = fs.readFileSync(filePath)
@@ -42,9 +42,9 @@ app.get(`restaurants/:resId`, (req, res)=> {
 
 
     savedRestaurants.forEach(restaurant => {
-        const restName = _.lowerCase(restaurant.id)
+        const restId = _.lowerCase(restaurant.id)
 
-        if (restName === restaurantId)
+        if (restId === restaurantId)
             res.render(`restaurant-detail`, {
                 restName: restaurant.name,
                 restAddress: restaurant.address,
