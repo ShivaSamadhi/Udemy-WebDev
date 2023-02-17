@@ -1,6 +1,7 @@
 const fs = require("fs");
 const express = require(`express`);
 const bodyParser = require(`body-parser`);
+const uuid = require(`uuid`)
 const _ = require(`lodash`)
 const ejs = require(`ejs`)
 
@@ -30,18 +31,18 @@ app.get(`/restaurants`, (req, res)=>{
     res.render(`restaurants`, { totalRestaurants: totalRestaurants, storedRestaurants: storedRestaurants })
 })
 
-app.get(`restaurants/:details`, (req, res)=> {
+app.get(`restaurants/:resId`, (req, res)=> {
     const filePath = `${__dirname}/data/restaurants.json`
 
     const fileData = fs.readFileSync(filePath)
 
     const savedRestaurants = JSON.parse(fileData)
 
-    const restaurantId = _.lowerCase(req.params.details)
+    const restaurantId = _.lowerCase(req.params.resId)
 
 
     savedRestaurants.forEach(restaurant => {
-        const restName = _.lowerCase(restaurant.name)
+        const restName = _.lowerCase(restaurant.id)
 
         if (restName === restaurantId)
             res.render(`restaurant-detail`, {
@@ -64,6 +65,7 @@ app.get(`/recommendations`, (req, res)=>{
 
 app.post(`/recommendations`, (req, res)=>{
     const restaurant = req.body
+    restaurant.id = uuid.v4();
 
     //Construct absolute file path
     const filePath = `${__dirname}/data/restaurants.json`
