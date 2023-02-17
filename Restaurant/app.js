@@ -29,6 +29,10 @@ app.get(`/restaurants`, (req, res)=>{
     res.render(`restaurants`, { totalRestaurants: totalRestaurants, storedRestaurants: storedRestaurants })
 })
 
+app.get(`restaurants/:details`, (req, res)=>{
+
+})
+
 app.get(`/aboutus`, (req, res)=>{
     res.render(`about`)
 })
