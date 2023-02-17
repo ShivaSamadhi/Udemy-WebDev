@@ -32,7 +32,7 @@ app.get(`/restaurants`, (req, res)=>{
 
 app.get(`restaurants/:details`, (req, res)=>{
     const restaurantId = _.lowerCase(req.params.details)
-    res.render(`restaurant-detail`)
+    res.render(`restaurant-detail`, {restaurantId: restaurantId})
 })
 
 app.get(`/aboutus`, (req, res)=>{
