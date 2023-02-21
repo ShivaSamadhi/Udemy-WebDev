@@ -7,4 +7,6 @@ const getStoredRestaurants = () =>{
     const fileData = fs.readFileSync(filePath)
     //Parse file data into JSON format
     const storedRestaurants = JSON.parse(fileData)
+    //Return storedRestaurants so its available to all requests that call this function
+    return storedRestaurants
 }
