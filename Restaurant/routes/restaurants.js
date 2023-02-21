@@ -20,7 +20,6 @@ router.get(`/restaurants`, (req, res)=>{
     const sortBtn = document.querySelector(`#sortBtn`)
     sortBtn.addEventListener(`click`, sortBtnHandler)
 
-
     const totalRestaurants = storedRestaurants.length
 
     res.render(`restaurants`, {
