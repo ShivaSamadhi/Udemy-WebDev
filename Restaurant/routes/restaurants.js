@@ -11,6 +11,10 @@ const {getStoredRestaurants, storeRestaurants} = require(`../util/restaurant-dat
 router.get(`/restaurants`, (req, res)=>{
 
     const storedRestaurants = getStoredRestaurants()
+    storedRestaurants.sort((resA, resB)=>{
+        return resA.name > resB.name ? 1 : -1
+    });
+
     const totalRestaurants = storedRestaurants.length
 
     res.render(`restaurants`, {

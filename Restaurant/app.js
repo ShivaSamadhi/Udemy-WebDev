@@ -3,8 +3,6 @@ const express = require(`express`);
 const bodyParser = require(`body-parser`);
 const ejs = require(`ejs`)
 
-
-
 //Custom Routes package
 const defaultRouter = require(`./routes/default`)
 const restaurantRouter = require(`./routes/restaurants`)
@@ -17,9 +15,9 @@ app.use(express.static('public'))
 app.set(`views`, `${__dirname}/views`)
 app.set(`view engine`, `ejs`)
 
+//Routers
 app.use(`/`, defaultRouter)
 app.use(`/`, restaurantRouter)
-
 
 //Custom middleware for handling all invalid routes
 //Placed at the end of the file so that executes after all other route requests
