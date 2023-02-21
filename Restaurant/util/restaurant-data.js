@@ -1,7 +1,8 @@
-import fs from "fs";
+const fs = require(`fs`)
+
 
 //Construct absolute file path
-const filePath = `${__dirname}/data/restaurants.json`
+const filePath = `${__dirname}/../data/restaurants.json`
 
 const getStoredRestaurants = () =>{
 
@@ -15,4 +16,9 @@ const getStoredRestaurants = () =>{
 
 const storeRestaurants = (newRestaurants) => {
     fs.writeFileSync(filePath, JSON.stringify(newRestaurants))
+}
+
+module.exports = {
+    getStoredRestaurants: getStoredRestaurants,
+    storeRestaurants: storeRestaurants
 }

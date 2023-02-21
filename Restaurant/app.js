@@ -5,6 +5,8 @@ const uuid = require(`uuid`)
 const _ = require(`lodash`)
 const ejs = require(`ejs`)
 
+//Custom Util Package
+const {getStoredRestaurants, storeRestaurants} = require(`./util/restaurant-data`)
 
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}))
@@ -28,11 +30,9 @@ app.get(`/restaurants`, (req, res)=>{
 })
 
 app.get(`/restaurants/:resId`, (req, res)=> {
-    const filePath = `${__dirname}/data/restaurants.json`
 
-    const fileData = fs.readFileSync(filePath)
 
-    const savedRestaurants = JSON.parse(fileData)
+    const savedRestaurants = getStoredRestaurants()
 
     const restaurantId = _.lowerCase(req.params.resId)
 
