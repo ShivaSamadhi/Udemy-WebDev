@@ -89,6 +89,8 @@ app.get(`/confirm`, (req, res)=>{
     res.render(`confirm`)
 })
 
+//Custom middleware for handling all invalid routes
+//Placed at the end of the file so that executes after all other route requests
 app.use((req, res)=>{
     res.render(`404`)
 })
