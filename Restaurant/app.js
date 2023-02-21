@@ -54,7 +54,7 @@ app.get(`/restaurants/:resId`, (req, res)=> {
             })
     })
 
-
+    res.render(`404`)
 })
 
 app.get(`/aboutus`, (req, res)=>{
