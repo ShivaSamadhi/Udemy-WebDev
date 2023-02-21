@@ -1,5 +1,6 @@
-const fs = require(`fs`)
+"use strict"
 
+const fs = require(`fs`)
 
 //Construct absolute file path
 const filePath = `${__dirname}/../data/restaurants.json`

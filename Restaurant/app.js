@@ -1,8 +1,6 @@
-
+"use strict"
 const express = require(`express`);
 const bodyParser = require(`body-parser`);
-const uuid = require(`uuid`)
-const _ = require(`lodash`)
 const ejs = require(`ejs`)
 
 
