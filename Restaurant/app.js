@@ -20,12 +20,8 @@ app.get(`/`, (req, res)=>{
 })
 
 app.get(`/restaurants`, (req, res)=>{
-    //Construct absolute file path
-    const filePath = `${__dirname}/data/restaurants.json`
-    //Read file data stored at absolute path as raw text
-    const fileData = fs.readFileSync(filePath)
-    //Parse file data into JSON format
-    const storedRestaurants = JSON.parse(fileData)
+
+    const storedRestaurants = getStoredRestaurants()
     const totalRestaurants = storedRestaurants.length
 
     res.render(`restaurants`, { totalRestaurants: totalRestaurants, storedRestaurants: storedRestaurants })
@@ -69,18 +65,11 @@ app.post(`/recommendations`, (req, res)=>{
     const restaurant = req.body
     restaurant.id = uuid.v4();
 
-    //Construct absolute file path
-    const filePath = `${__dirname}/data/restaurants.json`
-    //Read file data stored at absolute path as raw text
-    const fileData = fs.readFileSync(filePath)
-    //Parse file data into JSON format
-    const storedRestaurants = JSON.parse(fileData)
+    const storedRestaurants = getStoredRestaurants()
     //Push entered name into array stored in file
     storedRestaurants.push(restaurant)
     //Convert JSON back to raw text
-    const newRestaurantAdded = JSON.stringify(storedRestaurants)
-    //Write raw data into file
-    fs.writeFileSync(filePath, newRestaurantAdded)
+    storeRestaurants(storedRestaurants)
 
     res.redirect(`/confirm`)
 })
