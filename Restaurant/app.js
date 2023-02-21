@@ -89,6 +89,9 @@ app.get(`/confirm`, (req, res)=>{
     res.render(`confirm`)
 })
 
+app.use((req, res)=>{
+    res.render(`404`)
+})
 app.listen(8080, () => {
     console.log("Server Started: Port 8080")
 });
