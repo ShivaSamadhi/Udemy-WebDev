@@ -45,7 +45,7 @@ app.get(`/restaurants/:resId`, (req, res)=> {
         const restId = _.lowerCase(restaurant.id)
 
         if (restId === restaurantId)
-            res.render(`restaurant-detail`, {
+             return res.render(`restaurant-detail`, {
                 restName: restaurant.name,
                 restAddress: restaurant.address,
                 restCuisine: restaurant.cuisine,
