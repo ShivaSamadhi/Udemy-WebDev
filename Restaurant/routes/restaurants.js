@@ -11,20 +11,29 @@ const {getStoredRestaurants, storeRestaurants} = require(`../util/restaurant-dat
 
 
 router.get(`/restaurants`, (req, res)=>{
+    let order = req.query.order
+    let nextOrder = `desc`
+
+    order !== `asc` && order !== `desc` ? order = `asc` : order
+    order === `desc` ? nextOrder = `asc`: nextOrder
 
     const storedRestaurants = getStoredRestaurants()
-    const sortBtnHandler = () => storedRestaurants.sort((resA, resB)=>{
-        return resA.name > resB.name ? 1 : -1
+
+    storedRestaurants.sort((resA, resB)=>{
+        if((order === `asc` && resA.name > resB.name) ||
+            (order === `desc` && resA.name < resB.name))
+            return 1
+        else
+            return -1
     });
 
-    const sortBtn = document.querySelector(`#sortBtn`)
-    sortBtn.addEventListener(`click`, sortBtnHandler)
 
     const totalRestaurants = storedRestaurants.length
 
     res.render(`restaurants`, {
         totalRestaurants: totalRestaurants,
-        storedRestaurants: storedRestaurants })
+        storedRestaurants: storedRestaurants,
+        nextOrder: nextOrder})
 })
 
 router.get(`/restaurants/:resId`, (req, res)=> {
