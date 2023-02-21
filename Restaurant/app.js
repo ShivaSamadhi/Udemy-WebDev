@@ -53,6 +53,8 @@ app.get(`/restaurants/:resId`, (req, res)=> {
                 restDescription: restaurant.description
             })
     })
+
+
 })
 
 app.get(`/aboutus`, (req, res)=>{
