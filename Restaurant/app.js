@@ -54,7 +54,7 @@ app.get(`/restaurants/:resId`, (req, res)=> {
             })
     })
 
-    res.render(`404`)
+    res.status(404).render(`404`)
 })
 
 app.get(`/aboutus`, (req, res)=>{
@@ -92,11 +92,11 @@ app.get(`/confirm`, (req, res)=>{
 //Custom middleware for handling all invalid routes
 //Placed at the end of the file so that executes after all other route requests
 app.use((req, res)=>{
-    res.render(`404`)
+    res.status(404).render(`404`)
 })
 
 app.use((err, req, res, next) => {
-    res.render(`500`)
+    res.status(500).render(`500`)
 })
 
 app.listen(8080, () => {
