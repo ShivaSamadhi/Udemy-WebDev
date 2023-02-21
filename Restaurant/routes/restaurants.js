@@ -2,7 +2,9 @@ const express = require(`express`);
 const router = express.Router();
 const uuid = require(`uuid`)
 const _ = require(`lodash`)
-const {getStoredRestaurants, storeRestaurants} = require(`./util/restaurant-data`)
+
+
+const {getStoredRestaurants, storeRestaurants} = require(`../util/restaurant-data`)
 
 router.get(`/restaurants`, (req, res)=>{
 
@@ -58,3 +60,5 @@ router.post(`/recommendations`, (req, res)=>{
 router.get(`/confirm`, (req, res)=>{
     res.render(`confirm`)
 })
+
+module.exports = router
