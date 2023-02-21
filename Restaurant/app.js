@@ -26,18 +26,19 @@ app.get(`/restaurants`, (req, res)=>{
     const storedRestaurants = getStoredRestaurants()
     const totalRestaurants = storedRestaurants.length
 
-    res.render(`restaurants`, { totalRestaurants: totalRestaurants, storedRestaurants: storedRestaurants })
+    res.render(`restaurants`, {
+        totalRestaurants: totalRestaurants,
+        storedRestaurants: storedRestaurants })
 })
 
 app.get(`/restaurants/:resId`, (req, res)=> {
 
-
-    const savedRestaurants = getStoredRestaurants()
+    const storedRestaurants = getStoredRestaurants()
 
     const restaurantId = _.lowerCase(req.params.resId)
 
 
-    savedRestaurants.forEach(restaurant => {
+    storedRestaurants.forEach(restaurant => {
         const restId = _.lowerCase(restaurant.id)
 
         if (restId === restaurantId)
