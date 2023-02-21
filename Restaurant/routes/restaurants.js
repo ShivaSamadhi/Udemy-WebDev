@@ -8,12 +8,18 @@ const _ = require(`lodash`)
 
 const {getStoredRestaurants, storeRestaurants} = require(`../util/restaurant-data`)
 
+
+
 router.get(`/restaurants`, (req, res)=>{
 
     const storedRestaurants = getStoredRestaurants()
-    storedRestaurants.sort((resA, resB)=>{
+    const sortBtnHandler = () => storedRestaurants.sort((resA, resB)=>{
         return resA.name > resB.name ? 1 : -1
     });
+
+    const sortBtn = document.querySelector(`#sortBtn`)
+    sortBtn.addEventListener(`click`, sortBtnHandler)
+
 
     const totalRestaurants = storedRestaurants.length
 
