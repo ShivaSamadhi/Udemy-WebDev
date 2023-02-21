@@ -8,6 +8,9 @@ const ejs = require(`ejs`)
 //Custom Util Package
 const {getStoredRestaurants, storeRestaurants} = require(`./util/restaurant-data`)
 
+//Custom Routes package
+const { router } = require(`./routes/default`)
+
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static('public'))
@@ -16,10 +19,7 @@ app.use(express.static('public'))
 app.set(`views`, `${__dirname}/views`)
 app.set(`view engine`, `ejs`)
 
-app.get(`/`, (req, res)=>{
-    //Instead of the .sendFile used previously, EJS allows us to utilize .render which will parse an EJS template and render it as standard html
-    res.render(`index`)
-})
+app.use
 
 app.get(`/restaurants`, (req, res)=>{
 
@@ -54,9 +54,6 @@ app.get(`/restaurants/:resId`, (req, res)=> {
     res.status(404).render(`404`)
 })
 
-app.get(`/aboutus`, (req, res)=>{
-    res.render(`about`)
-})
 
 app.get(`/recommendations`, (req, res)=>{
     res.render(`recommend`)

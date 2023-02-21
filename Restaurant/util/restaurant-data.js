@@ -18,7 +18,7 @@ const storeRestaurants = (newRestaurants) => {
     fs.writeFileSync(filePath, JSON.stringify(newRestaurants))
 }
 
-module.exports = {
-    getStoredRestaurants: getStoredRestaurants,
-    storeRestaurants: storeRestaurants
-}
+// module.exports = {
+//     getStoredRestaurants: getStoredRestaurants,
+//     storeRestaurants: storeRestaurants
+// }
