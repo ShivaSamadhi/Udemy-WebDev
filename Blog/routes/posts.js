@@ -7,17 +7,17 @@ const _ = require(`lodash`)
 
 const { getBlogPosts, storeBlogPosts } = require(`../util/blog-data`)
 
-router.get(`/posts/:postName`, (req, res)=>{
+router.get(`/posts/:postId`, (req, res)=>{
 
     const savedPosts = getBlogPosts()
 
-    const postParam = _.lowerCase(req.params.postName)
+    const postParam = _.lowerCase(req.params.postId)
 
 
     savedPosts.forEach(post =>{
-        const postTitle = _.lowerCase(post.postTitle)
+        const postId = _.lowerCase(post.id)
 
-        if ( postTitle === postParam)
+        if ( postId === postParam)
             res.render(`post`, {postTitle: post.postTitle, postBody: post.postBody})
     })
 })
