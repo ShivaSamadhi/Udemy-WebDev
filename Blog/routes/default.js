@@ -16,7 +16,9 @@ router.get(`/`, (req, res)=>{
 
     const totalPosts = savedPosts.length
 
-    res.render(`home`, { homeStartingContent: homeStartingContent, savedPosts: savedPosts,
+    res.render(`home`, {
+        homeStartingContent: homeStartingContent,
+        savedPosts: savedPosts,
         totalPosts: totalPosts})
 })
 
