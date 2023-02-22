@@ -26,20 +26,16 @@ router.get(`/compose`, (req, res)=>{
     res.render(`compose`)
 })
 
-app.post(`/compose`,(req, res)=>{
+router.post(`/compose`,(req, res)=>{
     const blogPost = req.body
+    blogPost.id = uuid.v8()
 
-    const filePath = `${__dirname}/data/blog-posts.json`
-
-    const fileData = fs.readFileSync(filePath)
-
-    const savedPosts = JSON.parse(fileData)
+    const savedPosts = getBlogPosts()
 
     savedPosts.push(blogPost)
 
-    const newPostSaved = JSON.stringify(savedPosts)
+    storeBlogPosts(savedPosts)
 
-    fs.writeFileSync(filePath, newPostSaved)
 
     res.redirect(`/`)
 })

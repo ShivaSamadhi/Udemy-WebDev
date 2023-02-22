@@ -28,8 +28,4 @@ router.get(`/contact`, (req, res)=>{
     res.render(`contact`, { contactContent: contactContent})
 })
 
-router.get(`/compose`, (req, res)=>{
-    res.render(`compose`)
-})
-
 module.exports = router
