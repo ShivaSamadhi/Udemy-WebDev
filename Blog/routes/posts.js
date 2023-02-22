@@ -36,6 +36,7 @@ router.post(`/compose`,(req, res)=>{
 
     storeBlogPosts(savedPosts)
 
-
     res.redirect(`/`)
 })
+
+module.exports = router
