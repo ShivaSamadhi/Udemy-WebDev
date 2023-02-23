@@ -1,9 +1,9 @@
 //Default Parameters
 
-const greetUser = (userName = `user`) => {
-    console.log(`Hi, ${userName}!`)
+const greetUser = (greetingPrefix, userName = `user`) => {
+    console.log(`${greetingPrefix}, ${userName}!`)
 }
 //In a func with multiple parameters, all default parameters are defined last
 
-greetUser(`Max`)
-greetUser()
+greetUser(`Hiya`)
+greetUser(`Hello`, `Ramaj`)
