@@ -1,10 +1,12 @@
 const fs = require(`fs`)
 
-//Custom error handling w/ try/catch
+const stringifyFile = ()
+
 const readFile = () => {
 
-        const fileData = fs.readFileSync(`data.txt`)
-        //This code will fail because data.json doesnt exist. W/o the try catch, any code after this line would not execute
+        const fileData = fs.readFile(`data.txt`, )
+    //readFileSync is a synchronous method, the rest of the code will not execute until this process completes
+    //readFile is asynchronous but requires a callback function which will execute once the process completes
 
     console.log(fileData.toString())
 
