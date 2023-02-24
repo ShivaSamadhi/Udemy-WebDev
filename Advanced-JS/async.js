@@ -1,15 +1,21 @@
-const fs = require(`fs`)
+const fs = require(`fs/promises`)
 
-const stringifyFile = ()
+
 
 const readFile = () => {
-
-        const fileData = fs.readFile(`data.txt`, )
+    let fileData
+        //Callbacks
+        // fs.readFile(`data.txt`, function (e, fileData){
+        //     console.log(fileData.toString())
+        // })
     //readFileSync is a synchronous method, the rest of the code will not execute until this process completes
     //readFile is asynchronous but requires a callback function which will execute once the process completes
 
-    console.log(fileData.toString())
-
+    //Promises
+    fs.readFile(`data.txt`)
+        .then(function (fileData) {
+            console.log(fileData.toString())
+        })
 
     console.log(`Hi there`)
 }
