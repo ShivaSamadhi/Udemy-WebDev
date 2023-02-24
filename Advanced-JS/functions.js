@@ -38,3 +38,4 @@ const adultYears = (person) => {
     return person.age
 }
 console.log(adultYears({...person}))
+console.log(person)
