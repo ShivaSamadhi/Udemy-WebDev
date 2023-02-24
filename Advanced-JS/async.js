@@ -2,14 +2,12 @@ const fs = require(`fs`)
 
 //Custom error handling w/ try/catch
 const readFile = () => {
-    try {
-        const fileData = fs.readFileSync(`data.json`)
+
+        const fileData = fs.readFileSync(`data.txt`)
         //This code will fail because data.json doesnt exist. W/o the try catch, any code after this line would not execute
-    }
-    catch (e) {
-        console.log(`An error occurred!`)
-        console.log(e.message)
-    }
+
+    console.log(fileData.toString())
+
 
     console.log(`Hi there`)
 }
