@@ -1,8 +1,7 @@
 const fs = require(`fs/promises`)
 
 
-
-const readFile = () => {
+ const readFile = async () => {
     let fileData
         //Callbacks
         // fs.readFile(`data.txt`, function (e, fileData){
@@ -12,12 +11,18 @@ const readFile = () => {
     //readFile is asynchronous but requires a callback function which will execute once the process completes
 
     //Promises
-    fs.readFile(`data.txt`)
-        .then(function (fileData) {
-            console.log(fileData.toString())
-        })
+    // fs.readFile(`data.txt`)
+    //     .then(function (fileData) {
+    //         console.log(fileData.toString())
+    //     })
+    //     .catch(e =>{
+    //         console.log(e)
+    //     })
+    //
+    // console.log(`Hi there`)
 
-    console.log(`Hi there`)
+     //Async Await
+     fileData = await fs.readFile(`data.txt`)
 }
 
 readFile()
