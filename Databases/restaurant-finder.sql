@@ -33,3 +33,11 @@ create table addresses
         primary key (id)
 );
 
+create table types
+(
+    id   int not null,
+    type int not null,
+    constraint types_pk
+        primary key (id)
+);
+
