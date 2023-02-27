@@ -65,6 +65,15 @@ create table reviews
         primary key (id)
 );
 
-
+INSERT INTO types (type)
+VALUES ('Jamaican');
+INSERT INTO types (type)
+VALUES ('Sushi');
+INSERT INTO types (type)
+VALUES ('Italian');
+INSERT INTO types (type)
+VALUES ('Bakery');
+INSERT INTO types (type)
+VALUES ('Chinese');
 
 
