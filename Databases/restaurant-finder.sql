@@ -41,4 +41,29 @@ create table types
         primary key (id)
 );
 
+drop table restaurants;
+
+create table restaurants
+(
+    id         int auto_increment,
+    name       varchar(255) not null,
+    address_id int          not null,
+    type_id    int          not null,
+    constraint restaurants_pk
+        primary key (id)
+);
+
+create table reviews
+(
+    id            int auto_increment,
+    reviewer_name varchar(100)                       not null,
+    rating        int                                not null,
+    text          text                               null,
+    date          datetime default current_timestamp not null,
+    restaurant_id int                                not null,
+    constraint reviews_pk
+        primary key (id)
+);
+
+
 
