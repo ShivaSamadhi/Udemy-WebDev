@@ -35,7 +35,7 @@ create table addresses
 
 create table types
 (
-    id   int not null,
+    id   int auto_increment not null,
     type varchar(255) not null,
     constraint types_pk
         primary key (id)
@@ -64,6 +64,7 @@ create table reviews
     constraint reviews_pk
         primary key (id)
 );
+
 
 
 
