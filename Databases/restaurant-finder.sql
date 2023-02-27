@@ -12,3 +12,7 @@ SET
     name = 'Mamas Kitchen'
 WHERE
     id = 1;
+
+SELECT COUNT(*)
+FROM restaurants
+WHERE type = 'Jamaican'
