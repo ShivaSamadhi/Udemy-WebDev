@@ -5,7 +5,12 @@ VALUES ('Uchiba', 'Sushi');
 INSERT INTO `restaurant-finder`.restaurants (name, type)
 VALUES ('Ten Ramen', 'Japanese');
 
-Select * FROM restaurants;
+Select *
+FROM restaurants;
+
+SELECT COUNT(*)
+FROM restaurants
+WHERE type = 'Jamaican';
 
 UPDATE restaurants
 SET
@@ -13,6 +18,5 @@ SET
 WHERE
     id = 1;
 
-SELECT COUNT(*)
-FROM restaurants
-WHERE type = 'Jamaican'
+DELETE FROM restaurants
+WHERE id = 3;
