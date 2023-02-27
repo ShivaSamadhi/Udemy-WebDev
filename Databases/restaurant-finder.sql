@@ -36,8 +36,9 @@ create table addresses
 create table types
 (
     id   int not null,
-    type int not null,
+    type varchar(255) not null,
     constraint types_pk
         primary key (id)
 );
+
 
