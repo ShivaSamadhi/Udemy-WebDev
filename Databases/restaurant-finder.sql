@@ -20,3 +20,16 @@ WHERE
 
 DELETE FROM restaurants
 WHERE id = 3;
+
+create table addresses
+(
+    id            int auto_increment,
+    street        varchar(255) not null,
+    street_number int          not null,
+    city          varchar(255) not null,
+    postal_code   int          not null,
+    country       varchar(255) not null,
+    constraint addresses_pk
+        primary key (id)
+);
+
