@@ -12,12 +12,16 @@ create table authors
 create table posts
 (
     id        int auto_increment,
-    title     varchar(255) not null,
-    summary   varchar(100) null,
-    body      text         not null,
-    date      datetime     not null,
-    author_id int          not null,
+    title     varchar(255)                       not null,
+    summary   varchar(255)                       not null,
+    body      text                               null,
+    date      datetime default current_timestamp not null,
+    author_id int                                not null,
     constraint posts_pk
         primary key (id)
 );
+
+
+
+
 
