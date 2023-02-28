@@ -104,3 +104,11 @@ FROM restaurants
     INNER JOIN types on restaurants.type_id = types.id
     INNER JOIN reviews On restaurants.id = reviews.restaurant_id;
 
+SELECT reviews.*,
+       r.name As restaurant_name,
+       t.type As restaurant_type
+FROM reviews
+         INNER JOIN restaurants r on reviews.restaurant_id = r.id
+         INNER Join addresses a on r.address_id = a.id
+         INNER JOIN types t on r.type_id = t.id
+WHERE rating > 3;
