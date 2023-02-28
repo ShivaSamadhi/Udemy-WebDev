@@ -83,3 +83,8 @@ VALUES(
       );
 
 Select * FROM addresses;
+
+SELECT * From types;
+
+INSERT INTO restaurants (name, address_id, type_id)
+VALUES ('My Kitchen', 1, 1)
