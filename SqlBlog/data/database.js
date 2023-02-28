@@ -1,4 +1,4 @@
-const mysql = require(`mysql2`)
+const mysql = require(`mysql2/promise`)
 //mysql2 package allows the server to access the DB
 
 const pool = mysql.createPool({
