@@ -91,6 +91,9 @@ Select * FROM restaurants;
 INSERT INTO restaurants (name, address_id, type_id)
 VALUES ('My Kitchen', 1, 1);
 
+INSERT INTO reviews(reviewer_name, rating, text, restaurant_id)
+VALUES ('Ramaj Johnson', 5, 'The food is amazing. The head chef knows what he is doing.', 1);
+
 SELECT restaurants.id, restaurants.name, addresses.*, types.type FROM restaurants
     INNER JOIN addresses On restaurants.address_id = addresses.id
     INNER JOIN types on restaurants.type_id = types.id;
