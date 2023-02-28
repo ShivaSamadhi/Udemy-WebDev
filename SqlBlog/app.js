@@ -3,8 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 
-const defaultRouter = require(`./routes/default`);
-const postsRouter = require(`./routes/posts`);
+const blogRoutes = require(`./routes/blogRoutes`)
 
 const app = express();
 
@@ -14,8 +13,8 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-app.use(`/`, defaultRouter)
-app.use(`/`, postsRouter)
+app.use(blogRoutes)
+
 
 app.use((req, res)=>{
     res.status(404).render(`404`)
