@@ -9,3 +9,15 @@ create table authors
         primary key (id)
 );
 
+create table posts
+(
+    id        int auto_increment,
+    title     varchar(255) not null,
+    summary   varchar(100) null,
+    body      text         not null,
+    date      datetime     not null,
+    author_id int          not null,
+    constraint posts_pk
+        primary key (id)
+);
+
