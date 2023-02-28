@@ -77,3 +77,9 @@ INSERT INTO types (type)
 VALUES ('Chinese');
 
 
+INSERT INTO addresses (street, street_number, city, postal_code, country)
+VALUES(
+       'W Commerce St', '411', 'Dallas', 75208, 'United States'
+      );
+
+Select * FROM addresses;
