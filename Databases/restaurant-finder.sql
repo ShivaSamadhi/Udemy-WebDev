@@ -86,5 +86,10 @@ Select * FROM addresses;
 
 SELECT * From types;
 
+Select * FROM restaurants;
+
 INSERT INTO restaurants (name, address_id, type_id)
-VALUES ('My Kitchen', 1, 1)
+VALUES ('My Kitchen', 1, 1);
+
+SELECT * FROM restaurants
+    INNER JOIN addresses On restaurants.address_id = addresses.id;
