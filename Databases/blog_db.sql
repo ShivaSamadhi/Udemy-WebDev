@@ -1,4 +1,4 @@
-CREATE SCHEMA blog_db;
+CREATE SCHEMA IF NOT EXISTS blog_db ;
 
 create table authors
 (
@@ -21,6 +21,11 @@ create table posts
         primary key (id)
 );
 
+Insert Into authors (name, email)
+VALUES ('Ramaj Johnson', 'rjohnson3795@gmail.com');
+
+Insert Into authors (name, email)
+VALUES ('Shiva Samadhi', 'thebaronsamadhi@gmail.com');
 
 
 
