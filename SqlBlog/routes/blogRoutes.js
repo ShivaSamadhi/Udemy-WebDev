@@ -40,11 +40,24 @@ router.get(`/posts/:postId`, async (req, res) => {
         Where posts.id = ?
         `, [postId]
     )
+    //? can be used as a dynamic way to input data into a mySQL query. The second param of the query method takes in an arr that should contain the dynamic data
 
     if (!posts || posts.length === 0)
         return res.status(404).render(`404`)
+    //check to make sure a valid post exists based on the queried data
     else
+        const postData = {
+            ...posts[0],
+            date: posts[0].date.toISOString(),
+            formattedDate: posts[0].date.toLocaleDateString(`en-US`, {
+                weekday: "long",
+                year: "numeric",
+                month: "short",
+                day: "numeric"
+            })
+        }
         res.render(`post-detail`, {post: posts[0]})
+    //because the server doesnt actually know how many posts will match the query criteria, we have to specify the first array index when passing it back to the template as an object, even tho we know only one post should be returned based on the criteria
 })
 
 router.post(`/posts`, async (req, res) => {
@@ -57,7 +70,7 @@ router.post(`/posts`, async (req, res) => {
     await db.query(`
                 Insert Into posts (title, summary, body, author_id) 
                 Values (?)`, [newPost])
-
+    //? can be used as a dynamic way to input data into a mySQL query. The second param of the query method takes in an arr that should contain the dynamic data
     res.redirect(`/posts`)
 })
 
