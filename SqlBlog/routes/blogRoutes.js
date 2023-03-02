@@ -12,7 +12,8 @@ router.get(`/posts`, async (req, res) => {
     const [posts] = await db.query(`
 Select posts.*, authors.name 
 From posts
-    Inner Join authors on posts.author_id = authors.id`)
+    Inner Join authors on posts.author_id = authors.id
+    `)
 
     res.render(`posts-list`, {posts: posts})
 })
