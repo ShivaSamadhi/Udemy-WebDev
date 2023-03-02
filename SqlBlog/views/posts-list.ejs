@@ -10,7 +10,20 @@
   <%- include('includes/header') %>
   <main id="all-posts">
     <h1>All Posts</h1>
-   
+   <% posts.forEach(post => {%>
+      <article>
+        <section>
+          <h2 class="postTitle"><%= post.title %></h2>
+          <h4 class="postSummary"><%= post.summary %></h4>
+        </section>
+        <section>
+          <p class="postBody"><%= post.body %></p>
+        </section>
+        <section>
+          <p class="postAuthor"><%= post.name %></p>
+        </section>
+      </article>
+   <% }) %>
   </main> 
 </body>
 

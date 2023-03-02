@@ -9,9 +9,12 @@ router.get(`/`, (req, res) => {
     res.redirect(`/posts`)
 })
 router.get(`/posts`, async (req, res) => {
-    const [posts] = await db.query(`Select * From posts`)
+    const [posts] = await db.query(`
+Select posts.*, authors.name 
+From posts
+    Inner Join authors on posts.author_id = authors.id`)
 
-    res.render(`posts-list`)
+    res.render(`posts-list`, {posts: posts})
 })
  router.get(`/new-post`, async (req, res) => {
      const [authors] = await db.query(`Select * From authors`)

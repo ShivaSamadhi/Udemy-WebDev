@@ -27,6 +27,8 @@ VALUES ('Ramaj Johnson', 'rjohnson3795@gmail.com');
 Insert Into authors (name, email)
 VALUES ('Shiva Samadhi', 'thebaronsamadhi@gmail.com');
 
+Select posts.*, a.name From posts
+                        Inner Join authors a on posts.author_id = a.id
 
 
 

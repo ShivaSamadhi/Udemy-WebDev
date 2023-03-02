@@ -112,3 +112,4 @@ FROM reviews
          INNER Join addresses a on r.address_id = a.id
          INNER JOIN types t on r.type_id = t.id
 WHERE rating > 3;
+
