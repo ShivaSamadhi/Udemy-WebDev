@@ -24,6 +24,8 @@ From posts
      res.render(`create-post`, {authors: authors})
  })
 
+router.get(`/posts/:id`, (req, res))
+
 router.post(`/posts`, async (req, res) => {
     const newPost = [
         req.body.title,
