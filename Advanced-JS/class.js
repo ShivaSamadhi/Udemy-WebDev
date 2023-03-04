@@ -9,7 +9,8 @@ class Job {
         this.salary = salary;
     }
     //creating methods
-    describe(){
+
+    describe = () => {
         console.log(`I'm a ${this.title}. My job is ${this.location}, and I make ${this.salary}/yr.`)
     }
 }
