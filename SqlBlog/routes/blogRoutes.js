@@ -64,6 +64,27 @@ router.get(`/posts/:postId`, async (req, res) => {
 
 })
 
+router.get(`/posts/:postId/edit`, async (req, res) => {
+    const postId = req.params.postId
+
+    const [posts] = await db.query(`
+        Select posts.*, 
+               authors.name,
+               authors.email
+        From posts
+        Inner Join authors on posts.author_id = authors.id
+        Where posts.id = ?
+        `, [postId]
+    )
+    //? can be used as a dynamic way to input data into a mySQL query. The second param of the query method takes in an arr that should contain the dynamic data
+
+    if (!posts || posts.length === 0)
+        return res.status(404).render(`404`)
+    //check to make sure a valid post exists based on the queried data
+
+    res.render(`update-post`, {post: posts[0]})
+})
+
 router.post(`/posts`, async (req, res) => {
     const newPost = [
         req.body.title,
