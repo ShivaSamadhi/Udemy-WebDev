@@ -115,13 +115,13 @@ router.post(`/posts/:postId/edit`, async (req, res) => {
     await db.query(`
         Update posts 
         Set
-            title = ${editedPost[0]},
-            summary = ${editedPost[1]},
-            body = ${editedPost[2]}
+            title = ?,
+            summary = ?,
+            body = ?
         Where posts.id = ? 
-                `, [postId])
+                `, [...editedPost, postId])
 
-    res.render(`/posts/${postId}`)
+    res.redirect(`/posts/${postId}`)
 })
 
 module.exports = router;
