@@ -10,13 +10,13 @@
   <%- include('includes/header') %>
   <main>
     <h1>Update post</h1>
-    <form action="..." method="...">
+    <form action="/posts/<%= post.id%>/edit" method="post">
       <div class="form-control">
-        <label for="title"></label>
+        <label for="title">Title</label>
         <input type="text" id="title" name="title" value="<%= post.title%>" required>
       </div>
       <div class="form-control">
-        <label for="summary"></label>
+        <label for="summary">Summary</label>
         <input type="text" id="summary" name="summary" required maxlength="255" value="<%= post.summary%>">
       </div>
       <div class="form-control">
