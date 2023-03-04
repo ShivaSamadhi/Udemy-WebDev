@@ -39,6 +39,8 @@ router.get(`/posts/:postId`, async (req, res) => {
         Inner Join authors on posts.author_id = authors.id
         Where posts.id = ?
         `, [postId]
+
+
     )
     //? can be used as a dynamic way to input data into a mySQL query. The second param of the query method takes in an arr that should contain the dynamic data
 
@@ -83,8 +85,17 @@ router.get(`/posts/:postId/edit`, async (req, res) => {
     res.render(`update-post`, {post: posts[0]})
 })
 
+router.get(`/posts/:postId/delete`, async (req,res) => {
+    const deleteBtn = document.querySelector(`#deleteBtn`)
 
+    deleteBtn.addEventListener(`click`, () => {
+        const confirm = alert('Are you sure you want to delete this post? It cannot be recovered later...')
 
+        if (confirm){
+
+        }
+    })
+})
 
 
 
