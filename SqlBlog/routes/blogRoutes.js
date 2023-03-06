@@ -18,23 +18,6 @@ router.get(`/posts`, async (req, res) => {
     Inner Join authors on posts.author_id = authors.id
     `)
 
-    const deleteBtn = document.querySelector(`#deleteBtn`)
-    deleteBtn.addEventListener(`click`, async (e) => {
-        const postId = e.target.id
-        const confirm = alert('Are you sure you want to delete this post? It cannot be recovered later...')
-
-        if (confirm) {
-
-            await db.query(`
-                Delete
-                From posts
-                Where posts.id = ?
-            `, [postId])
-
-            res.redirect(`/posts`)
-        }
-    })
-
     res.render(`posts-list`, {posts: posts})
 })
 
@@ -140,5 +123,21 @@ router.post(`/posts/:postId/edit`, async (req, res) => {
 
     res.redirect(`/posts/${postId}`)
 })
+
+router.post(`/posts/:postId/delete`, async (req, res) => {
+    const postId = req.params.postId
+
+
+    await db.query(`
+                Delete
+                From posts
+                Where posts.id = ?
+            `, [postId])
+
+        res.redirect(`/posts`)
+
+
+})
+
 
 module.exports = router;
