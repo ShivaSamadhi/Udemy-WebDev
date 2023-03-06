@@ -8,6 +8,6 @@ const pool = mysql.createPool({
     password: 'codeup'
 }).promise();
 //createPool() takes in a JS obj that cna be used to configure a connection to the DB
-
+//use .promise() to access the async version of mysql2
 
 module.exports = pool;

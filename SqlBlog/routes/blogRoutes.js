@@ -132,9 +132,10 @@ router.post(`/posts/:postId/delete`, async (req, res) => {
                 Delete
                 From posts
                 Where posts.id = ?
-            `, [postId])
+            `, [postId]
+    )
 
-        res.redirect(`/posts`)
+    res.redirect(`/posts`)
 
 
 })
