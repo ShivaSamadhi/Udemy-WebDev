@@ -60,3 +60,31 @@ db.types.insertMany([
     {name: "Mexican"},
     {name: "Thai"}
 ]);
+
+db.restaurants.insertOne({
+    name: "Uchiba",
+    address: {
+        street: "2817 Maple Ave",
+        city: "Dallas",
+        state: "Texas",
+        zipCode: "75201"
+    },
+    type: {
+        typeId: ObjectId("640a4adbe24cf2325c95a457"),
+        name: ObjectId("640a4adbe24cf2325c95a457").name
+    }
+});
+
+db.restaurants.updateOne(
+    {_id: ObjectId("640a509fe24cf2325c95a45e")},
+    {$set: {
+        "type.name": "Sushi"
+        }}
+    )
+
+db.restaurants.updateOne(
+    {_id: ObjectId("640a509fe24cf2325c95a45e")},
+    {$set: {
+            "type.typeId": "640a4adbe24cf2325c95a457"
+        }}
+    )
