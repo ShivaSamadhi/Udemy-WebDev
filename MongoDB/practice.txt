@@ -88,3 +88,14 @@ db.restaurants.updateOne(
             "type.typeId": "640a4adbe24cf2325c95a457"
         }}
     )
+
+db.reviews.insertOne({
+    reviewerName: "Ramaj Johnson",
+    rating: 5,
+    text: "Best Sushi in Dallas",
+    date: new Date(),
+    restaurant: {
+        restaurantId: "640a509fe24cf2325c95a45e",
+        name: "Uchiba"
+    }
+})
