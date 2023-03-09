@@ -6,10 +6,17 @@ Use ratingportal;
 db.restaurants.insertOne({
 name: "Random Restaurant 2",
 address: "411 W Commerce St, Dallas, Texas, 75208"
-})
--db refers to the curre
+});
+-db refers to the current database thats being used (ratingportal), .restaurants refers to the name of a collection within the database, .insertOne() is the method used to create a new data entry within the restaurants collection by creating a new object with all the necessary key-value pairs.
+    -Note the similarity between the MongoDB query language and JSON
+
 db.restaurants.find();
--Reads the
+-Reads and returns all the data stored within the restaurants collection that match the query criteria
+
 db.restaurants.find({name: "Random Restaurant 2"});
+-The first parameter that .find() accepts is an object that can filter thru the restaurants collection entries
+
 db.restaurants.find({}, {name: 1, _id: 0});
+-The second parameter that .find() accepts is an object that can filter thru the key-value pairs that are returned for each entry in a collection
+
 db.restaurants.findOne({name: "Random Restaurant 2"});
