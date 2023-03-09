@@ -1,0 +1,15 @@
+Copies of MongoDB commands from the shell
+
+Use ratingportal;
+-Creates a new DB that can be used to store collections
+
+db.restaurants.insertOne({
+name: "Random Restaurant 2",
+address: "411 W Commerce St, Dallas, Texas, 75208"
+})
+-db refers to the curre
+db.restaurants.find();
+-Reads the
+db.restaurants.find({name: "Random Restaurant 2"});
+db.restaurants.find({}, {name: 1, _id: 0});
+db.restaurants.findOne({name: "Random Restaurant 2"});
