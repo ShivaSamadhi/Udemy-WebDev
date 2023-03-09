@@ -54,3 +54,9 @@ db.restaurants.deleteOne(
 db.types.insertOne({
     name: "Sushi"
 });
+
+db.types.insertMany([
+    {name: "Jamaican"},
+    {name: "Mexican"},
+    {name: "Thai"}
+]);
