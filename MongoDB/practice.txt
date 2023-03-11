@@ -100,5 +100,13 @@ db.reviews.insertOne({
     }
 })
 
+db.restaurants.updateOne(
+    {_id: ObjectId("640a37f280b2be3323293f5c")},
+    {$set: {
+    "type.typeId": ObjectId("640a4db9e24cf2325c95a45a"),
+    "type.name": "Jamaican"}})
+
 db.reviews.find({rating: {$gte: 4}})
 -With the use of this syntax we can add more complex filtering conditions to queries. These conditions must be passed as an obj
+
+db.reviews.find({$and: [{rating: {$gt: 3}}, {rating: {$lte: 5}}] })
