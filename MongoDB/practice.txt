@@ -99,3 +99,6 @@ db.reviews.insertOne({
         name: "Uchiba"
     }
 })
+
+db.reviews.find({rating: {$gte: 4}})
+-With the use of this syntax we can add more complex filtering conditions to queries. These conditions must be passed as an obj
