@@ -20,7 +20,7 @@ const getDB = () => {
   //DB connection check
 
   return database
-  //this function returns the data stored within the collection specified in the connect function
+  //this function returns the data stored within the db specified in the connect function
 }
 
 module.exports = {
