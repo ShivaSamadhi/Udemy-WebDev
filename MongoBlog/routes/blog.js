@@ -29,7 +29,7 @@ router.post(`/posts`, async (req, res) => {
     title: req.body.title,
     summary: req.body.summ,
     body: req.body.content,
-    date: new Date()
+    date: new Date(),
     author: {
       id: authorId,
       name: author.name,
