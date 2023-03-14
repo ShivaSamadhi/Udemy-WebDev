@@ -15,11 +15,15 @@ app.use(express.static("public"));
 
 app.use(blogRoutes)
 
-app.use(function (error, req, res, next) {
-  // Default error handling function
-  // Will become active whenever any route / middleware crashes
-  console.log(error);
-  res.status(500).render('500');
-});
+app.use((req, res)=>{
+  res.status(404).render(`404`)
+})
 
-app.listen(3000);
+app.use((err, req, res, next) => {
+  res.status(500).render(`500`)
+})
+
+
+app.listen(8080, function() {
+  console.log("Server started on port 8080");
+});
