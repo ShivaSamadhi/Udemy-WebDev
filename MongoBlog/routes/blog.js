@@ -10,9 +10,9 @@ router.get('/', (req, res) => {
 });
 
 router.get('/posts', async (req, res) => {
+  const postsArr = await db.getDB().collection(`posts`).find().toArray()
 
-
-  res.render('posts-list');
+  res.render('posts-list', {posts: postsArr});
 });
 
 router.get('/new-post', async (req, res) => {
@@ -21,6 +21,10 @@ router.get('/new-post', async (req, res) => {
   //Just like with SQL, queries to mongodb return promises, so async-await is necessary. The promise contains a "document cursor" that points to the collection (this is useful when working with a large number of documents), so by using toArray() all the data in the authors collection is stored in an array that makes it easier to work with
   res.render('create-post', {authors: authors});
 });
+
+router.get(`/posts/:postId/edit`, async (req, res) => {
+
+})
 
 router.post(`/posts`, async (req, res) => {
   const authorId = new ObjectId(req.body.author)
