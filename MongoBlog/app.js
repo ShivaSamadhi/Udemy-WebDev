@@ -3,7 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 
-const blogRoutes = require(`./routes/blogRoutes`)
+const blogRoutes = require(`./routes/blog`)
 const db = require(`./data/database`)
 
 const app = express();

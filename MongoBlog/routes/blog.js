@@ -10,13 +10,21 @@ router.get('/', (req, res) => {
 });
 
 router.get('/posts', async (req, res) => {
-  const postsArr = await db.getDB().collection(`posts`).find().toArray()
+  const postsArr = await db
+      .getDB()
+      .collection(`posts`)
+      .find({}, {title: 1, summary: 1, "author.name": 1})
+      .toArray()
 
   res.render('posts-list', {posts: postsArr});
 });
 
 router.get('/new-post', async (req, res) => {
-  const authors = await db.getDB().collection(`authors`).find().toArray()
+  const authors = await db
+      .getDB()
+      .collection(`authors`)
+      .find()
+      .toArray()
   //the syntax for accessing a particular collection within a DB is a little different from what we have seen while using the mongo shell. Here we use collection() to specify the name of the collection we wish to interact with. Once this is done we can use the methods we explored from the shell (such as find(), insertOne(), etc)
   //Just like with SQL, queries to mongodb return promises, so async-await is necessary. The promise contains a "document cursor" that points to the collection (this is useful when working with a large number of documents), so by using toArray() all the data in the authors collection is stored in an array that makes it easier to work with
   res.render('create-post', {authors: authors});
