@@ -9,7 +9,9 @@ router.get('/', (req, res) => {
   res.redirect('/posts');
 });
 
-router.get('/posts', (req, res) => {
+router.get('/posts', async (req, res) => {
+
+
   res.render('posts-list');
 });
 
@@ -38,6 +40,10 @@ router.post(`/posts`, async (req, res) => {
     //from here we can access the returned author obj to store the necessary data in our newPost obj
   }
 
-  await db.getDB().collection(`posts`).insertOne()
+  const result = await db.getDB().collection(`posts`).insertOne(newPost)
+
+  res.redirect(`/posts`)
 })
+
+
 module.exports = router;
