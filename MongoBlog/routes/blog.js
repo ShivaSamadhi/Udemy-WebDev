@@ -33,6 +33,10 @@ router.get('/new-post', async (req, res) => {
 router.get(`/posts/:postId/edit`, async (req, res) => {
 
 })
+router.get(`/posts/:postId`, async (req, res) => {
+  const postId = new ObjectId(req.body.postId)
+
+})
 
 router.post(`/posts`, async (req, res) => {
   const authorId = new ObjectId(req.body.author)
