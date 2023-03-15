@@ -34,8 +34,32 @@ router.get(`/posts/:postId/edit`, async (req, res) => {
 
 })
 router.get(`/posts/:postId`, async (req, res) => {
-  const postId = new ObjectId(req.body.postId)
+  const postId = new ObjectId(req.params.postId)
+  const postDetails = await db
+      .getDB()
+      .collection(`posts`)
+      .findOne({_id: postId})
 
+
+  if (!postDetails || postDetails.length === 0)
+    return res.status(404).render(`404`)
+
+  const postData = {
+    ...postDetails,
+    //copy the original array
+    //because the server doesnt actually know how many posts will match the query criteria, we have to specify the first array index when passing it back to the template as an object, even tho we know only one post should be returned based on the criteria
+    date: postDetails.date.toISOString(),
+    //format date for machine readability
+    formattedDate: postDetails.date.toLocaleDateString(`en-US`, {
+      weekday: "long",
+      year: "numeric",
+      month: "short",
+      day: "numeric"
+    })
+    //format date for human readability
+  }
+
+  res.render(`post-detail`, {post: postData})
 })
 
 router.post(`/posts`, async (req, res) => {
