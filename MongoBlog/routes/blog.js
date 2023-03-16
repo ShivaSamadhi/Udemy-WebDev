@@ -36,10 +36,7 @@ router.get(`/posts/:postId/edit`, async (req, res) => {
       .getDB()
       .collection(`posts`)
       .findOne(
-          {_id: postId},
-          { title: 1,
-            summary: 1,
-            body: 1 }
+          {_id: postId}
       )
 
   if (!postDetails || postDetails.length === 0)
