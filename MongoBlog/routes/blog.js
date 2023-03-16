@@ -31,7 +31,16 @@ router.get('/new-post', async (req, res) => {
 });
 
 router.get(`/posts/:postId/edit`, async (req, res) => {
+  const postId = new ObjectId(req.params.postId)
+  const postDetails = await db
+      .getDB()
+      .collection(`posts`)
+      .findOne({_id: postId})
 
+  if (!postDetails || postDetails.length === 0)
+    return res.status(404).render(`404`)
+
+  res.render(`update-post`, {post: postDetails})
 })
 router.get(`/posts/:postId`, async (req, res) => {
   const postId = new ObjectId(req.params.postId)
