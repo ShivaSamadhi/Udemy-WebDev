@@ -42,13 +42,13 @@ router.get(`/posts/:postId/edit`, async (req, res) => {
 
   res.render(`update-post`, {post: postDetails})
 })
+
 router.get(`/posts/:postId`, async (req, res) => {
   const postId = new ObjectId(req.params.postId)
   const postDetails = await db
       .getDB()
       .collection(`posts`)
       .findOne({_id: postId})
-
 
   if (!postDetails || postDetails.length === 0)
     return res.status(404).render(`404`)
@@ -96,22 +96,17 @@ router.post(`/posts`, async (req, res) => {
 
 router.post(`/posts/:postId/edit`, async (req, res) => {
   const postId = new ObjectId(req.params.postId)
-  const postDetails = await db
+  const updatePost = await db
       .getDB()
       .collection(`posts`)
-      .findOne({_id: postId})
+      .updateOne({_id: postId}, {$set: {
+          title: req.body.title,
+          summary: req.body.summ,
+          body: req.body.content,
+          date: new Date()
+        }})
 
-  if (!postDetails || postDetails.length === 0)
-    return res.status(404).render(`404`)
-
-  const updatedPost = {
-    title: req.body.title,
-    summary: req.body.summ,
-    body: req.body.content,
-    date: new Date()
-  }
-
-  const result = await db.getDB().collection(`posts`).updateOne({_id: postId}, {$set: updatedPost})
+  res.redirect(`/posts`)
 })
 
 module.exports = router;
