@@ -94,6 +94,24 @@ router.post(`/posts`, async (req, res) => {
   res.redirect(`/posts`)
 })
 
-router.post(`/posts/:postId/edit`)
+router.post(`/posts/:postId/edit`, async (req, res) => {
+  const postId = new ObjectId(req.params.postId)
+  const postDetails = await db
+      .getDB()
+      .collection(`posts`)
+      .findOne({_id: postId})
+
+  if (!postDetails || postDetails.length === 0)
+    return res.status(404).render(`404`)
+
+  const updatedPost = {
+    title: req.body.title,
+    summary: req.body.summ,
+    body: req.body.content,
+    date: new Date()
+  }
+
+  const result = await db.getDB().collection(`posts`).updateOne({_id: postId}, updatedPost)
+})
 
 module.exports = router;
