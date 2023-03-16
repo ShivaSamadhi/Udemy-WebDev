@@ -46,7 +46,16 @@ router.get(`/posts/:postId/edit`, async (req, res) => {
 })
 
 router.get(`/posts/:postId`, async (req, res) => {
-  const postId = new ObjectId(req.params.postId)
+  let postId = req.params.postId
+
+  try {
+     postId = new ObjectId(postId)
+  }
+  catch (err) {
+    return res.status(404).render(`404`)
+  }
+  //manual error handling with express. Some cases will not be picked up by built-in err handling middleware
+
   const postDetails = await db
       .getDB()
       .collection(`posts`)
