@@ -111,7 +111,7 @@ router.post(`/posts/:postId/edit`, async (req, res) => {
     date: new Date()
   }
 
-  const result = await db.getDB().collection(`posts`).updateOne({_id: postId}, updatedPost)
+  const result = await db.getDB().collection(`posts`).updateOne({_id: postId}, {$set: updatedPost})
 })
 
 module.exports = router;
