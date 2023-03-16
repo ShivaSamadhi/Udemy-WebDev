@@ -94,5 +94,6 @@ router.post(`/posts`, async (req, res) => {
   res.redirect(`/posts`)
 })
 
+router.post(`/posts/:postId/edit`)
 
 module.exports = router;
