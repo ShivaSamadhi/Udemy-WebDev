@@ -35,7 +35,12 @@ router.get(`/posts/:postId/edit`, async (req, res) => {
   const postDetails = await db
       .getDB()
       .collection(`posts`)
-      .findOne({_id: postId})
+      .findOne(
+          {_id: postId},
+          { title: 1,
+            summary: 1,
+            body: 1 }
+      )
 
   if (!postDetails || postDetails.length === 0)
     return res.status(404).render(`404`)
@@ -73,7 +78,10 @@ router.get(`/posts/:postId`, async (req, res) => {
 
 router.post(`/posts`, async (req, res) => {
   const authorId = new ObjectId(req.body.author)
-  const author = await db.getDB().collection(`authors`).findOne({ _id: authorId })
+  const author = await db
+      .getDB()
+      .collection(`authors`)
+      .findOne({ _id: authorId })
   //here we create a new instance of ObjectId that points to a specific author, then run a db query to get find the corresponding obj in the authors collection
 
   const newPost = {
