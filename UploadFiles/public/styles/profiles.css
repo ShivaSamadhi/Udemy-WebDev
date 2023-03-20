@@ -41,3 +41,8 @@
   margin: 0.5rem 0;
 }
 
+#img-preview{
+  display: none;
+  width: 5rem;
+  height: 5rem;
+}
