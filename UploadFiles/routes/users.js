@@ -1,7 +1,7 @@
 const express = require('express');
 const multer = require(`multer`)
 // Middleware for handling multipart/form-data, which is primarily used for uploading files.
-const upload = multer({})
+const upload = multer({ dest: `images`})
 const router = express.Router();
 
 router.get('/', function(req, res) {
