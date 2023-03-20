@@ -15,6 +15,14 @@ app.use(express.static('public'));
 
 app.use(userRoutes);
 
-db.connectToDatabase().then(function () {
-  app.listen(3000);
+app.use((req, res)=>{
+  res.status(404).render(`404`)
+})
+
+app.use((err, req, res, next) => {
+  res.status(500).render(`500`)
+})
+
+db.connectDB().then(() => {
+  app.listen(8080);
 });
