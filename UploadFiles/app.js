@@ -12,6 +12,7 @@ app.set(`views`, `${__dirname}/views`);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
+app.use(express.static('images'));
 
 app.use(userRoutes);
 
