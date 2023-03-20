@@ -12,8 +12,8 @@ app.set(`views`, `${__dirname}/views`);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
-app.use(express.static('images'));
-
+app.use(`/images`, express.static('images'));
+// in order for the browser to have access to the images stored in the file system we must use express.static, plus the filtering parameter so that any file request that starts with /images can be recognized and rendered correctly
 app.use(userRoutes);
 
 app.use((req, res)=>{
