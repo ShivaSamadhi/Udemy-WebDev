@@ -1,0 +1,11 @@
+{
+  "name": "uploadfiles",
+  "version": "1.0.0",
+  "description": "Learning to upload files and store them on a server",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ramaj Johnson",
+  "license": "ISC"
+}
