@@ -31,8 +31,9 @@ router.get('/new-user', function(req, res) {
 
 router.post(`/profiles`, upload.single(`image`), async (req, res) => {
   const {path} = req.file;
+  //represents the file
   const {username} = req.body;
-
+  // represents the rest of the form data
 
   const imgUpload = await db.getDb().collection(`users`).insertOne({
     name: username,
@@ -41,5 +42,6 @@ router.post(`/profiles`, upload.single(`image`), async (req, res) => {
 
   res.redirect(`/`)
 })
+//We can specify middleware that should only be used on certain paths with the syntax above. Since upload stores our multer(), we can use the .single() to determine how the file submitted with the form name "image" should be stored
 
 module.exports = router;
