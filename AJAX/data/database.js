@@ -4,9 +4,10 @@ const MongoClient = mongodb.MongoClient;
 
 let database;
 
-async function connect() {
+const connectDB = async () => {
   const client = await MongoClient.connect('mongodb://localhost:27017');
-  database = client.db('blog');
+
+  database = client.db('file-demo');
 }
 
 function getDb() {

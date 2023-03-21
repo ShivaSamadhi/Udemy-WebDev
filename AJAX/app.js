@@ -1,4 +1,6 @@
 const express = require('express');
+const ejs = require(`ejs`)
+const bodyParser = require(`body-parser`)
 
 const blogRoutes = require('./routes/blog');
 const db = require('./data/database');
@@ -9,7 +11,7 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', `${__dirname}/views`);
 
-app.use(express.urlencoded({ extended: true })); // Parse incoming request bodies
+app.use(bodyParser.urlencoded({ extended: true })); // Parse incoming request bodies
 app.use(express.static('public')); // Serve static files (e.g. CSS files)
 
 app.use(blogRoutes);
