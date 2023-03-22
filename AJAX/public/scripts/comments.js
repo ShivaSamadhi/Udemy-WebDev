@@ -1,0 +1,1 @@
+const loadCommentsBtn = document.querySelector(`#loadCommentsBtn`)

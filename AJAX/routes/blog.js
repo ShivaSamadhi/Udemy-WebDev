@@ -7,11 +7,11 @@ const ObjectId = mongodb.ObjectId;
 
 const router = express.Router();
 
-router.get('/', function (req, res) {
+router.get('/', (req, res) => {
   res.redirect('/posts');
 });
 
-router.get('/posts', async function (req, res) {
+router.get('/posts', async (req, res) => {
   const posts = await db
     .getDB()
     .collection('posts')
@@ -20,12 +20,12 @@ router.get('/posts', async function (req, res) {
   res.render('posts-list', { posts: posts });
 });
 
-router.get('/new-post', async function (req, res) {
+router.get('/new-post', async (req, res) => {
   const authors = await db.getDB().collection('authors').find().toArray();
   res.render('create-post', { authors: authors });
 });
 
-router.post('/posts', async function (req, res) {
+router.post('/posts', async (req, res) => {
   const authorId = new ObjectId(req.body.author);
   const author = await db
     .getDB()
@@ -49,7 +49,7 @@ router.post('/posts', async function (req, res) {
   res.redirect('/posts');
 });
 
-router.get('/posts/:id', async function (req, res) {
+router.get('/posts/:id', async (req, res) => {
   const postId = req.params.id;
   const post = await db
     .getDB()
@@ -71,7 +71,7 @@ router.get('/posts/:id', async function (req, res) {
   res.render('post-detail', { post: post, comments: null });
 });
 
-router.get('/posts/:id/edit', async function (req, res) {
+router.get('/posts/:id/edit', async (req, res) => {
   const postId = req.params.id;
   const post = await db
     .getDB()
@@ -85,7 +85,7 @@ router.get('/posts/:id/edit', async function (req, res) {
   res.render('update-post', { post: post });
 });
 
-router.post('/posts/:id/edit', async function (req, res) {
+router.post('/posts/:id/edit', async (req, res) => {
   const postId = new ObjectId(req.params.id);
   const result = await db
     .getDB()
@@ -105,7 +105,7 @@ router.post('/posts/:id/edit', async function (req, res) {
   res.redirect('/posts');
 });
 
-router.post('/posts/:id/delete', async function (req, res) {
+router.post('/posts/:id/delete', async (req, res) => {
   const postId = new ObjectId(req.params.id);
   const result = await db
     .getDB()
@@ -114,7 +114,7 @@ router.post('/posts/:id/delete', async function (req, res) {
   res.redirect('/posts');
 });
 
-router.get('/posts/:id/comments', async function (req, res) {
+router.get('/posts/:id/comments', async (req, res) => {
   const postId = new ObjectId(req.params.id);
   const post = await db.getDB().collection('posts').findOne({ _id: postId });
   const comments = await db
@@ -125,7 +125,7 @@ router.get('/posts/:id/comments', async function (req, res) {
   return res.render('post-detail', { post: post, comments: comments });
 });
 
-router.post('/posts/:id/comments', async function (req, res) {
+router.post('/posts/:id/comments', async (req, res) => {
   const postId = new ObjectId(req.params.id);
   const newComment = {
     postId: postId,
