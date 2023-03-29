@@ -123,16 +123,23 @@ router.get('/posts/:id/comments', async (req, res) => {
     .find({ postId: postId }).toArray();
 
   res.json(comments)
+  //sends the data from the server back to the client in an encoded json format
 });
 
 router.post('/posts/:id/comments', async (req, res) => {
   const postId = new ObjectId(req.params.id);
+
   const newComment = {
     postId: postId,
     title: req.body.title,
     text: req.body.text,
   };
-  await db.getDB().collection('comments').insertOne(newComment);
+
+  await db
+      .getDB()
+      .collection('comments')
+      .insertOne(newComment);
+
   res.redirect(`/posts/${req.params.id}`);
 });
 
