@@ -12,6 +12,8 @@ app.set('view engine', 'ejs');
 app.set('views', `${__dirname}/views`);
 
 app.use(bodyParser.urlencoded({ extended: true })); // Parse incoming request bodies
+app.use(express.json())
+//parses all req for JSON data, if present it will handle the JSON conversion
 app.use(express.static('public')); // Serve static files (e.g. CSS files)
 
 app.use(blogRoutes);

@@ -140,7 +140,7 @@ router.post('/posts/:id/comments', async (req, res) => {
       .collection('comments')
       .insertOne(newComment);
 
-  res.redirect(`/posts/${req.params.id}`);
+  res.json({message: `New Comment Added!`});
 });
 
 module.exports = router;

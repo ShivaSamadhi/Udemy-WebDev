@@ -38,7 +38,7 @@ const getComments = async () => {
   commentsSectionElem.appendChild(commentsListElem)
 }
 
-const postComments = async (e) => {
+const postComments = (e) => {
   e.preventDefault()
 
   const postId = commentsFormElem.dataset.postid;
@@ -49,7 +49,7 @@ const postComments = async (e) => {
     text: commentText.value
   }
 
-  const req = await fetch(`/posts/${postId}/comments`, {
+  const req = fetch(`/posts/${postId}/comments`, {
     method: `POST`,
     body: JSON.stringify(comment)
   });
