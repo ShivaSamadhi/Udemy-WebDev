@@ -1,5 +1,9 @@
 const loadCommentsBtn = document.querySelector(`#loadCommentsBtn`)
 const commentsSectionElem = document.querySelector(`#comments`)
+const commentsFormElem = document.querySelector(`#comments-form`)
+const commentTitle = document.querySelector(`#title`)
+const commentText = document.querySelector(`#text`)
+
 const createCommentsElem = (comments) => {
   const commentListElem = document.createElement(`ol`)
 
@@ -28,8 +32,22 @@ const getComments = async () => {
 
   console.log(resData)
 
-  createCommentsElem(resData)
+  const commentsListElem = createCommentsElem(resData)
+
+  commentsSectionElem.innerHTML = ``
+  commentsSectionElem.appendChild(commentsListElem)
 }
 
+const saveComment = async (e) => {
+  e.preventDefault()
+
+  const postId = commentsFormElem.dataset.postid;
+
+  const newTitle = commentTitle.value
+  const newText = commentText.value
+
+  fetch(`/posts/${postId}/comments`)
+}
 
 loadCommentsBtn.addEventListener(`click`, getComments)
+commentsFormElem.addEventListener(`submit`, )
