@@ -1,4 +1,20 @@
 const loadCommentsBtn = document.querySelector(`#loadCommentsBtn`)
+const commentsSectionElem = document.querySelector(`#comments`)
+const createCommentsElem = (comments) => {
+  const commentListElem = document.createElement(`ol`)
+
+  for (const comment of comments) {
+    const commentElem = document.createElement(`li`)
+    commentElem.innerHTML = `
+    <article>
+        <h2>${comment.title}</h2>
+        <p>${comment.text}</p>
+    </article>
+    `
+    commentListElem.appendChild(commentElem)
+  }
+  return commentListElem
+}
 
 const getComments = async () => {
   const postId = loadCommentsBtn.dataset.postid;
@@ -12,6 +28,7 @@ const getComments = async () => {
 
   console.log(resData)
 
+  createCommentsElem(resData)
 }
 
 
