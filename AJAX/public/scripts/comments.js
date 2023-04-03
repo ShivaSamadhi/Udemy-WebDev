@@ -38,16 +38,22 @@ const getComments = async () => {
   commentsSectionElem.appendChild(commentsListElem)
 }
 
-const saveComment = async (e) => {
+const postComments = async (e) => {
   e.preventDefault()
 
   const postId = commentsFormElem.dataset.postid;
 
-  const newTitle = commentTitle.value
-  const newText = commentText.value
 
-  fetch(`/posts/${postId}/comments`)
+  const comment = {
+    title: commentTitle.value,
+    text: commentText.value
+  }
+
+  const req = await fetch(`/posts/${postId}/comments`, {
+    method: `POST`,
+    body: JSON.stringify(comment)
+  });
 }
 
 loadCommentsBtn.addEventListener(`click`, getComments)
-commentsFormElem.addEventListener(`submit`, )
+commentsFormElem.addEventListener(`submit`, postComments)
