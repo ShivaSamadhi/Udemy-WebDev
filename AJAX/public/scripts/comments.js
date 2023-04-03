@@ -56,6 +56,7 @@ const postComments = (e) => {
     },
     body: JSON.stringify(comment)
   });
+  //configures the fetch() request. By default, fetch sends a get request so this allows us to specify the type of request, how the data is encoded, and what data is being sent
 }
 
 loadCommentsBtn.addEventListener(`click`, getComments)
