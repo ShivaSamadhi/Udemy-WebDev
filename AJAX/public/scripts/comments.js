@@ -32,6 +32,11 @@ const getComments = async () => {
   const res = await fetch(`/posts/${postId}/comments`);
   //fetch() handles the async http request to get data from the server
 
+  if(!response.ok){
+    alert(`Fetch Request Failed`)
+    return
+  }
+
   const resData = await res.json()
   //parses the JSON response from the fetch request
 
