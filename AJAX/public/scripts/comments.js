@@ -30,12 +30,15 @@ const getComments = async () => {
   const resData = await res.json()
   //parses the JSON response from the fetch request
 
+  if(resData && resData.length > 0){
+    const commentsListElem = createCommentsElem(resData)
+    commentsSectionElem.innerHTML = ``
+    commentsSectionElem.appendChild(commentsListElem)
+  }
+  else
+
   console.log(resData)
 
-  const commentsListElem = createCommentsElem(resData)
-
-  commentsSectionElem.innerHTML = ``
-  commentsSectionElem.appendChild(commentsListElem)
 }
 
 const postComments = async (e) => {
