@@ -29,27 +29,33 @@ const getComments = async () => {
   const postId = loadCommentsBtn.dataset.postid;
   //using the dataset method, we can access the data attr connected to the selected DOM element
 
-  const res = await fetch(`/posts/${postId}/comments`);
-  //fetch() handles the async http request to get data from the server
+  try {
+    const res = await fetch(`/posts/${postId}/comments`);
+    //fetch() handles the async http request to get data from the server
 
-  if(!response.ok){
+    if(!response.ok){
+      alert(`Fetch Request Failed`)
+      return
+    }
+
+    const resData = await res.json()
+    //parses the JSON response from the fetch request
+
+    if(resData && resData.length > 0){
+      const commentsListElem = createCommentsElem(resData)
+      commentsSectionElem.innerHTML = ``
+      commentsSectionElem.appendChild(commentsListElem)
+    }
+    else{
+      noCommentsElem.textContent = `No Comments Found, Add One Below!`
+    }
+
+    console.log(resData)
+  }
+  catch (e) {
     alert(`Fetch Request Failed`)
-    return
   }
 
-  const resData = await res.json()
-  //parses the JSON response from the fetch request
-
-  if(resData && resData.length > 0){
-    const commentsListElem = createCommentsElem(resData)
-    commentsSectionElem.innerHTML = ``
-    commentsSectionElem.appendChild(commentsListElem)
-  }
-  else{
-    noCommentsElem.textContent = `No Comments Found, Add One Below!`
-  }
-
-  console.log(resData)
 
 }
 
