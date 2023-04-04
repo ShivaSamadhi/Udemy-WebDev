@@ -1,6 +1,6 @@
 const loadCommentsBtn = document.querySelector(`#loadCommentsBtn`)
 const commentsSectionElem = document.querySelector(`#comments`)
-const commentsFormElem = document.querySelector(`#comments-form`)
+const commentsFormElem = document.querySelector(`#commentsForm`)
 const commentTitle = document.querySelector(`#title`)
 const commentText = document.querySelector(`#text`)
 
@@ -42,7 +42,7 @@ const postComments = async (event) => {
 
   event.preventDefault()
 
-  const postId = loadCommentsBtn.dataset.postid;
+  const postId = commentsFormElem.dataset.postid;
 
   const title = commentTitle.value
   const text = commentText.value
