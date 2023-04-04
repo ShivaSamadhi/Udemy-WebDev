@@ -72,15 +72,15 @@ const postComments = async (e) => {
     });
     //configures the fetch() request. By default, fetch sends a get request so this allows us to specify the type of request, how the data is encoded, and what data is being sent
 
-    commentTitle.value = ``
-    commentText.value = ``
-
     if(response.ok){
+      commentTitle.value = ``
+      commentText.value = ``
       await getComments()
     }
     else{
       alert(`There Was An Error. Couldn't Send Comment!`)
     }
+
   }
   catch (e) {
     alert(`There Was An Error. Couldn't Send Comment!`)
