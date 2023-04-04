@@ -1,3 +1,5 @@
+const {response} = require("express");
+
 const loadCommentsBtn = document.querySelector(`#loadCommentsBtn`)
 const commentsSectionElem = document.querySelector(`#comments`)
 
@@ -60,19 +62,31 @@ const postComments = async (e) => {
     text: text
   }
 
-   await fetch(`/posts/${postId}/comments`, {
-    method: `POST`,
-    body: JSON.stringify(comment),
-    headers: {
-       'Content-Type': 'application/json'
-     }
-  });
-  //configures the fetch() request. By default, fetch sends a get request so this allows us to specify the type of request, how the data is encoded, and what data is being sent
+  try {
+    await fetch(`/posts/${postId}/comments`, {
+      method: `POST`,
+      body: JSON.stringify(comment),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    //configures the fetch() request. By default, fetch sends a get request so this allows us to specify the type of request, how the data is encoded, and what data is being sent
 
-  commentTitle.value = ``
-  commentText.value = ``
+    commentTitle.value = ``
+    commentText.value = ``
 
-  await getComments()
+    if(response.ok){
+      await getComments()
+    }
+    else{
+      alert(`There Was An Error. Couldn't Send Comment!`)
+    }
+  }
+  catch (e) {
+    alert(`There Was An Error. Couldn't Send Comment!`)
+  }
+
+
 }
 
 loadCommentsBtn.addEventListener(`click`, getComments)
