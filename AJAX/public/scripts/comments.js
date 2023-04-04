@@ -38,9 +38,9 @@ const getComments = async () => {
   commentsSectionElem.appendChild(commentsListElem)
 }
 
-const postComments = async (event) => {
+const postComments = async (e) => {
 
-  event.preventDefault()
+  e.preventDefault()
 
   const postId = commentsFormElem.dataset.postid;
 
@@ -60,6 +60,11 @@ const postComments = async (event) => {
      }
   });
   //configures the fetch() request. By default, fetch sends a get request so this allows us to specify the type of request, how the data is encoded, and what data is being sent
+
+  commentTitle.value = ``
+  commentText.value = ``
+
+  await getComments()
 }
 
 loadCommentsBtn.addEventListener(`click`, getComments)
