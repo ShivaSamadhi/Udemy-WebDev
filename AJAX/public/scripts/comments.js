@@ -38,23 +38,26 @@ const getComments = async () => {
   commentsSectionElem.appendChild(commentsListElem)
 }
 
-const postComments = (e) => {
-  e.preventDefault()
+const postComments = async (event) => {
 
-  const postId = commentsFormElem.dataset.postid;
+  event.preventDefault()
 
+  const postId = loadCommentsBtn.dataset.postid;
+
+  const title = commentTitle.value
+  const text = commentText.value
 
   const comment = {
-    title: commentTitle.value,
-    text: commentText.value
+    title: title,
+    text: text
   }
 
-  const req = fetch(`/posts/${postId}/comments`, {
+   await fetch(`/posts/${postId}/comments`, {
     method: `POST`,
-    headers:{
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(comment)
+    body: JSON.stringify(comment),
+    headers: {
+       'Content-Type': 'application/json'
+     }
   });
   //configures the fetch() request. By default, fetch sends a get request so this allows us to specify the type of request, how the data is encoded, and what data is being sent
 }
