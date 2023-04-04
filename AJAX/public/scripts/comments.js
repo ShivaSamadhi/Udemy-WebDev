@@ -1,8 +1,11 @@
 const loadCommentsBtn = document.querySelector(`#loadCommentsBtn`)
 const commentsSectionElem = document.querySelector(`#comments`)
+
 const commentsFormElem = document.querySelector(`#commentsForm`)
 const commentTitle = document.querySelector(`#title`)
 const commentText = document.querySelector(`#text`)
+
+const noCommentsElem = document.querySelector(`#noComments`)
 
 const createCommentsElem = (comments) => {
   const commentListElem = document.createElement(`ol`)
@@ -35,7 +38,9 @@ const getComments = async () => {
     commentsSectionElem.innerHTML = ``
     commentsSectionElem.appendChild(commentsListElem)
   }
-  else
+  else{
+    noCommentsElem.textContent = `No Comments Found, Add One Below!`
+  }
 
   console.log(resData)
 
