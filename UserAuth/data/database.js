@@ -19,6 +19,6 @@ const getDB = () => {
 }
 
 module.exports = {
-  connectToDatabase: connectDB,
+  connectDB: connectDB,
   getDb: getDB,
 };
