@@ -1,5 +1,6 @@
 const express = require(`express`);
-const
+const bcrypt = require(`bcryptjs`);
+//Package for hashing passwords
 const db = require(`../data/database`);
 
 const router = express.Router();
@@ -30,9 +31,13 @@ router.post(`/signup`, async (req, res) => {
   const confirmEmail = userData.confirm
   const password = userData.password
 
+  const hashPW = await bcrypt.hash(password, 12)
+  //hash() takes 2 parameters, a string representing the password and a number used to determine how strong the hash is
+  //returns a promise, must be awaited
+
   const newUser = {
     email: email,
-    password: password
+    password: hashPW
   }
 
   await db.getDb().collection(`users`).insertOne(newUser)
