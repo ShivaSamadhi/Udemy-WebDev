@@ -1,5 +1,5 @@
 const express = require(`express`);
-
+const
 const db = require(`../data/database`);
 
 const router = express.Router();
@@ -22,7 +22,23 @@ router.get(`/admin`, (req, res) => {
 });
 
 //POST ROUTES
-router.post(`/signup`, async (req, res) => {});
+router.post(`/signup`, async (req, res) => {
+  const userData = req.body
+  //Access req body from form submission
+
+  const email = userData.email
+  const confirmEmail = userData.confirm
+  const password = userData.password
+
+  const newUser = {
+    email: email,
+    password: password
+  }
+
+  await db.getDb().collection(`users`).insertOne(newUser)
+
+  res.redirect(`/login`)
+});
 
 router.post(`/login`, async (req, res) => {});
 
