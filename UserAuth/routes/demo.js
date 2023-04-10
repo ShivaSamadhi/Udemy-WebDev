@@ -45,7 +45,22 @@ router.post(`/signup`, async (req, res) => {
   res.redirect(`/login`)
 });
 
-router.post(`/login`, async (req, res) => {});
+router.post(`/login`, async (req, res) => {
+  const userData = req.body
+  const userEmail = userData.email
+  const userPassword = userData.password
+
+  const existingUser = await db
+      .getDb()
+      .collection(`users`)
+      .findOne({email: userEmail})
+
+
+  if(!existingUser){
+    return res.redirect(`/login`)
+  }
+
+});
 
 router.post(`/logout`, (req, res) => {});
 
