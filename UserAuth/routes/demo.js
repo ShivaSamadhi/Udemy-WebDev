@@ -19,6 +19,10 @@ router.get(`/login`, (req, res) => {
 });
 
 router.get(`/admin`, (req, res) => {
+  if (!req.session.user){
+    return res.status(401).render(`401`)
+  }
+  //check for user session info to know if the request is from authenticated user
   res.render('admin');
 });
 
@@ -85,9 +89,20 @@ router.post(`/login`, async (req, res) => {
     return res.redirect(`/login`)
   }
 
-  res.redirect(`/admin`)
+  req.session.user = {
+    id: existingUser._id,
+    email: existingUser.email
+  }
+  //add necessary data to the session
+  req.session.save(()=>{
+    res.redirect(`/admin`)
+  })
+  //saves session data to the db, requires a callback function that only activates upon successful save. This makes sure the redirect doesn't happen until the session info is stored in the db for future use
+
 });
 
-router.post(`/logout`, (req, res) => {});
+router.post(`/logout`, (req, res) => {
+  req.session.user = null
+});
 
 module.exports = router;
