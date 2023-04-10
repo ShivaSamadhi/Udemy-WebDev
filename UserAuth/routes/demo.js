@@ -60,6 +60,14 @@ router.post(`/login`, async (req, res) => {
     return res.redirect(`/login`)
   }
 
+  const hashCheckPW = await bcrypt.compare(userPassword, existingUser.password)
+  //password comparison via bcrypt. Takes raw string and hashes it. returns boolean
+
+  if(!hashCheckPW){
+    return res.redirect(`/login`)
+  }
+
+
 });
 
 router.post(`/logout`, (req, res) => {});
