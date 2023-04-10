@@ -28,8 +28,28 @@ router.post(`/signup`, async (req, res) => {
   //Access req body from form submission
 
   const email = userData.email
-  const confirmEmail = userData.confirm
+  const confirmEmail = userData.emailConfirm
   const password = userData.password
+
+  if(
+      !email ||
+      !confirmEmail ||
+      !password ||
+      password.trim() < 6 ||
+      email !== confirmEmail ||
+      !email.includes(`@`)
+  ){
+    return res.redirect(`/signup`)
+  }
+
+  const existingUser = await db
+      .getDb()
+      .collection(`users`)
+      .findOne({email: email})
+
+  if(existingUser){
+    return res.redirect(`/signup`)
+  }
 
   const hashPW = await bcrypt.hash(password, 12)
   //hash() takes 2 parameters, a string representing the password and a number used to determine how strong the hash is
@@ -67,7 +87,7 @@ router.post(`/login`, async (req, res) => {
     return res.redirect(`/login`)
   }
 
-
+  res.redirect(`/admin`)
 });
 
 router.post(`/logout`, (req, res) => {});
