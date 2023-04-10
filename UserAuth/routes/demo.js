@@ -31,25 +31,23 @@ router.post(`/signup`, async (req, res) => {
   const confirmEmail = userData.emailConfirm
   const password = userData.password
 
+  const existingUser = await db
+      .getDb()
+      .collection(`users`)
+      .findOne({email: email})
+
   if(
       !email ||
       !confirmEmail ||
       !password ||
       password.trim() < 6 ||
       email !== confirmEmail ||
-      !email.includes(`@`)
+      !email.includes(`@`) ||
+      existingUser
   ){
     return res.redirect(`/signup`)
   }
 
-  const existingUser = await db
-      .getDb()
-      .collection(`users`)
-      .findOne({email: email})
-
-  if(existingUser){
-    return res.redirect(`/signup`)
-  }
 
   const hashPW = await bcrypt.hash(password, 12)
   //hash() takes 2 parameters, a string representing the password and a number used to determine how strong the hash is
