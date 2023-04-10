@@ -31,7 +31,7 @@ app.use(session({
   secret: `superSecret`,
   resave: false,
   saveUninitialized: false,
-  store:
+  store: sessionStore
 }))
 //configure the session middleware using an obj
 app.use(demoRoutes);
