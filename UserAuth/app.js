@@ -15,7 +15,8 @@ const demoRoutes = require(`./routes/demo`);
 const app = express();
 
 const sessionStore = new mongoSessionStore({
-  uri: `localhost:27017`,
+  uri: `mongodb://localhost:27017`,
+  //uri should be a direct match for the url that's running the DB
   databaseName: `auth-demo`,
   collection: `sessions`
 })
