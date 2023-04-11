@@ -41,6 +41,15 @@ router.get(`/admin`, (req, res) => {
   res.render('admin');
 });
 
+router.get(`/profile`, (req, res) => {
+  if (!req.session.user){
+    return res.status(401).render(`401`)
+  }
+  //Checks for user session info to know if the request is from authenticated user. If no user data exists for this session, client is redirected to an error page
+
+  res.render('profile');
+});
+
 //POST ROUTES
 router.post(`/signup`, async (req, res) => {
   const userData = req.body
