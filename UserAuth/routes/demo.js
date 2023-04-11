@@ -29,7 +29,19 @@ router.get(`/signup`, (req, res) => {
 });
 
 router.get(`/login`, (req, res) => {
-  res.render(`login`);
+  let sessionInputData = req.session.inputData
+
+  if(!sessionInputData){
+    sessionInputData = {
+      hasError: false,
+      email: ``,
+      password: ``
+    }
+  }
+
+  req.session.inputData = null
+
+  res.render(`login`, {inputData: sessionInputData});
 });
 
 router.get(`/admin`, async (req, res) => {
@@ -39,12 +51,12 @@ router.get(`/admin`, async (req, res) => {
   }
   //Checks for user session info to know if the request is from authenticated user. If no user data exists for this session, client is redirected to an error page
 
-  const existingUser = await db
+  const user = await db
       .getDb()
       .collection(`users`)
       .findOne({_id: req.session.user.id})
 
-  if(!existingUser || !existingUser.isAdmin){
+  if(!user || !user.isAdmin){
     return res.status(403).render(`403`)
   }
   res.render('admin');
@@ -129,7 +141,16 @@ router.post(`/login`, async (req, res) => {
   //Search for existing user email in DB
 
   if(!existingUser){
-    return res.redirect(`/login`)
+    req.session.inputData = {
+      hasError: true,
+      message: `Invalid Credentials - Check Your Information And Try Again.`,
+      email: userEmail,
+      password: userPassword
+    }
+    req.session.save(()=>{
+      res.redirect(`/login`)
+    })
+    return
   }
   //Redirect for invalid email
 
@@ -137,7 +158,16 @@ router.post(`/login`, async (req, res) => {
   //Password comparison via bcrypt. Takes raw string and hashes it. Returns boolean
 
   if(!hashCheckPW){
-    return res.redirect(`/login`)
+    req.session.inputData = {
+      hasError: true,
+      message: `Invalid Credentials - Check Your Information And Try Again.`,
+      email: userEmail,
+      password: userPassword
+    }
+    req.session.save(()=>{
+      res.redirect(`/login`)
+    })
+    return
   }
   //Redirect for invalid password
 
