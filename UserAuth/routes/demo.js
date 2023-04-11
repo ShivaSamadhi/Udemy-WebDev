@@ -32,26 +32,28 @@ router.post(`/signup`, async (req, res) => {
   //Access req body from form submission
 
   const email = userData.email
-  const confirmEmail = userData.emailConfirm
+  const confirmEmail = userData.confirmE
   const password = userData.password
+  //Get data from each input field
 
   const existingUser = await db
       .getDb()
       .collection(`users`)
       .findOne({email: email})
+  //Search for existing user email in DB
 
   if(
       !email ||
       !confirmEmail ||
       !password ||
+      !email.includes(`@`) ||
       password.trim() < 6 ||
       email !== confirmEmail ||
-      !email.includes(`@`) ||
       existingUser
   ){
     return res.redirect(`/signup`)
   }
-
+  //Check for valid credentials
 
   const hashPW = await bcrypt.hash(password, 12)
   //hash() takes 2 parameters, a string representing the password and a number used to determine how strong the hash is
@@ -61,6 +63,7 @@ router.post(`/signup`, async (req, res) => {
     email: email,
     password: hashPW
   }
+  //Create new user obj to enter into DB
 
   await db.getDb().collection(`users`).insertOne(newUser)
 
@@ -71,19 +74,22 @@ router.post(`/login`, async (req, res) => {
   const userData = req.body
   const userEmail = userData.email
   const userPassword = userData.password
+  //Access req body from form submission
+  //Get data from each input field
 
   const existingUser = await db
       .getDb()
       .collection(`users`)
       .findOne({email: userEmail})
-
+  //Search for existing user email in DB
 
   if(!existingUser){
     return res.redirect(`/login`)
   }
+  //Redirect for invalid email
 
   const hashCheckPW = await bcrypt.compare(userPassword, existingUser.password)
-  //password comparison via bcrypt. Takes raw string and hashes it. returns boolean
+  //Password comparison via bcrypt. Takes raw string and hashes it. returns boolean
 
   if(!hashCheckPW){
     return res.redirect(`/login`)
@@ -103,6 +109,7 @@ router.post(`/login`, async (req, res) => {
 
 router.post(`/logout`, (req, res) => {
   req.session.user = null
+  res.redirect(`/`)
 });
 
 module.exports = router;
