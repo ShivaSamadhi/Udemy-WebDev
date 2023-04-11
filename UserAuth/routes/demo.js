@@ -11,7 +11,21 @@ router.get(`/`, (req, res) => {
 });
 
 router.get(`/signup`, (req, res) => {
-  res.render(`signup`);
+  let sessionInputData = req.session.inputData
+
+  if(!sessionInputData){
+  sessionInputData = {
+    hasError: false,
+    email: ``,
+    confirmEmail: ``,
+    password: ``
+    }
+  }
+
+  req.session.inputData = null
+  //Manually delete session data after successful signup
+
+  res.render(`signup`, {inputData: sessionInputData});
 });
 
 router.get(`/login`, (req, res) => {
@@ -22,7 +36,8 @@ router.get(`/admin`, (req, res) => {
   if (!req.session.user){
     return res.status(401).render(`401`)
   }
-  //check for user session info to know if the request is from authenticated user
+  //Checks for user session info to know if the request is from authenticated user. If no user data exists for this session, client is redirected to an error page
+
   res.render('admin');
 });
 
@@ -51,7 +66,19 @@ router.post(`/signup`, async (req, res) => {
       email !== confirmEmail ||
       existingUser
   ){
-    return res.redirect(`/signup`)
+    req.session.inputData = {
+      hasError: true,
+      message: `Invalid Credentials - Check Your Information And Try Again.`,
+      email: email,
+      confirmEmail: confirmEmail,
+      password: password
+    }
+
+    req.session.save(()=>{
+      res.redirect(`/signup`)
+    })
+
+    return
   }
   //Check for valid credentials
 
@@ -89,21 +116,23 @@ router.post(`/login`, async (req, res) => {
   //Redirect for invalid email
 
   const hashCheckPW = await bcrypt.compare(userPassword, existingUser.password)
-  //Password comparison via bcrypt. Takes raw string and hashes it. returns boolean
+  //Password comparison via bcrypt. Takes raw string and hashes it. Returns boolean
 
   if(!hashCheckPW){
     return res.redirect(`/login`)
   }
+  //Redirect for invalid password
 
   req.session.user = {
     id: existingUser._id,
     email: existingUser.email
   }
-  //add necessary data to the session
+  //Add necessary data to the session
+
   req.session.save(()=>{
     res.redirect(`/admin`)
   })
-  //saves session data to the db, requires a callback function that only activates upon successful save. This makes sure the redirect doesn't happen until the session info is stored in the db for future use
+  //Saves session data to the db, requires a callback function that only activates upon successful save. This makes sure the redirect doesn't happen until the session info is stored in the db for future use
 
 });
 

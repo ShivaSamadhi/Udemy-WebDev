@@ -6,7 +6,7 @@ const session = require(`express-session`)
 //express session package
 const mongoSessionStore = require(`connect-mongodb-session`)
 //session storage package via mongoDB
-const MongoSessionStore = mongoSessionStore(session)
+const MongoDBStore = mongoSessionStore(session)
 //session storage constructor function
 
 const db = require(`./data/database`);
@@ -14,9 +14,8 @@ const demoRoutes = require(`./routes/demo`);
 
 const app = express();
 
-const sessionStore = new mongoSessionStore({
+const sessionStore = new MongoDBStore({
   uri: `mongodb://localhost:27017`,
-  //uri should be a direct match for the url that's running the DB
   databaseName: `auth-demo`,
   collection: `sessions`
 })
