@@ -32,12 +32,22 @@ router.get(`/login`, (req, res) => {
   res.render(`login`);
 });
 
-router.get(`/admin`, (req, res) => {
+router.get(`/admin`, async (req, res) => {
+
+
   if (!req.session.user){
     return res.status(401).render(`401`)
   }
   //Checks for user session info to know if the request is from authenticated user. If no user data exists for this session, client is redirected to an error page
 
+  const existingUser = await db
+      .getDb()
+      .collection(`users`)
+      .findOne({_id: req.session.user.id})
+
+  if(!existingUser || !existingUser.isAdmin){
+    res.status(403).render(`403`)
+  }
   res.render('admin');
 });
 
@@ -134,7 +144,7 @@ router.post(`/login`, async (req, res) => {
 
   req.session.user = {
     id: existingUser._id,
-    email: existingUser.email
+    email: existingUser.email,
   }
   //Add necessary data to the session
 
