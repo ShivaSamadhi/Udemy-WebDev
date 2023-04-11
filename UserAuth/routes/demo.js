@@ -34,7 +34,6 @@ router.get(`/login`, (req, res) => {
 
 router.get(`/admin`, async (req, res) => {
 
-
   if (!req.session.user){
     return res.status(401).render(`401`)
   }
@@ -46,7 +45,7 @@ router.get(`/admin`, async (req, res) => {
       .findOne({_id: req.session.user.id})
 
   if(!existingUser || !existingUser.isAdmin){
-    res.status(403).render(`403`)
+    return res.status(403).render(`403`)
   }
   res.render('admin');
 });
