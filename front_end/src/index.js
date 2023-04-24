@@ -10,6 +10,9 @@ root.render(
     <App />
   </React.StrictMode>
 );
+// Serves as the starting point for the entire React App functionality.
+// Using the ReactDOM pkg, we can set the html root element where our components will be injected and rendered.
+// Here we see the App() from App.js is used to render the entirety of the application as a singular entity into the root
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
