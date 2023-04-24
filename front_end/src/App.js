@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 //useState Hook
-//State is a JS obj that contains data about the "current state" of a component. Each comp manages its own state
+//Hooks let you use different React features from your components. This might have similarities to how middlewares are used in Express
+//State is a JS obj that contains data about the "current state" of a component. Each comp manages its own state which can be compared to detect changes in that comp
+
 import './App.css';
 
 const Person = (props) => {
@@ -15,10 +17,14 @@ const Person = (props) => {
 //Props function like an object that can be passed as a parameter to functional components. This allows for the dynamic use of key-values when rendering. Here we initialize the properties we want (name, age) when we create the component
 
 const App = () => {
-  const [counter, setCounter] = useState(0)
+  const [counter, setCounter] = useState(0);
   //State uses array destructuring for implementation of the useState()
   //The first index represents the name of the state, the second is a setter function.
   //we can set the initial state by passing it as a parameter to the useState()
+
+  useEffect(()=>{
+      setCounter(100)
+  }, [])
 
   const countUp = () => {
       setCounter(prevCount => prevCount + 1)
@@ -26,6 +32,7 @@ const App = () => {
   const countDown = () => {
       setCounter(prevCount => prevCount - 1)
   }
+  //When the onClick() triggers these functions, the setCounter() is used to update the state of the counter. NEVER modify state directly, always use setter func
 
   const name = {
       firstName: `Ramaj`,
