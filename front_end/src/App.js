@@ -20,6 +20,13 @@ const App = () => {
   //The first index represents the name of the state, the second is a setter function.
   //we can set the initial state by passing it as a parameter to the useState()
 
+  const countUp = () => {
+      setCounter(prevCount => prevCount + 1)
+  }
+  const countDown = () => {
+      setCounter(prevCount => prevCount - 1)
+  }
+
   const name = {
       firstName: `Ramaj`,
       lastName: `Johnson`
@@ -32,9 +39,9 @@ const App = () => {
           name="Ramaj"
           age='28' />
 
-        <button>+</button>
-        <h1>0</h1>
-        <button>-</button>
+        <button onClick={countUp}>+</button>
+        <h1>{counter}</h1>
+        <button onClick={countDown}>-</button>
     </div>
   );
   //Here we actually define the value of the keys (name and age) as attr when we inject the component
