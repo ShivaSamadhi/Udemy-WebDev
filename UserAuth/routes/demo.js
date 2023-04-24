@@ -46,19 +46,16 @@ router.get(`/login`, (req, res) => {
 
 router.get(`/admin`, async (req, res) => {
 
-  if (!req.session.user){
+  if (!res.locals.isAdmin){
     return res.status(401).render(`401`)
   }
   //Checks for user session info to know if the request is from authenticated user. If no user data exists for this session, client is redirected to an error page
 
-  const user = await db
-      .getDb()
-      .collection(`users`)
-      .findOne({_id: req.session.user.id})
 
-  if(!user || !user.isAdmin){
+  if(!res.locals.isAdmin){
     return res.status(403).render(`403`)
   }
+
   res.render('admin');
 });
 

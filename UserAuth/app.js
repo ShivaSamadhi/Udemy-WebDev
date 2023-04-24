@@ -33,6 +33,22 @@ app.use(session({
   saveUninitialized: false,
   store: sessionStore
 }))
+app.use(async (req, res, next)=>{
+  const userSession = req.session.user
+
+
+  if(!userSession){
+    return next()
+  }
+
+  const user = await db.getDb().collection(`users`).findOne({_id: userSession.id})
+
+  const isAdmin = user.isAdmin
+
+  res.locals.isAuth = userSession
+  res.locals.isAdmin = isAdmin
+  next()
+})
 //configure the session middleware using an obj
 app.use(demoRoutes);
 
