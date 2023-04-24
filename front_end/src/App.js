@@ -24,7 +24,11 @@ const App = () => {
 
   useEffect(()=>{
       setCounter(100)
-  }, [])
+  }, []);
+  useEffect(()=>{
+      //alert(`Count Updated to ${counter}`)
+  }, [counter])
+  //The Effect Hook lets you perform side effects in function components. Here we set the counter to 100 as soon as the component loads. Because the dependency arr is empty this only happens once. We could also create an alert that fires off as a side effect of the counter updating by placing it in the dependency arr.
 
   const countUp = () => {
       setCounter(prevCount => prevCount + 1)
