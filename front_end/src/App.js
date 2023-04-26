@@ -38,10 +38,10 @@ const App = () => {
   }
   //When the onClick() triggers these functions, the setCounter() is used to update the state of the counter. NEVER modify state directly, always use setter func
 
-  const name = {
-      firstName: `Ramaj`,
-      lastName: `Johnson`
-    }
+  // const name = {
+  //     firstName: `Ramaj`,
+  //     lastName: `Johnson`
+  //   }
   //Using {} syntax I can directly use any JS value, ex => {name.firstName} would be rendered as Ramaj
 
   return (
