@@ -37,7 +37,7 @@ const App = () => {
 
     //On Load useEffect
     useEffect(() => {
-        searchMovies('dog')
+        searchMovies('dragon')
     }, [])
 
     //Rendered View
