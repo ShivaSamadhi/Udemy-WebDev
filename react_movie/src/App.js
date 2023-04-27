@@ -12,15 +12,6 @@ const App = () => {
     const [movies, setMovies] = useState([])
     const [searchTerm, setSearchTerm] = useState('')
 
-    //API Search Request
-    // const searchMovies = async (title) => {
-    //     const res = await fetch(`${API_KEY}&s=${title}`)
-    //     const data = await res.json()
-    //     const moviesArr = data.Search
-    //
-    //     setMovies(moviesArr)
-    // }
-
     const searchMovies = async (title) => {
         const localServerReq = `http://localhost:8080/${title}`
         try {
