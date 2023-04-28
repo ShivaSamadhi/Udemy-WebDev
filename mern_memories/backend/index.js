@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors"
 import connectDB from "./data/database.js";
 
+
 //Express Server
 const app = express()
 
