@@ -3,7 +3,7 @@ import { MongoClient, ServerApiVersion } from 'mongodb';
 
 const connectDB = async () => {
 
-    const uri = "mongodb+srv://rjohnson3795:Kumari0208@cluster0.9xcf5pz.mongodb.net/?retryWrites=true&w=majority";
+
 
     const client = new MongoClient(uri, {
         serverApi: {

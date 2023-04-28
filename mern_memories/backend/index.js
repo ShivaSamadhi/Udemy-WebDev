@@ -12,7 +12,6 @@ app.use(bodyParser.json({limit: '30mb', extended: true}))
 app.use(bodyParser.urlencoded({limit: '30mb', extended: true}))
 app.use(cors())
 
-const DB_URL = 'mongodb+srv://rjohnson3795:Kumari0208@cluster0.9xcf5pz.mongodb.net/?retryWrites=true&w=majority'
 
 const PORT = process.env.PORT || 8080
 
