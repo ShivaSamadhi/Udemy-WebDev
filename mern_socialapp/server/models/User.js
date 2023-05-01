@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+//DB SCHEMA
 const UserSchema = new mongoose.Schema(
     {
         firstName: {
@@ -37,5 +38,11 @@ const UserSchema = new mongoose.Schema(
         occupation: String,
         viewedProfile: Number,
         impressions: Number
-    }
+    },
+    { timestamps: true }
 )
+
+//DB MODEL
+const User = mongoose.model("User", UserSchema)
+
+export default User
