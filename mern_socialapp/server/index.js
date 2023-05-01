@@ -9,7 +9,7 @@ import morgan from "morgan"
 import path from "path";
 import {fileURLToPath} from "url"
 import authRoutes from "./routes/auth.js"
-import userRotes from "./routes/users.js"
+import userRoutes from "./routes/users.js"
 import { register } from "./controllers/auth.js"
 
 //CONFIG
