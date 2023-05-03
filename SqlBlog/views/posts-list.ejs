@@ -12,7 +12,7 @@
     <h1>All Posts</h1>
     <% if (!posts || posts.length === 0) {%>
       <p>No Posts Available</p>
-      <a class="btn" href="/new-post">Create New Post</a>
+      <a class="btn" href="/new-post">Create New PostModel</a>
     <% } else { %>
    <% posts.forEach(post => {%>
       <%- include('includes/post-item', { post: post })%>

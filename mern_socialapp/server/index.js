@@ -9,14 +9,16 @@ import morgan from "morgan"
 
 import path from "path";
 import {fileURLToPath} from "url"
-import authRoutes from "./routes/auth.js"
-import userRoutes from "./routes/users.js"
-import postRoutes from "./routes/posts.js"
-import { register } from "./controllers/auth.js"
-import { createPost } from "./controllers/posts.js"
-import { verifyToken } from "./middleware/auth.js";
-import User from "./models/User.js";
-import Post from "./models/Post.js";
+import {connectDB} from "./database/database.js";
+import { storage } from "./config/multerConfig.js";
+import authRoutes from "./routes/AuthRoutes.js"
+import userRoutes from "./routes/UserRoutes.js"
+import postRoutes from "./routes/PostRoutes.js"
+import { register } from "./controllers/AuthController.js"
+import { createPost } from "./controllers/PostController.js"
+import { verifyToken } from "./middleware/AuthMiddleware.js";
+import UserModel from "./models/UserModel.js";
+import PostModel from "./models/PostModel.js";
 
 //CONFIG
 const __filename = fileURLToPath(import.meta.url)
@@ -36,15 +38,16 @@ app.use(cors())
 app.use("/assets", express.static(path.join(__dirname, `public/assets`)))
 
 //FILE STORAGE
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, "public/assets")
-    },
-    filename: function (req, file, cb) {
-        cb(null, file.originalname)
-    },
-})
+// const storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//         cb(null, "public/assets")
+//     },
+//     filename: function (req, file, cb) {
+//         cb(null, file.originalname)
+//     },
+// })
 const upload = multer({ storage })
+
 
 //ROUTES w/ FILES
 app.post(`/auth/register`, upload.single(`picture`), register)
@@ -57,10 +60,7 @@ app.use(`/posts`, postRoutes)
 
 //MONGOOSE
 const PORT = process.env.PORT || 8000
-mongoose.connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+connectDB()
     .then(() => {
         app.listen(PORT, () => console.log(`Server Port: ${PORT}`))
     })

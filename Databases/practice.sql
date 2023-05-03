@@ -19,7 +19,7 @@
 # Refer back to the previous exercise, try those same select queries.
 # Copy and paste the following query.
 
-# INSERT INTO mysql.user (Host, User) VALUES ('localhost', 'randal');
+# INSERT INTO mysql.user (Host, UserModel) VALUES ('localhost', 'randal');
 # What is the result? Why?
 # Exit and reconnect as root.
 # Drop all our previous users:

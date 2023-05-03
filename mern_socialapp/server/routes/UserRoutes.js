@@ -1,6 +1,6 @@
 import express from "express";
-import { getUser, getUserFriends, addRemoveFriend} from "../controllers/users.js"
-import {verifyToken} from "../middleware/auth.js";
+import { getUser, getUserFriends, addRemoveFriend} from "../controllers/UserController.js"
+import {verifyToken} from "../middleware/AuthMiddleware.js";
 
 const router = express.Router()
 

@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
-import User from "../models/User.js"
+import UserModel from "../models/UserModel.js"
 
 //REGISTER USER
 export const register = async (req, res) => {
@@ -21,7 +21,7 @@ export const register = async (req, res) => {
         const passwordHash = await bcrypt.hash(password, salt)
         //Salt & hash password
 
-        const newUser = new User({
+        const newUser = new UserModel({
             firstName,
             lastName,
             email,
@@ -33,13 +33,13 @@ export const register = async (req, res) => {
             viewedProfile: Math.floor(Math.random() * 1000),
             impressions: Math.floor(Math.random() * 1000)
         })
-        //Create new User obj w/ hashed password
+        //Create new UserModel obj w/ hashed password
 
         const savedUser = await newUser.save()
         //Save newUser obj
 
         res.status(201).json(savedUser)
-        //Upon successful creation of a User, send back the json obj to frontend
+        //Upon successful creation of a UserModel, send back the json obj to frontend
     }
     catch (err){
         res.status(500).json({ error: err.message })
@@ -52,11 +52,11 @@ export const login = async (req, res) => {
       const { email, password } = req.body
       //Destructure register form
 
-      const user = await User.findOne({ email: email})
+      const user = await UserModel.findOne({ email: email})
       //Find user based on email
 
       if(!user)
-          return res.status(400).json({ msg: "User Does Not Exist"});
+          return res.status(400).json({ msg: "UserModel Does Not Exist"});
 
       const isMatch = await bcrypt.compare(password, user.password)
       //Compare passwords with bcrypt

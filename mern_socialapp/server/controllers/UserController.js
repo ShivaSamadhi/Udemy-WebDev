@@ -1,10 +1,10 @@
-import User from "../models/User.js";
+import UserModel from "../models/UserModel.js";
 
 //READ
 export const getUser = async (req, res) => {
   try{
       const {id} = req.params
-      const user = await User.findById(id)
+      const user = await UserModel.findById(id)
       res.status(200).json(user)
   }
   catch (err) {
@@ -16,10 +16,10 @@ export const getUserFriends = async (req, res) => {
     try{
         const {id} = req.params
 
-        const user = await User.findById(id)
+        const user = await UserModel.findById(id)
 
         const friends = await Promise.all(
-            user.friends.map((id) => User.findById(id))
+            user.friends.map((id) => UserModel.findById(id))
         )
         //Map over the friends arr within the user obj, find all friends based on ID, return all as promise arr
 
@@ -41,8 +41,8 @@ export const addRemoveFriend = async (req, res) => {
     try{
         const {id, friendId} = req.params
 
-        const user = await User.findById(id)
-        const friend = await User.findById(friendId)
+        const user = await UserModel.findById(id)
+        const friend = await UserModel.findById(friendId)
 
         if(user.friends.includes(friendId)){
             user.friends = user.friends.filter((id) => id !== friendId)
@@ -60,7 +60,7 @@ export const addRemoveFriend = async (req, res) => {
         //Save updated objects
 
         const friends = await Promise.all(
-            user.friends.map((id) => User.findById(id))
+            user.friends.map((id) => UserModel.findById(id))
         )
         //Map over the friends arr within the user obj, find all friends based on ID, return all as promise arr
 
