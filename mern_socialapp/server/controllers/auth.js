@@ -65,7 +65,7 @@ export const login = async (req, res) => {
           return res.status(400).json({ msg: "Invalid Credentials"})
 
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-      //Create token session token w/ secret string
+      //Create session token w/ secret string
 
       delete user.password
       //Delete password before sending token to frontend for additional security
