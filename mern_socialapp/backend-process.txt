@@ -87,3 +87,42 @@ CONFIGURING API
     -These routes cannot be created in a separate routing file
 
 6. General routes setup
+    -Routes directory (based on models)
+
+7. Connect MongoDB
+    -Create .env -> MONGO_URL / PORT setup
+    -Database directory -> database.js
+    -Import mongoose & dotenv -> export connectDB()
+    -Import connectDB -> app.listen() setup
+
+DATA DESIGN
+
+1. Organize structure data models
+
+2. Create a Models directory
+
+3. Build out all necessary data models
+    -Import mongoose
+    -Create new schema (new mongoose.Schema({}, {timestamp: true}) )
+        -Use "<keyName>: {}" to add parameters to each key-value like type, require, min, max, etc
+
+    -Create new model (mongoose.model(<ModelName>, <SchemaName>)
+
+    -Export model
+
+CONTROLLERS
+1. Controllers directory
+
+2. Build controllers (based on routes)
+
+AUTH/SECURITY
+
+1. Setup register route (w/ file upload)
+
+2. Create auth controller functions
+   -Import bcrypt, jwt, UserModel
+   - async register() / login()
+    -register() -> destructure register form from req.body -> salt & hash password
+   -Create new user based on form data & bcrypt pw
+   -save user
+   -res.status.json

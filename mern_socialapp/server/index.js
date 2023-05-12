@@ -1,6 +1,5 @@
 import express from 'express'
 import bodyParser from "body-parser";
-import mongoose from "mongoose";
 import cors from "cors"
 import dotenv from "dotenv"
 import multer from "multer";
@@ -17,8 +16,7 @@ import postRoutes from "./routes/PostRoutes.js"
 import { register } from "./controllers/AuthController.js"
 import { createPost } from "./controllers/PostController.js"
 import { verifyToken } from "./middleware/AuthMiddleware.js";
-import UserModel from "./models/UserModel.js";
-import PostModel from "./models/PostModel.js";
+
 
 //CONFIG
 const __filename = fileURLToPath(import.meta.url)

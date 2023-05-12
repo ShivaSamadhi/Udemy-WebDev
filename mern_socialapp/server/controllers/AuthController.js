@@ -56,7 +56,7 @@ export const login = async (req, res) => {
       //Find user based on email
 
       if(!user)
-          return res.status(400).json({ msg: "UserModel Does Not Exist"});
+          return res.status(400).json({ msg: "User Does Not Exist"});
 
       const isMatch = await bcrypt.compare(password, user.password)
       //Compare passwords with bcrypt
