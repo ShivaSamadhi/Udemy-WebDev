@@ -1,4 +1,4 @@
-// color design tokens export
+// Color Tokens
 export const colorTokens = {
     grey: {
         0: "#FFFFFF",
@@ -29,7 +29,7 @@ export const colorTokens = {
     },
 };
 
-// mui theme settings
+// MUI Theme Settings
 export const themeSettings = (mode) => {
     return {
         palette: {
