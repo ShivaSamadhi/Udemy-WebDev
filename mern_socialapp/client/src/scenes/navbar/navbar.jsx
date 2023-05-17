@@ -76,7 +76,9 @@ const Navbar = () => {
             {/*Desktop Nav*/}
             {isNonMobileScreen ?
                 (<FlexBetween gap="2rem">
-                    <IconButton onClick={() => dispatch(setMode())}>
+                    <IconButton
+                        onClick={() => dispatch(setMode())}
+                    >
                         {theme.palette.mode === "dark" ?
                             (<DarkMode sx={{ fontSize: "25px"}} />) :
                             (<LightMode sx={{ color: dark, fontSize: "25px"}} />)
@@ -96,9 +98,21 @@ const Navbar = () => {
                                 "& .MuiSvgIcon-root": {
                                     pr: ".25rem",
                                     width: "3rem"
+                                },
+                                "& .MuiSelect-select:focus": {
+                                    backgroundColor: neutralLight
                                 }
-                            }}>
-
+                            }}
+                            input={<InputBase />}
+                        >
+                            <MenuItem value={fullName}>
+                                <Typography>{fullName}</Typography>
+                            </MenuItem>
+                            <MenuItem
+                                onClick={() => dispatch(setLogout())}
+                            >
+                                <Typography>Logout</Typography>
+                            </MenuItem>
                         </Select>
                     </FormControl>
                 </FlexBetween>) :
