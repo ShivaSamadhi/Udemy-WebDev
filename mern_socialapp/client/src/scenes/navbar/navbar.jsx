@@ -8,7 +8,7 @@ import {
     MenuItem,
     FormControl,
     useTheme,
-    useMediaQuery
+    useMediaQuery, Icon
 } from "@mui/material";
 import {
     Search,
@@ -39,7 +39,72 @@ const Navbar = () => {
     const primaryLight = theme.palette.primary.light
     const alt = theme.palette.background.alt
 
-    return (<div>Navbar</div>)
+    const fullName = `${user.firstName} ${user.lastName}`
+
+    return (
+        <FlexBetween
+        padding="1rem 6%"
+        backgroundColor={alt}>
+            <FlexBetween gap="1.75rem">
+                <Typography
+                    fontWeight="bold"
+                    fontSize="clamp(1rem, 2rem, 2.5rem)"
+                    color="primary"
+                    onClick={() => navigate("/home")}
+                    sx={{
+                    "&:hover": {
+                    color: primaryLight,
+                    cursor: "pointer"
+                     }
+                    }}>
+                    Sociopedia
+                </Typography>
+                {isNonMobileScreen && (
+                    <FlexBetween
+                        backgroundColor={neutralLight}
+                        borderRadius="9px"
+                        gap="3rem"
+                        padding="0.1rem 1.5rem">
+                        <InputBase placeholder="Search..."/>
+                        <IconButton>
+                            <Search />
+                        </IconButton>
+                    </FlexBetween>
+                )}
+            </FlexBetween>
+
+            {/*Desktop Nav*/}
+            {isNonMobileScreen ?
+                (<FlexBetween gap="2rem">
+                    <IconButton onClick={() => dispatch(setMode())}>
+                        {theme.palette.mode === "dark" ?
+                            (<DarkMode sx={{ fontSize: "25px"}} />) :
+                            (<LightMode sx={{ color: dark, fontSize: "25px"}} />)
+                            }
+                    </IconButton>
+                    <Message sx={{ fontSize: "25px"}}/>
+                    <Notifications sx={{ fontSize: "25px"}}/>
+                    <Help sx={{ fontSize: "25px"}}/>
+                    <FormControl variant="standard" value={fullName}>
+                        <Select
+                            value={fullName}
+                            sx={{
+                                backgroundColor: neutralLight,
+                                width: "150px",
+                                borderRadius: "0.25rem",
+                                p: "0.25rem 1rem",
+                                "& .MuiSvgIcon-root": {
+                                    pr: ".25rem",
+                                    width: "3rem"
+                                }
+                            }}>
+
+                        </Select>
+                    </FormControl>
+                </FlexBetween>) :
+                (<IconButton></IconButton>)}
+        </FlexBetween>
+    )
 }
 
 export default Navbar
