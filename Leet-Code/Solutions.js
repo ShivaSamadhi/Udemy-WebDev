@@ -217,3 +217,11 @@ const curry = (fn) => {
         }
     };
 };
+/*2621. Sleep
+Given a positive integer millis, write an asynchronous function that sleeps for millis milliseconds. It can resolve any value.*/
+const sleep = async (millis) => {
+    await new Promise(resolve =>
+        setTimeout(() => {
+            resolve('resolved')
+        }, millis))
+}
